@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nohvum: coming soon</title>
+  <meta name="description" content="AI-DLC driven software delivery for Healthcare, Life Sciences and Financial Services. Faster delivery. Human approval gates. Audit-ready evidence.">
+  <meta name="theme-color" content="#f23617">
+  <link rel="canonical" href="https://nohvum.com/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Nohvum">
+  <meta property="og:title" content="Nohvum: coming soon">
+  <meta property="og:description" content="AI-DLC driven software delivery for Healthcare, Life Sciences and Financial Services. Faster delivery. Human approval gates. Audit-ready evidence.">
+  <meta property="og:url" content="https://nohvum.com/">
+  <meta property="og:image" content="https://nohvum.com/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Nohvum: coming soon">
+  <meta name="twitter:description" content="AI-DLC driven software delivery for Healthcare, Life Sciences and Financial Services.">
+  <meta name="twitter:image" content="https://nohvum.com/assets/og-image.png">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Manrope:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+</svg>
+
+<div class="page">
+
+  <aside class="hero">
+    <div class="hero__brand">
+      <img class="hero__mark" src="assets/logo-mark-white.png" alt="Nohvum" width="354" height="300">
+      <img class="hero__wordmark" src="assets/logo-wordmark-white.png" alt="" width="638" height="92">
+    </div>
+    <div class="hero__body">
+      <p class="pill"><span class="pill__dot"></span>Coming soon</p>
+      <h1 class="hero__title">AI-DLC driven software delivery for <em>Healthcare, Life Sciences &amp; Financial Services</em></h1>
+      <p class="hero__lede">Faster delivery. Human approval gates. Audit-ready evidence.</p>
+    </div>
+  </aside>
+
+  <main class="panel">
+    <div class="panel__inner">
+
+      <header class="section-head">
+        <span class="eyebrow">Contact</span>
+        <h2>Get in touch</h2>
+      </header>
+
+      <section class="request card" id="request" data-phase="open" aria-label="Request a conversation">
+
+        <form class="form" data-view="open" data-form="contact" action="https://formspree.io/f/xjyvwaww" method="POST" novalidate>
+          <div class="form__grid">
+            <label class="field">
+              <span class="field__label">Name</span>
+              <span class="field__control">
+                <input class="field__input" type="text" name="name" placeholder="Your name" autocomplete="name" required>
+              </span>
+            </label>
+            <label class="field field--icon">
+              <span class="field__label">Work email</span>
+              <span class="field__control">
+                <span class="field__icon"><svg class="icon" width="18" height="18"><use href="#i-mail"/></svg></span>
+                <input class="field__input" type="email" name="email" placeholder="you@company.com" autocomplete="email" inputmode="email" required>
+              </span>
+            </label>
+          </div>
+          <label class="field">
+            <span class="field__label">Message (optional)</span>
+            <span class="field__control">
+              <textarea class="field__input field__input--multiline" name="message" rows="3" placeholder="A few lines is plenty."></textarea>
+            </span>
+          </label>
+          <label class="hp" aria-hidden="true"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+          <div class="form__actions">
+            <p class="form__error" data-error hidden></p>
+            <button class="btn btn--secondary" type="submit">Send request</button>
+          </div>
+        </form>
+
+        <div class="sent" data-view="sent" role="status" hidden>
+          <span class="sent__badge"><svg class="icon" width="20" height="20"><use href="#i-check"/></svg></span>
+          <div class="sent__copy">
+            <p class="sent__title" tabindex="-1">Request sent.</p>
+            <p class="sent__text">Shrey replies from shrey@nohvum.com, usually the same working day.</p>
+          </div>
+        </div>
+
+      </section>
+
+      <footer class="foot">
+        <hr class="hairline">
+        <div class="foot__row">
+
+          <section class="hiring" id="hiring" data-phase="collapsed" aria-label="We're hiring">
+
+            <div class="hiring__collapsed" data-view="collapsed">
+              <p>We're Hiring!</p>
+              <button class="btn btn--secondary btn--sm" type="button" data-action="open">Apply</button>
+            </div>
+
+            <form class="hiring__form" data-view="form" data-form="hiring" action="https://formspree.io/f/xjyvwaww" method="POST" novalidate hidden>
+              <div class="hiring__head">
+                <span class="eyebrow eyebrow--muted">Apply</span>
+              </div>
+              <div class="form__grid">
+                <label class="field">
+                  <span class="field__label">Name</span>
+                  <span class="field__control">
+                    <input class="field__input" type="text" name="name" placeholder="Your name" autocomplete="name" required>
+                  </span>
+                </label>
+                <label class="field">
+                  <span class="field__label">Email</span>
+                  <span class="field__control">
+                    <input class="field__input" type="email" name="email" placeholder="you@company.com" autocomplete="email" inputmode="email" required>
+                  </span>
+                </label>
+              </div>
+              <label class="field">
+                <span class="field__label">LinkedIn or CV link</span>
+                <span class="field__control">
+                  <input class="field__input" type="text" name="link" placeholder="linkedin.com/in/yourname" autocomplete="url" inputmode="url">
+                </span>
+              </label>
+              <label class="field">
+                <span class="field__label">Role</span>
+                <span class="field__control">
+                  <select class="field__input field__select is-placeholder" name="role">
+                    <option value="" disabled selected>Select a role</option>
+                    <option value="tech-lead">Tech Lead</option>
+                    <option value="senior-engineer">Senior Engineer</option>
+                    <option value="other">Other</option>
+                  </select>
+                  <span class="field__chevron"><svg class="icon" width="18" height="18"><use href="#i-chevron-down"/></svg></span>
+                </span>
+                <span class="field__hint">Role list is a placeholder.</span>
+              </label>
+              <label class="hp" aria-hidden="true"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+              <div class="hiring__actions">
+                <button class="btn btn--secondary" type="submit">Send application</button>
+                <button class="btn btn--ghost" type="button" data-action="cancel">Cancel</button>
+                <p class="form__error" data-error hidden></p>
+              </div>
+            </form>
+
+            <div class="sent hiring__sent" data-view="sent" role="status" hidden>
+              <span class="sent__badge"><svg class="icon" width="20" height="20"><use href="#i-check"/></svg></span>
+              <div class="sent__copy">
+                <p class="sent__title" tabindex="-1">Application received.</p>
+                <p class="sent__text">We read every one and reply within a week.</p>
+              </div>
+            </div>
+
+          </section>
+
+          <p class="legal">
+            <span>&copy; 2026 Nohvum Ltd</span>
+            <span class="legal__sep" aria-hidden="true">&middot;</span>
+            <a href="#" data-privacy-link>Privacy notice</a>
+          </p>
+
+        </div>
+      </footer>
+
+    </div>
+  </main>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
