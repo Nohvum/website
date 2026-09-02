@@ -1,1 +1,5 @@
 .DS_Store
+
+# Imported Claude Design project. Reference only — the page does not use it
+# (renders pixel-identically without it), and it must never reach a deploy.
+design-source/

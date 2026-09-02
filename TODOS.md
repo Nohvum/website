@@ -31,8 +31,9 @@ design handoff notes (artboard 1e); the rest surfaced during implementation.
 ## Deployment
 
 - [ ] **Choose hosting** and deploy the folder as a static site.
-- [ ] **Exclude reference files from the deploy:** `design-source/`, `og.html`,
-      `TODOS.md`, `README.md`, `.claude/`.
-- [ ] **Initialise git** in this folder if the site should be versioned.
+- [ ] **Exclude reference files from the deploy:** `og.html`, `TODOS.md`,
+      `README.md`, `.claude/`. (`design-source/` is gitignored, so it cannot reach
+      a deploy built from the repo.)
+- [x] **Initialise git.** Pushed to `github.com:Nohvum/website`.
 - [ ] **After deploy:** check the Open Graph preview with a link debugger, and test
       both forms end to end against the live endpoints.
