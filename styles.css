@@ -158,9 +158,9 @@ button, input, select, textarea { font: inherit; color: inherit; margin: 0; }
   background: var(--hero-gradient);
   color: #fff;
 }
-.hero__brand { display: flex; align-items: center; gap: 11px; }
-.hero__mark { height: 47px; width: auto; }
-.hero__wordmark { height: 20px; width: auto; }
+.hero__brand { display: flex; align-items: center; gap: 13.75px; }
+.hero__mark { height: 58.75px; width: auto; }
+.hero__wordmark { height: 25px; width: auto; }
 .hero__body { display: flex; flex-direction: column; justify-content: center; gap: 16px; }
 
 .pill {
@@ -283,9 +283,9 @@ button, input, select, textarea { font: inherit; color: inherit; margin: 0; }
 /* ---------- Tablet: single column with roomier margins ---------- */
 @media (min-width: 640px) and (max-width: 959.98px) {
   .hero { min-height: 520px; padding: 40px; }
-  .hero__brand { gap: 14px; }
-  .hero__mark { height: 52px; }
-  .hero__wordmark { height: 22px; }
+  .hero__brand { gap: 17.5px; }
+  .hero__mark { height: 65px; }
+  .hero__wordmark { height: 27.5px; }
   .hero__body { gap: 20px; }
   .hero__title { font-size: 36px; line-height: 1.1; max-width: 620px; }
   .hero__lede { font-size: 16px; max-width: 520px; }
@@ -303,9 +303,9 @@ button, input, select, textarea { font: inherit; color: inherit; margin: 0; }
   .page { grid-template-columns: minmax(0, 58fr) minmax(0, 42fr); grid-template-rows: minmax(0, 1fr); }
 
   .hero { min-height: 0; padding: 48px 48px 44px; }
-  .hero__brand { gap: 16px; }
-  .hero__mark { height: 58px; }
-  .hero__wordmark { height: 25px; }
+  .hero__brand { gap: 20px; }
+  .hero__mark { height: 72.5px; }
+  .hero__wordmark { height: 31.25px; }
   .hero__body { gap: 26px; }
   .pill { height: 34px; padding: 0 16px; gap: 9px; font-size: 12.5px; }
   .pill__dot { width: 7px; height: 7px; }
