@@ -5,16 +5,14 @@
 
   /* ---- Placeholders to set before publishing (see README) ---- */
   var CONFIG = {
-    // Where each form POSTs. Both go to the same Formspree form; the `form`
-    // field and the `_subject` line tell contact requests and applications
-    // apart in the inbox. Payload is JSON: {form, name, email, message} for
-    // contact, {form, name, email, link, role} for hiring. Formspree uses the
-    // `email` field as the Reply-To address. The same URL sits in each form's
-    // `action` attribute in index.html as the no-JavaScript fallback.
+    // Where each form POSTs. Contact and hiring are two separate Formspree
+    // forms; the `form` field and the `_subject` line still tell them apart in
+    // the inbox. Payload is JSON: {form, name, email, message} for contact,
+    // {form, name, email, link} for hiring. Formspree uses the `email` field
+    // as the Reply-To address. The same URL sits in each form's `action`
+    // attribute in index.html as the no-JavaScript fallback.
     contactEndpoint: 'https://formspree.io/f/xjyvwaww',
-    hiringEndpoint: 'https://formspree.io/f/xjyvwaww',
-    // Privacy notice URL. Needed before collecting contact data.
-    privacyUrl: '',
+    hiringEndpoint: 'https://formspree.io/f/xdeozele',
     // Show or hide the "We're Hiring!" bubble.
     showHiring: true,
     // Shown in the error line when a send fails.
@@ -124,7 +122,7 @@
   function subjectFor(payload) {
     var who = payload.name || payload.email || 'unknown';
     if (payload.form === 'hiring') {
-      return 'Nohvum application: ' + who + (payload.role ? ' (' + payload.role + ')' : '');
+      return 'Nohvum application: ' + who;
     }
     return 'Nohvum contact request: ' + who;
   }
@@ -200,16 +198,6 @@
         if (name === 'open') setPhase(hiring, 'form');
         if (name === 'cancel') { clearError(hiringForm); setPhase(hiring, 'collapsed'); }
       });
-      var role = hiring.querySelector('select[name="role"]');
-      if (role) {
-        role.addEventListener('change', function () {
-          role.classList.toggle('is-placeholder', !role.value);
-        });
-      }
     }
   }
-
-  /* ---- Privacy notice link ---- */
-  var privacy = document.querySelector('[data-privacy-link]');
-  if (privacy && CONFIG.privacyUrl) privacy.setAttribute('href', CONFIG.privacyUrl);
 })();

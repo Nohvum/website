@@ -5,15 +5,13 @@ design handoff notes (artboard 1e); the rest surfaced during implementation.
 
 ## Before publishing
 
-- [x] **Form endpoints.** Both forms post to Formspree form `xjyvwaww` (set in the
-      `CONFIG` block of `script.js` and as each form's `action`). Still to do in the
-      Formspree dashboard: restrict submissions to the live domain once known, and
-      review spam filtering. Free plan is capped at 50 submissions a month.
-- [ ] **Role list.** Replace the placeholder options in the hiring form
-      (`index.html`, the `role` select): "Tech Lead", "Senior Engineer", "Other".
-      Remove the hint "Role list is a placeholder." once confirmed.
-- [ ] **Privacy notice URL.** Set `privacyUrl` in `CONFIG`. Required before the page
-      collects contact data from GDPR-governed sectors.
+- [x] **Form endpoints.** Contact posts to Formspree form `xjyvwaww`, hiring to
+      `xdeozele` (set in the `CONFIG` block of `script.js` and as each form's
+      `action`). Still to do in the Formspree dashboard, **for both forms**:
+      restrict submissions to the live domain once known, and review spam
+      filtering. The 50-submissions-a-month free cap is per account, not per form.
+- [x] **Role list.** Resolved by deleting the Role select from the hiring form
+      rather than filling it in. An application now sends name, email and link.
 - [ ] **Canonical and Open Graph URLs.** `index.html` assumes `https://nohvum.com/`
       for the canonical link and `og:image`. Confirm the domain.
 - [ ] **Hiring bubble.** Decide whether it should be visible at launch
@@ -27,6 +25,10 @@ design handoff notes (artboard 1e); the rest surfaced during implementation.
 - [ ] **Vector logo.** The mark and wordmark are raster PNGs from the design
       project. Replace with SVG masters when available.
 - [ ] **Copyright line.** "© 2026 Nohvum Ltd" is static. Confirm the legal entity name.
+- [ ] **Privacy notice.** The footer link was deliberately deleted on 2026-09-02.
+      The page still collects a name and email from GDPR-governed sectors, so if a
+      notice is wanted the `<a>` has to be restored in `index.html` — there is no
+      longer a `privacyUrl` value in `CONFIG` to set.
 
 ## Deployment
 

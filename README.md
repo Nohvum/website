@@ -25,27 +25,33 @@ python3 -m http.server 8080
 
 ## Before publishing
 
-These are the placeholders called out on artboard 1e. All live in the `CONFIG`
-block at the top of `script.js`.
+The placeholders called out on artboard 1e are all resolved. Both forms have live
+Formspree destinations (`contactEndpoint` / `hiringEndpoint` in `CONFIG`, and the
+same URL on each form's `action` so a plain POST works without JavaScript) — see
+"Forms" below. The hiring role list was removed rather than filled in, and the
+footer's privacy-notice link was deleted.
 
-1. **Form destinations.** Done. Both forms POST JSON to the Formspree form
-   `xjyvwaww` (`contactEndpoint` / `hiringEndpoint` in `CONFIG`; the same URL is
-   each form's `action` attribute so a plain POST still works without JavaScript).
-   See "Forms" below. If an endpoint is emptied, sends are skipped with a console
-   warning and the sent state still shows so the interaction can be reviewed.
-2. **Role list.** "Tech Lead", "Senior Engineer", "Other" in `index.html` are placeholders.
-3. **Privacy notice URL.** Set `privacyUrl`. Needed before collecting contact data.
+Still to confirm: the canonical URL and `og:image` URL in `index.html`
+(currently `https://nohvum.com/`).
 
-Also confirm the canonical URL and `og:image` URL in `index.html` (currently `https://nohvum.com/`).
+> The page collects a name and email but no longer links to a privacy notice.
+> Restoring one means putting the link markup back in `index.html` — there is no
+> `privacyUrl` config value any more.
 
 ## Forms
 
-Both forms share one Formspree form (`https://formspree.io/f/xjyvwaww`), so the
-inbox tells them apart by the `form` field (`contact` / `hiring`) and the subject
-line, set client-side via Formspree's `_subject` field: "Nohvum contact request:
-<name>" or "Nohvum application: <name> (<role>)". Formspree uses the `email` field
-as Reply-To. The hiring `role` is sent as its visible label ("Tech Lead"), not the
-option value.
+The two forms post to two separate Formspree forms:
+
+| form | endpoint | subject line | payload |
+|---|---|---|---|
+| contact | `https://formspree.io/f/xjyvwaww` | `Nohvum contact request: <name>` | `{form, name, email, message}` |
+| hiring | `https://formspree.io/f/xdeozele` | `Nohvum application: <name>` | `{form, name, email, link}` |
+
+Each still sends a `form` field (`contact` / `hiring`) alongside the subject line,
+set client-side via Formspree's `_subject`, so a message stays self-describing
+wherever it is forwarded. Formspree uses the `email` field as Reply-To. If an
+endpoint is emptied in `CONFIG`, sends are skipped with a console warning and the
+sent state still shows, so the interaction can be reviewed offline.
 
 Requests carry `Accept: application/json`, so Formspree answers JSON instead of
 redirecting. On a 4xx, field-level errors (for example a rejected email address)
@@ -53,9 +59,10 @@ are shown inline under the form; anything else falls back to the mailto line.
 The honeypot input is named `_gotcha`, which Formspree also treats as a honeypot,
 so the no-JavaScript path is covered too.
 
-Formspree's free plan allows 50 submissions a month. Submissions and settings
-(spam filtering, allowed domains, notification address) live in the Formspree
-dashboard.
+Formspree's free plan allows 50 submissions a month **across the account**, not per
+form, so the two forms share one budget. Submissions and settings (spam filtering,
+allowed domains, notification address) live in the Formspree dashboard and are set
+per form — configure both.
 
 ## Regenerating the Open Graph image
 
