@@ -327,3 +327,12 @@ button, input, select, textarea { font: inherit; color: inherit; margin: 0; }
   .hero { padding: 56px 64px 52px; }
   .panel { padding: 56px 64px 52px; }
 }
+
+/* ---------- Panel scale ---------- */
+/* The white side renders at 90% from tablet up. Phones stay at 100% so the form
+   inputs keep their 16px size and iOS Safari does not zoom the page on focus.
+   `zoom` rather than `transform: scale()`: zoom shrinks the layout box too, so
+   nothing is left holding the original footprint. */
+@media (min-width: 640px) {
+  .panel__inner { zoom: .9; }
+}
