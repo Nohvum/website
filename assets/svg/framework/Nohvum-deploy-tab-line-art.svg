@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000" fill="none">
+<title>From release package to reviewed deployment</title>
+<desc>A release package enters a controlled deployment pipeline with risk checks and a production boundary. A named engineer reviews and approves deployment.</desc>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 1L9 5L1 9" stroke="#818A81" fill="none"/></marker></defs>
+<g id="product-goals-and-requirements">
+<path d="M90 325l130 -65 130 65 -130 65Z" stroke="#DCE1D8" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M90 338l130 -65 130 65 -130 65Z" stroke="#DCE1D8" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M90 351l130 -65 130 65 -130 65Z" stroke="#DCE1D8" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M90 364l130 -65 130 65 -130 65Z" stroke="#DCE1D8" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M90 377l130 -65 130 65 -130 65Z" stroke="#DCE1D8" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M99 183l130 -65v180l-130 65Z" stroke="#A0A99D" stroke-width="1.4" fill="#FCFDF9" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M117 263l90 -45" stroke="#C6CDC1" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M117 283l90 -45" stroke="#C6CDC1" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M117 303l90 -45" stroke="#C6CDC1" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M117 323l90 -45" stroke="#C6CDC1" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M128 199l130 -65v180l-130 65Z" stroke="#A0A99D" stroke-width="1.4" fill="#FCFDF9" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M146 279l90 -45" stroke="#C6CDC1" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M146 299l90 -45" stroke="#C6CDC1" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M146 319l90 -45" stroke="#C6CDC1" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M146 339l90 -45" stroke="#C6CDC1" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M157 215l130 -65v180l-130 65Z" stroke="#A0A99D" stroke-width="1.4" fill="#FCFDF9" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M175 295l90 -45" stroke="#C6CDC1" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M175 315l90 -45" stroke="#C6CDC1" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M175 335l90 -45" stroke="#C6CDC1" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M175 355l90 -45" stroke="#C6CDC1" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<g transform="translate(194 215) skewY(-26.565)">
+<path d="M0 0l25 -13 25 13 -25 13Z M0 0v30l25 13 25 -13V0 M25 13v30" stroke="#919A90" stroke-width="1.6" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M25 -5V-27 M17 -19L25 -27L33 -19" stroke="#F15A29" stroke-width="1.8" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+</g>
+</g>
+<g id="structured-delivery-plan">
+<path d="M594 565l130 -65 130 65 -130 65Z" stroke="#DCE1D8" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M594 578l130 -65 130 65 -130 65Z" stroke="#DCE1D8" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M594 591l130 -65 130 65 -130 65Z" stroke="#DCE1D8" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M594 604l130 -65 130 65 -130 65Z" stroke="#DCE1D8" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M594 617l130 -65 130 65 -130 65Z" stroke="#DCE1D8" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M520 251L875 429V659L520 481Z" stroke="#D9DFD4" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<g transform="translate(550 233) skewY(26.565)">
+<path d="M0 0H305V286H0Z" stroke="#768173" stroke-width="1.7" fill="#FBFCF9" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M0 33H305 M15 51H290" stroke="#C9D0C3" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<circle cx="14" cy="15" r="2" fill="#A7B09E"/>
+<circle cx="23" cy="15" r="2" fill="#A7B09E"/>
+<circle cx="32" cy="15" r="2" fill="#A7B09E"/>
+<path d="M18 79h73v61h-73Z" stroke="#919A90" stroke-width="1.3" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M30 122h46" stroke="#BEC7B6" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M115 79h73v61h-73Z" stroke="#919A90" stroke-width="1.3" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M127 122h46" stroke="#BEC7B6" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M212 79h73v61h-73Z" stroke="#919A90" stroke-width="1.3" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M224 122h46" stroke="#BEC7B6" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M91 109h24 M188 109h24" stroke="#F15A29" stroke-width="1.7" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M38 94l15 -7 15 7 -15 7Z M38 94v13l15 7 15 -7V94 M53 101v13" stroke="#8C9785" stroke-width="1.2" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M136 91l15 -6 15 6v14q-15 21-30 0Z" stroke="#919A90" stroke-width="1.3" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M143 101l6 6 10 -13" stroke="#F15A29" stroke-width="1.7" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M231 91h34v7h-34Z" stroke="#919A90" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M231 102h34v7h-34Z" stroke="#919A90" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M231 113h34v7h-34Z" stroke="#919A90" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M202 65V153" stroke="#171717" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M21 177l4 4 8 -10" stroke="#F15A29" stroke-width="1.6" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M49 177h198" stroke="#B6C1AE" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M21 201l4 4 8 -10" stroke="#F15A29" stroke-width="1.6" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M49 201h198" stroke="#B6C1AE" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M21 225l4 4 8 -10" stroke="#F15A29" stroke-width="1.6" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M49 225h198" stroke="#B6C1AE" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M249 150v101H57v-12" stroke="#929C89" stroke-width="1.2" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M51 246l6 -7 6 7" stroke="#929C89" stroke-width="1.2" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+</g></g>
+<g id="named-engineer-review">
+<path d="M170 823l130 -65 130 65 -130 65Z" stroke="#DCE1D8" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M170 836l130 -65 130 65 -130 65Z" stroke="#DCE1D8" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M170 849l130 -65 130 65 -130 65Z" stroke="#DCE1D8" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M170 862l130 -65 130 65 -130 65Z" stroke="#DCE1D8" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M170 875l130 -65 130 65 -130 65Z" stroke="#DCE1D8" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M187 730l108 -54 108 54 -108 54Z" stroke="#454D42" stroke-width="1.5" fill="#343C32" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M187 730v120l108 54V784Z" stroke="#454D42" stroke-width="1.5" fill="#171717" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M295 784l108 -54v120l-108 54Z" stroke="#454D42" stroke-width="1.5" fill="#242B22" stroke-linejoin="round" stroke-linecap="round" />
+<ellipse cx="239" cy="786" rx="16" ry="21" transform="rotate(-20 239 786)" fill="none" stroke="white" stroke-width="1.6"/>
+<path d="M211 843c0-39 53-17 56 26" stroke="#FFFFFF" stroke-width="1.7" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M336 651l86 43v94l-86 -43Z" stroke="#A1AB98" stroke-width="1.4" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M351 681l50 25 M351 697l50 25 M351 713l31 16" stroke="#BAC4B0" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+</g>
+<path d="M320 323H426Q448 323 448 345V406Q448 428 470 428H531" stroke="#90998B" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a)"/>
+<circle cx="448" cy="370" r="4" fill="#F15A29"/>
+<path d="M824 682V719Q824 741 802 741H669" stroke="#90998B" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a)"/>
+<path d="M550 772H675" stroke="#171717" stroke-width="5" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<circle cx="613" cy="772" r="24" fill="none" stroke="#A3AD9A" stroke-width="1.5"/>
+<circle cx="613" cy="772" r="21" fill="#FFFFFF"/>
+<path d="M603 772l7 7 15 -18" stroke="#F15A29" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M613 799V834Q613 852 592 852H425" stroke="#90998B" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a)"/>
+</svg>

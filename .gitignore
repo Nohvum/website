@@ -3,3 +3,24 @@
 # Imported Claude Design project. Reference only — the page does not use it
 # (renders pixel-identically without it), and it must never reach a deploy.
 design-source/
+
+# Agent/editor tool directories — a design skill pack installed itself into one
+# copy per tool. Local tooling only; never part of the site.
+.agents/
+.augment/
+.claude/
+.codebuddy/
+.codewhale/
+.continue/
+.cursor/
+.factory/
+.gemini/
+.github/
+.kilocode/
+.kiro/
+.opencode/
+.qoder/
+.roo/
+.trae/
+.warp/
+.windsurf/

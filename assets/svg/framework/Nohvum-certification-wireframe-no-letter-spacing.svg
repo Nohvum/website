@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="660" viewBox="0 0 1600 660" fill="none">
+<title>Agent certification and live monitoring</title>
+<desc>Transparent wireframe certification flow with remediation and drift re-evaluation paths.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 1L9 5L1 9" stroke="#171717" fill="none"/></marker></defs>
+<g font-family="Segoe UI Light" font-weight="300">
+<path d="M70 195l90 -35 90 35 -90 35Z" stroke="#171717" stroke-opacity="0.13" stroke-width="1" fill="none" />
+<path d="M70 204l90 -35 90 35 -90 35Z" stroke="#171717" stroke-opacity="0.13" stroke-width="1" fill="none" />
+<path d="M70 213l90 -35 90 35 -90 35Z" stroke="#171717" stroke-opacity="0.13" stroke-width="1" fill="none" />
+<path d="M70 222l90 -35 90 35 -90 35Z" stroke="#171717" stroke-opacity="0.13" stroke-width="1" fill="none" />
+<path d="M160 38V237" stroke="#171717" stroke-opacity="0.12" stroke-width="1" fill="none" stroke-dasharray="2 6"/>
+<path d="M375 195l90 -35 90 35 -90 35Z" stroke="#171717" stroke-opacity="0.13" stroke-width="1" fill="none" />
+<path d="M375 204l90 -35 90 35 -90 35Z" stroke="#171717" stroke-opacity="0.13" stroke-width="1" fill="none" />
+<path d="M375 213l90 -35 90 35 -90 35Z" stroke="#171717" stroke-opacity="0.13" stroke-width="1" fill="none" />
+<path d="M375 222l90 -35 90 35 -90 35Z" stroke="#171717" stroke-opacity="0.13" stroke-width="1" fill="none" />
+<path d="M465 38V237" stroke="#171717" stroke-opacity="0.12" stroke-width="1" fill="none" stroke-dasharray="2 6"/>
+<path d="M680 195l90 -35 90 35 -90 35Z" stroke="#171717" stroke-opacity="0.13" stroke-width="1" fill="none" />
+<path d="M680 204l90 -35 90 35 -90 35Z" stroke="#171717" stroke-opacity="0.13" stroke-width="1" fill="none" />
+<path d="M680 213l90 -35 90 35 -90 35Z" stroke="#171717" stroke-opacity="0.13" stroke-width="1" fill="none" />
+<path d="M680 222l90 -35 90 35 -90 35Z" stroke="#171717" stroke-opacity="0.13" stroke-width="1" fill="none" />
+<path d="M770 38V237" stroke="#171717" stroke-opacity="0.12" stroke-width="1" fill="none" stroke-dasharray="2 6"/>
+<path d="M1270 195l90 -35 90 35 -90 35Z" stroke="#171717" stroke-opacity="0.13" stroke-width="1" fill="none" />
+<path d="M1270 204l90 -35 90 35 -90 35Z" stroke="#171717" stroke-opacity="0.13" stroke-width="1" fill="none" />
+<path d="M1270 213l90 -35 90 35 -90 35Z" stroke="#171717" stroke-opacity="0.13" stroke-width="1" fill="none" />
+<path d="M1270 222l90 -35 90 35 -90 35Z" stroke="#171717" stroke-opacity="0.13" stroke-width="1" fill="none" />
+<path d="M1360 38V237" stroke="#171717" stroke-opacity="0.12" stroke-width="1" fill="none" stroke-dasharray="2 6"/>
+<path d="M91 91l87 -40v95l-87 40Z" stroke="#171717" stroke-opacity="0.45" stroke-width="1" fill="none" />
+<path d="M105 113l59 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M105 129l59 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M105 145l59 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M105 161l59 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M111 99l87 -40v95l-87 40Z" stroke="#171717" stroke-opacity="0.45" stroke-width="1" fill="none" />
+<path d="M125 121l59 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M125 137l59 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M125 153l59 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M125 169l59 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M131 107l87 -40v95l-87 40Z" stroke="#171717" stroke-opacity="0.45" stroke-width="1" fill="none" />
+<path d="M145 129l59 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M145 145l59 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M145 161l59 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M145 177l59 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M151 115l87 -40v95l-87 40Z" stroke="#171717" stroke-opacity="0.45" stroke-width="1" fill="none" />
+<path d="M165 137l59 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M165 153l59 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M165 169l59 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M165 185l59 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M395 88l98 -40v100l-98 40Z" stroke="#171717" stroke-opacity="0.45" stroke-width="1" fill="none" />
+<path d="M409 110l70 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M409 126l70 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M409 142l70 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M409 158l70 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M422 99l98 -40v100l-98 40Z" stroke="#171717" stroke-opacity="0.45" stroke-width="1" fill="none" />
+<path d="M436 121l70 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M436 137l70 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M436 153l70 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M436 169l70 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M449 110l98 -40v100l-98 40Z" stroke="#171717" stroke-opacity="0.45" stroke-width="1" fill="none" />
+<path d="M463 132l70 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M463 148l70 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M463 164l70 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M463 180l70 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M420 125l35 -14 M450 157l34 -14" stroke="#171717" stroke-opacity="0.7" stroke-width="1.7" fill="none" />
+<path d="M697 91l94 -40v100l-94 40Z" stroke="#171717" stroke-opacity="0.45" stroke-width="1" fill="none" />
+<path d="M711 113l66 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M711 129l66 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M711 145l66 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M711 161l66 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M721 101l94 -40v100l-94 40Z" stroke="#171717" stroke-opacity="0.45" stroke-width="1" fill="none" />
+<path d="M735 123l66 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M735 139l66 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M735 155l66 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M735 171l66 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M745 111l94 -40v100l-94 40Z" stroke="#171717" stroke-opacity="0.45" stroke-width="1" fill="none" />
+<path d="M759 133l66 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M759 149l66 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M759 165l66 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M759 181l66 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M774 125l7 6 13 -19" stroke="#171717" stroke-opacity="0.8" stroke-width="1.5" fill="none" />
+<path d="M774 154l7 6 13 -19" stroke="#171717" stroke-opacity="0.8" stroke-width="1.5" fill="none" />
+<path d="M774 183l7 6 13 -19" stroke="#171717" stroke-opacity="0.8" stroke-width="1.5" fill="none" />
+<path d="M1258 91l140 -40v105l-140 40Z" stroke="#171717" stroke-opacity="0.45" stroke-width="1" fill="none" />
+<path d="M1272 113l112 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M1272 129l112 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M1272 145l112 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M1272 161l112 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M1287 102l140 -40v105l-140 40Z" stroke="#171717" stroke-opacity="0.45" stroke-width="1" fill="none" />
+<path d="M1301 124l112 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M1301 140l112 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M1301 156l112 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M1301 172l112 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M1316 113l140 -40v105l-140 40Z" stroke="#171717" stroke-opacity="0.45" stroke-width="1" fill="none" />
+<path d="M1330 135l112 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M1330 151l112 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M1330 167l112 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M1330 183l112 -29" stroke="#171717" stroke-opacity="0.24" stroke-width="1" fill="none" />
+<path d="M1275 159l18 -8 10 -23 12 17 20 -35 12 19 18 -15 19 3" stroke="#171717" stroke-opacity="0.9" stroke-width="1.5" fill="none" />
+<rect x="35" y="250" width="250" height="155" stroke="#171717" stroke-opacity=".32"/>
+<text x="59" y="290" font-size="26" fill="#171717" >Reference set</text>
+<text x="59" y="329" font-size="17" fill="#171717" >Experts curate</text>
+<text x="59" y="353" font-size="17" fill="#171717" >input-output pairs.</text>
+<rect x="340" y="250" width="250" height="155" stroke="#171717" stroke-opacity=".32"/>
+<text x="364" y="290" font-size="26" fill="#171717" >Blind evaluation</text>
+<text x="364" y="329" font-size="17" fill="#171717" >Agent runs without</text>
+<text x="364" y="353" font-size="17" fill="#171717" >seeing the answers.</text>
+<rect x="645" y="250" width="250" height="155" stroke="#171717" stroke-opacity=".32"/>
+<text x="669" y="290" font-size="26" fill="#171717" >Expert scoring</text>
+<text x="669" y="329" font-size="17" fill="#171717" >Quality, fit</text>
+<text x="669" y="353" font-size="17" fill="#171717" >and compliance.</text>
+<rect x="1160" y="235" width="385" height="185" stroke="#171717" stroke-opacity=".32"/>
+<text x="1184" y="260" font-size="11" fill="#171717">IN PRODUCTION</text>
+<text x="1184" y="300" font-size="26" fill="#171717" >Live monitoring</text>
+<text x="1184" y="339" font-size="17" fill="#171717" >Drift triggers re-evaluation.</text>
+<text x="1184" y="363" font-size="17" fill="#171717" >Renewal depends on evidence.</text>
+<path d="M285 326H340" stroke="#171717" stroke-opacity="0.7" stroke-width="1.2" fill="none" marker-end="url(#arrow)"/>
+<path d="M590 326H645" stroke="#171717" stroke-opacity="0.7" stroke-width="1.2" fill="none" marker-end="url(#arrow)"/>
+<path d="M895 326H1008" stroke="#171717" stroke-opacity="0.7" stroke-width="1.2" fill="none" marker-end="url(#arrow)"/>
+<path d="M1021 326H1160" stroke="#171717" stroke-opacity="0.7" stroke-width="1.2" fill="none" marker-end="url(#arrow)"/>
+<path d="M996 218V434" stroke="#171717" stroke-opacity="0.13" stroke-width="1" fill="none" />
+<path d="M1005 218V434" stroke="#171717" stroke-opacity="0.13" stroke-width="1" fill="none" />
+<path d="M1023 218V434" stroke="#171717" stroke-opacity="0.13" stroke-width="1" fill="none" />
+<path d="M1032 218V434" stroke="#171717" stroke-opacity="0.13" stroke-width="1" fill="none" />
+<rect x="1009" y="218" width="10" height="216" fill="#171717"/>
+<text x="1014" y="188" font-size="12" fill="#171717" text-anchor="middle">CERTIFICATION GATE</text>
+<text x="1052" y="460" font-size="16" fill="#171717" >Named admin certifies,</text>
+<text x="1052" y="483" font-size="16" fill="#171717" >defers or fails.</text>
+<path d="M1014 434V508H465V405" stroke="#171717" stroke-opacity="0.6" stroke-width="1.2" fill="none" marker-end="url(#arrow)"/>
+<text x="680" y="537" font-size="12" fill="#171717" text-anchor="middle">FAILS / REMEDIATE AND RE-RUN</text>
+<path d="M1352 420V590H160V405" stroke="#171717" stroke-opacity="0.6" stroke-width="1.2" fill="none" marker-end="url(#arrow)"/>
+<text x="756" y="620" font-size="12" fill="#171717" text-anchor="middle">DRIFT DETECTED / RE-EVALUATE</text>
+<circle cx="465" cy="508" r="3" fill="#171717"/>
+<circle cx="1014" cy="508" r="3" fill="#171717"/>
+<circle cx="1352" cy="590" r="3" fill="#171717"/>
+<circle cx="160" cy="590" r="3" fill="#171717"/>
+</g></svg>

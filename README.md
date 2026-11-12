@@ -1,21 +1,24 @@
-# Nohvum coming-soon page
+# Nohvum website
 
-Static site implementing artboards **1a** (desktop, 1440x900) and **1b** (mobile, 390x844)
-of the Claude Design project "Nohvum Coming Soon v2", plus the **1c** Open Graph image.
-No build step, no framework.
+Static multi-page site built from the agency mockups (g11.co.in demos v7–v10), the layered PSDs and
+the animation brief. No build step, no framework.
 
 ```
-index.html      the page
-styles.css      design-system tokens + component styles
-script.js       form phases, hiring bubble, CONFIG block
-og.html         source for assets/og-image.png (artboard 1c)
-assets/         logos, favicons, og-image.png
+index.html               home
+about.html               about
+what-we-do.html          Build / Modernise / Run / Secure tabs (#build, #modernise, #run, #secure)
+framework.html           lifecycle ring (framework-ring.js) + stage detail (#plan, #build, #test, #deploy, #run, #support)
+careers.html             roles + application form (CV as a link)
+talk-to-an-expert.html   contact form
+assets/css/site.css      tokens, header, footer, buttons, forms, shared components
+assets/css/<page>.css    page-specific styles
+assets/js/site.js        mobile nav, scroll reveals, Formspree forms, inline-SVG loader
+assets/js/<page>.js      page animations
+assets/js/motion.min.js  Motion 14.6.0 (vanilla UMD build, window.Motion), vendored
+assets/fonts/            Selawik (OFL), Microsoft's open-source Segoe UI substitute
+assets/svg/, assets/img/ artwork from the PSD asset export; logo from Branding/
+og.html, styles.css      only used to render the old coming-soon og-image.png
 ```
-
-The imported Claude Design project (`design-source/`) is **not in this repo** — it is
-reference material only, kept locally and gitignored. The page does not use it: the
-site renders identically without it, and the tokens in `styles.css` are copies of the
-design system's values rather than imports of them.
 
 Serve the folder with any static host. To preview locally:
 
@@ -23,20 +26,31 @@ Serve the folder with any static host. To preview locally:
 python3 -m http.server 8080
 ```
 
+## Type
+
+The mockups are set in Segoe UI, which is licensed with Windows and cannot be self-hosted. The site
+uses Selawik under the family name "Nohvum Sans"; `@font-face` asks for a locally installed Segoe UI
+first, so Windows visitors get the real face.
+
+## Motion
+
+Every animation plays once (or only on interaction), uses brand colours only, is simplified on small
+screens and is skipped entirely under `prefers-reduced-motion`. Content is only hidden for an entrance
+when `html.js-motion` is set, so pages render fully without JavaScript. The framework ring is drawn
+on a canvas; its labels are HTML buttons (an ARIA tablist) positioned on the ring.
+
 ## Before publishing
 
-The placeholders called out on artboard 1e are all resolved. Both forms have live
-Formspree destinations (`contactEndpoint` / `hiringEndpoint` in `CONFIG`, and the
-same URL on each form's `action` so a plain POST works without JavaScript) — see
-"Forms" below. The hiring role list was removed rather than filled in, and the
-footer's privacy-notice link was deleted.
+Open items (search the HTML for `data-todo`):
 
-Still to confirm: the canonical URL and `og:image` URL in `index.html`
-(currently `https://nohvum.com/`).
-
-> The page collects a name and email but no longer links to a privacy notice.
-> Restoring one means putting the link markup back in `index.html` — there is no
-> `privacyUrl` config value any more.
+- Footer **LinkedIn**, **Privacy Policy**, **Cookie Notice** and **Terms** links are `href="#"`.
+  Both forms collect personal data, so the privacy policy should exist before launch.
+- **Team profiles** on About (names, roles, portraits) come straight from the mockup — confirm they
+  are real people and photos you have rights to.
+- **Job listings** on Careers (four roles, all dated 15 Oct 2026) are mockup content.
+- The framework page's "How governance works" link points to Talk to an expert; no governance page
+  exists in the designs. The footer links to `framework.html#governance`.
+- `og-image.png` is still the coming-soon card.
 
 ## Forms
 
@@ -44,18 +58,17 @@ The two forms post to two separate Formspree forms:
 
 | form | endpoint | subject line | payload |
 |---|---|---|---|
-| contact | `https://formspree.io/f/xjyvwaww` | `Nohvum contact request: <name>` | `{form, name, email, message}` |
-| hiring | `https://formspree.io/f/xdeozele` | `Nohvum application: <name>` | `{form, name, email, link}` |
+| contact (talk-to-an-expert.html) | `https://formspree.io/f/xjyvwaww` | `Nohvum contact request: <name>` | `{form, name, email, company, message, notes}` |
+| hiring (careers.html) | `https://formspree.io/f/xdeozele` | `Nohvum application: <name>` | `{form, name, email, role, link}` |
 
 Each still sends a `form` field (`contact` / `hiring`) alongside the subject line,
 set client-side via Formspree's `_subject`, so a message stays self-describing
-wherever it is forwarded. Formspree uses the `email` field as Reply-To. If an
-endpoint is emptied in `CONFIG`, sends are skipped with a console warning and the
-sent state still shows, so the interaction can be reviewed offline.
+wherever it is forwarded. Formspree uses the `email` field as Reply-To. The endpoint
+is each form's `action`; `assets/js/site.js` handles any `form[data-formspree]`.
 
 Requests carry `Accept: application/json`, so Formspree answers JSON instead of
 redirecting. On a 4xx, field-level errors (for example a rejected email address)
-are shown inline under the form; anything else falls back to the mailto line.
+are shown inline under the form; anything else shows an error that keeps the entered details and offers shrey@nohvum.com.
 The honeypot input is named `_gotcha`, which Formspree also treats as a honeypot,
 so the no-JavaScript path is covered too.
 
@@ -72,7 +85,13 @@ per form — configure both.
 
 ## Notes on fidelity
 
-- Fonts follow the design system's substitution (Quicksand for display, Manrope for body) from Google Fonts. Swap in the real brand face in `styles.css` when the files arrive.
-- The three Lucide icons (check, chevron-down, mail) are inlined as an SVG sprite so the page has no CDN dependency for icons.
-- The hero gradient runs orange 500 to 600 so white copy clears WCAG AA, as noted on artboard 1e.
-- `og.html` only exists to render the Open Graph image; leave it out of the deploy if you prefer a tidy root.
+- Formspree's free plan does not accept file uploads, so the mockup's "CV upload" is a CV link field.
+- The framework hero is a port of the "Delivery Loop" reference (`assets/js/framework-ring.js`):
+  a canvas ribbon ring whose selected stage turns to the front-centre (rather than the static
+  mockup's bottom-left slot). A connector drops from it to the stage detail section below, which
+  holds the stage's content; there is no popup card. Drag spins the ring and snaps to a stage. The
+  hero has no breadcrumb or divider.
+- The homepage no longer has the comparison, "Built around your reality" (now opens About),
+  "AI use that fits your environment" (Framework only) or the industry cards (What We Do only),
+  so no section appears on two pages.
+- `og.html` (and `styles.css`, which only it uses) exists to render the Open Graph image.

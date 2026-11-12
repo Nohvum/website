@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="520" viewBox="0 0 1400 520" fill="none">
+<title>Nohvum Build Modernise Run Secure</title>
+<desc>Four connected architectural line-art cubes. Build is highlighted orange. Transparent background.</desc>
+<style>text{font-family:Segoe UI,Arial,sans-serif;font-weight:400}.guide{stroke:#C8CCC6;stroke-width:1;stroke-dasharray:2 6}.wire{stroke-width:1.5;stroke-linejoin:round;stroke-linecap:round}</style>
+<g id="connecting-ribbon" fill="#C2C6BD" opacity="0.58">
+<path d="M 308 310 C 353 310 392 360 437 340 L 437 363 C 392 383 353 333 308 333 Z"/>
+<path d="M 633 310 C 678 310 717 360 762 340 L 762 363 C 717 383 678 333 633 333 Z"/>
+<path d="M 958 310 C 1003 310 1042 360 1087 340 L 1087 363 C 1042 383 1003 333 958 333 Z"/>
+</g>
+<g id="build-cube">
+<g class="guide">
+<path d="M 60 155.0 V 385.0"/>
+<path d="M 110 180.0 V 410.0"/>
+<path d="M 160 205.0 V 435.0"/>
+<path d="M 210 230.0 V 460.0"/>
+<path d="M 260 205.0 V 435.0"/>
+<path d="M 310 180.0 V 410.0"/>
+<path d="M 360 155.0 V 385.0"/>
+<path d="M 60 210 L 210 295 L 360 210"/>
+<path d="M 60 260 L 210 345 L 360 260"/>
+<path d="M 60 310 L 210 395 L 360 310"/>
+<path d="M 60 360 L 210 445 L 360 360"/>
+<path d="M 60 410 L 210 495 L 360 410"/>
+<path d="M 60 260 L 210 175 L 360 260 M 60 435 L 210 350 L 360 435 M 210 155 V 505"/></g>
+<g class="wire" stroke="#FF5429">
+<path d="M 210 208 L 308 264 L 210 320 L 112 264 Z M 112 264 V 364 L 210 420 L 308 364 V 264 M 210 320 V 420"/>
+<path d="M 112 307 L 210 251 L 308 307 M 112 307 L 210 363 L 308 307" opacity="0.8"/>
+<path d="M 112 320 L 210 376 L 308 320" opacity="1"/>
+<path d="M 112 327 L 210 383 L 308 327" opacity="1"/>
+<path d="M 112 334 L 210 390 L 308 334" opacity="1"/>
+<path d="M 112 341 L 210 397 L 308 341" opacity="1"/>
+<path d="M 112 348 L 210 404 L 308 348" opacity="1"/>
+<path d="M 112 355 L 210 411 L 308 355" opacity="1"/>
+<path d="M 112 362 L 210 418 L 308 362" opacity="1"/>
+</g>
+<path d="M 210 100 V 208" stroke="#FF5429" stroke-width="1.5"/>
+<path d="M 210 208 V 251" stroke="#FF5429" stroke-width="1.5"/><circle cx="210" cy="251" r="4" fill="#FF5429"/>
+<circle cx="210" cy="208" r="5" fill="#FF5429"/>
+<text x="210" y="79" text-anchor="middle" fill="#FF5429" font-size="27">BUILD</text>
+</g>
+<g id="modernise-cube">
+<g class="guide">
+<path d="M 385 155.0 V 385.0"/>
+<path d="M 435 180.0 V 410.0"/>
+<path d="M 485 205.0 V 435.0"/>
+<path d="M 535 230.0 V 460.0"/>
+<path d="M 585 205.0 V 435.0"/>
+<path d="M 635 180.0 V 410.0"/>
+<path d="M 685 155.0 V 385.0"/>
+<path d="M 385 210 L 535 295 L 685 210"/>
+<path d="M 385 260 L 535 345 L 685 260"/>
+<path d="M 385 310 L 535 395 L 685 310"/>
+<path d="M 385 360 L 535 445 L 685 360"/>
+<path d="M 385 410 L 535 495 L 685 410"/>
+<path d="M 385 260 L 535 175 L 685 260 M 385 435 L 535 350 L 685 435 M 535 155 V 505"/></g>
+<g class="wire" stroke="#959B94">
+<path d="M 535 208 L 633 264 L 535 320 L 437 264 Z M 437 264 V 364 L 535 420 L 633 364 V 264 M 535 320 V 420"/>
+<path d="M 437 307 L 535 251 L 633 307 M 437 307 L 535 363 L 633 307" opacity="0.8"/>
+<path d="M 437 320 L 535 376 L 633 320" opacity="0.55"/>
+<path d="M 437 327 L 535 383 L 633 327" opacity="0.55"/>
+<path d="M 437 334 L 535 390 L 633 334" opacity="0.55"/>
+<path d="M 437 341 L 535 397 L 633 341" opacity="0.55"/>
+<path d="M 437 348 L 535 404 L 633 348" opacity="0.55"/>
+<path d="M 437 355 L 535 411 L 633 355" opacity="0.55"/>
+<path d="M 437 362 L 535 418 L 633 362" opacity="0.55"/>
+</g>
+<path d="M 535 100 V 208" stroke="#959B94" stroke-width="1.5"/>
+<path d="M 535 208 V 251" stroke="#959B94" stroke-width="1.5"/><circle cx="535" cy="251" r="4" fill="#FF5429"/>
+<circle cx="535" cy="208" r="5" fill="#959B94"/>
+<text x="535" y="79" text-anchor="middle" fill="#383B39" font-size="27">MODERNISE</text>
+</g>
+<g id="run-cube">
+<g class="guide">
+<path d="M 710 155.0 V 385.0"/>
+<path d="M 760 180.0 V 410.0"/>
+<path d="M 810 205.0 V 435.0"/>
+<path d="M 860 230.0 V 460.0"/>
+<path d="M 910 205.0 V 435.0"/>
+<path d="M 960 180.0 V 410.0"/>
+<path d="M 1010 155.0 V 385.0"/>
+<path d="M 710 210 L 860 295 L 1010 210"/>
+<path d="M 710 260 L 860 345 L 1010 260"/>
+<path d="M 710 310 L 860 395 L 1010 310"/>
+<path d="M 710 360 L 860 445 L 1010 360"/>
+<path d="M 710 410 L 860 495 L 1010 410"/>
+<path d="M 710 260 L 860 175 L 1010 260 M 710 435 L 860 350 L 1010 435 M 860 155 V 505"/></g>
+<g class="wire" stroke="#959B94">
+<path d="M 860 208 L 958 264 L 860 320 L 762 264 Z M 762 264 V 364 L 860 420 L 958 364 V 264 M 860 320 V 420"/>
+<path d="M 762 307 L 860 251 L 958 307 M 762 307 L 860 363 L 958 307" opacity="0.8"/>
+<path d="M 762 320 L 860 376 L 958 320" opacity="0.55"/>
+<path d="M 762 327 L 860 383 L 958 327" opacity="0.55"/>
+<path d="M 762 334 L 860 390 L 958 334" opacity="0.55"/>
+<path d="M 762 341 L 860 397 L 958 341" opacity="0.55"/>
+<path d="M 762 348 L 860 404 L 958 348" opacity="0.55"/>
+<path d="M 762 355 L 860 411 L 958 355" opacity="0.55"/>
+<path d="M 762 362 L 860 418 L 958 362" opacity="0.55"/>
+</g>
+<path d="M 860 100 V 208" stroke="#FF5429" stroke-width="1.5"/>
+<path d="M 860 285 V 409" stroke="#FF5429" stroke-width="1.5"/><circle cx="860" cy="285" r="5" fill="#FF5429"/>
+<text x="860" y="79" text-anchor="middle" fill="#383B39" font-size="27">RUN</text>
+</g>
+<g id="secure-cube">
+<g class="guide">
+<path d="M 1035 155.0 V 385.0"/>
+<path d="M 1085 180.0 V 410.0"/>
+<path d="M 1135 205.0 V 435.0"/>
+<path d="M 1185 230.0 V 460.0"/>
+<path d="M 1235 205.0 V 435.0"/>
+<path d="M 1285 180.0 V 410.0"/>
+<path d="M 1335 155.0 V 385.0"/>
+<path d="M 1035 210 L 1185 295 L 1335 210"/>
+<path d="M 1035 260 L 1185 345 L 1335 260"/>
+<path d="M 1035 310 L 1185 395 L 1335 310"/>
+<path d="M 1035 360 L 1185 445 L 1335 360"/>
+<path d="M 1035 410 L 1185 495 L 1335 410"/>
+<path d="M 1035 260 L 1185 175 L 1335 260 M 1035 435 L 1185 350 L 1335 435 M 1185 155 V 505"/></g>
+<g class="wire" stroke="#959B94">
+<path d="M 1185 208 L 1283 264 L 1185 320 L 1087 264 Z M 1087 264 V 364 L 1185 420 L 1283 364 V 264 M 1185 320 V 420"/>
+<path d="M 1087 307 L 1185 251 L 1283 307 M 1087 307 L 1185 363 L 1283 307" opacity="0.8"/>
+<path d="M 1087 320 L 1185 376 L 1283 320" opacity="0.55"/>
+<path d="M 1087 327 L 1185 383 L 1283 327" opacity="0.55"/>
+<path d="M 1087 334 L 1185 390 L 1283 334" opacity="0.55"/>
+<path d="M 1087 341 L 1185 397 L 1283 341" opacity="0.55"/>
+<path d="M 1087 348 L 1185 404 L 1283 348" opacity="0.55"/>
+<path d="M 1087 355 L 1185 411 L 1283 355" opacity="0.55"/>
+<path d="M 1087 362 L 1185 418 L 1283 362" opacity="0.55"/>
+</g>
+<path d="M 1185 100 V 208" stroke="#FF5429" stroke-width="1.5"/>
+<circle cx="1185" cy="208" r="5" fill="#FF5429"/>
+<text x="1185" y="79" text-anchor="middle" fill="#383B39" font-size="27">SECURE</text>
+</g>
+</svg>

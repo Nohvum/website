@@ -1,0 +1,143 @@
+/* What We Do — four-cube service chart (tabs), service panels, industries, closing CTA.
+   Geometry is taken from the 1366px mockups (container 1206px): chart, panel art offsets and
+   type sizes are expressed in container-relative units so they scale with the layout. */
+
+:root {
+  --wwd-copy: #5f5f5f;
+  --wwd-bullet: #7e7e7e;
+  --wwd-cube: #959b94;
+  --wwd-label: #383b39;
+  --wwd-title: clamp(2.2rem, 1.2rem + 2.75vw, 3.3rem);
+}
+
+/* ---------- Hero (inner-page hero, tuned to this page's mockup) ---------- */
+.wwd-hero { padding-block: clamp(28px, 4.4vw, 60px) clamp(40px, 4.8vw, 66px); }
+.wwd-hero .breadcrumb { font-size: clamp(0.95rem, 0.9rem + 0.15vw, 1.05rem); margin-bottom: clamp(24px, 3vw, 41px); }
+.wwd-hero .page-hero__grid { grid-template-columns: 1fr minmax(0, 316px); }
+.wwd-hero__title { font-size: clamp(2.25rem, 1.2rem + 3.2vw, 3.725rem); line-height: 1.195; letter-spacing: -0.01em; max-width: 11em; }
+.wwd-hero__aside { font-size: clamp(1.1rem, 1rem + 0.45vw, 1.375rem); line-height: 1.5; color: var(--ink); padding-top: 9px; }
+@media (max-width: 760px) { .wwd-hero .page-hero__grid { grid-template-columns: 1fr; } .wwd-hero__aside { padding-top: 0; max-width: 32em; } }
+
+/* ---------- Services: chart + panels ---------- */
+.wwd-services { padding-block: clamp(24px, 2.6vw, 36px) clamp(64px, 7.6vw, 104px); overflow-x: clip; }
+
+.wwd-chart { position: relative; container-type: inline-size; padding-bottom: clamp(18px, 2.2vw, 29px); border-bottom: 1px solid var(--line); }
+/* The SVG's viewBox is 1400 wide; its artwork spans units 41.5–1352.5, which map onto the container. */
+.wwd-chart__art > img,
+.wwd-chart__art > svg { width: 106.79%; max-width: none; height: auto; margin-left: -3.166%; }
+.wwd-chart__art svg text { display: none; }
+.wwd-chart__art svg [data-cube] { cursor: pointer; }
+
+/* Cube states: only the selected service is orange; the small inner accent dots stay orange. */
+.wwd-chart__art .cube__wire,
+.wwd-chart__art .cube__stem { stroke: var(--wwd-cube); transition: stroke 220ms var(--ease-out); }
+.wwd-chart__art .cube__dot { fill: var(--wwd-cube); transition: fill 220ms var(--ease-out); }
+.wwd-chart__art .cube__stripe { opacity: 0.55; transition: opacity 220ms var(--ease-out); }
+.wwd-chart__art .cube__accent { fill: var(--orange); }
+.wwd-chart__art .is-active .cube__wire,
+.wwd-chart__art .is-active .cube__stem { stroke: var(--orange); }
+.wwd-chart__art .is-active .cube__dot { fill: var(--orange); }
+.wwd-chart__art .is-active .cube__stripe { opacity: 1; }
+.wwd-chart__art .is-hover:not(.is-active) .cube__wire { stroke: #6f766e; }
+
+/* Tabs: on wide screens each button covers one cube column (label + cube); labels sit where the
+   chart's own labels were. On phones they become a segmented row above the chart. */
+.wwd-tabs {
+  position: absolute; inset: 0 0 auto 0; height: 84.6%; z-index: 1;
+  display: grid; grid-template-columns: repeat(4, 24.79%); padding-left: 0.458%;
+}
+.wwd-tab {
+  position: relative; display: flex; align-items: flex-start; justify-content: center; margin: 0; padding: 0; border: 0; background: none;
+  cursor: pointer; text-align: center; -webkit-tap-highlight-color: transparent;
+}
+.wwd-tab:focus-visible { outline: none; }
+.wwd-tab__label {
+  display: inline-block; margin-top: 4.25cqw;
+  font-size: 2.06cqw; line-height: 1; font-weight: 400; letter-spacing: 0; text-transform: uppercase;
+  color: var(--wwd-label); transition: color 220ms var(--ease-out);
+}
+.wwd-tab:hover .wwd-tab__label { color: var(--ink); }
+.wwd-tab[aria-selected="true"] .wwd-tab__label { color: var(--orange); }
+.wwd-tab:focus-visible .wwd-tab__label { outline: 2px solid var(--orange); outline-offset: 6px; }
+/* Until the chart is inlined, the image carries its own labels: keep ours for assistive tech only. */
+.wwd-chart:not(.is-inline) .wwd-tab__label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.js-motion .wwd-chart__art { opacity: 0; }
+.js-motion .wwd-tabs { opacity: 0; }
+
+/* Panels */
+.wwd-panels { padding-top: clamp(40px, 4.55vw, 62px); }
+.wwd-panel { display: grid; }
+.wwd-panel:focus-visible { outline: 2px solid var(--orange); outline-offset: 12px; }
+.wwd-panel[hidden] { display: none; }
+.wwd-panel__copy { grid-area: 1 / 1; position: relative; z-index: 1; align-self: start; max-width: 640px; }
+.wwd-panel__title { font-size: var(--wwd-title); font-weight: 300; line-height: 1.1; letter-spacing: -0.01em; color: var(--ink); }
+.wwd-panel__sub { margin-top: clamp(2px, 0.15vw, 2px); font-size: clamp(1.1rem, 1.02rem + 0.3vw, 1.28rem); line-height: 1.4; color: var(--ink); }
+.wwd-panel__text { margin-top: clamp(14px, 1.5vw, 21px); max-width: 28em; font-size: clamp(1rem, 0.95rem + 0.2vw, 1.125rem); line-height: 1.667; color: var(--wwd-copy); }
+.wwd-panel__label { margin-top: clamp(20px, 1.8vw, 24px); font-size: clamp(1rem, 0.95rem + 0.2vw, 1.125rem); line-height: 1.4; font-weight: 400; color: var(--wwd-copy); }
+.wwd-panel__list { list-style: none; padding: 0; margin: clamp(6px, 0.66vw, 9px) 0 0; }
+.wwd-panel__list li {
+  position: relative; padding-left: 20px;
+  font-size: clamp(1.02rem, 0.96rem + 0.25vw, 1.18rem); line-height: 1.91; color: var(--wwd-copy);
+}
+.wwd-panel__list li::before { content: ""; position: absolute; left: 0; top: calc(0.955em - 4px); width: 8px; height: 8px; border-radius: 50%; background: var(--wwd-bullet); }
+
+.wwd-panel__art { grid-area: 1 / 1; align-self: start; pointer-events: none; }
+.wwd-panel__art > img, .wwd-panel__art > svg { width: 100%; height: auto; }
+.js-motion .wwd-panel__art { opacity: 0; }
+.wwd-panel__art .wwd-fx { transform-box: fill-box; transform-origin: center; }
+
+@media (min-width: 1180px) {
+  /* All panels share one grid cell so the page height does not jump between tabs. */
+  .wwd-panels.is-tabs { display: grid; }
+  .wwd-panels.is-tabs > .wwd-panel { grid-area: 1 / 1; }
+  .wwd-panels.is-tabs > .wwd-panel[hidden] { display: grid; visibility: hidden; }
+  .wwd-panel__text { min-height: 5em; }
+  .wwd-panel__art { width: var(--w); margin: var(--t) 0 var(--b, 0) var(--l); }
+  .wwd-panel[data-service="build"]     .wwd-panel__art { --l: 43.95%; --w: 63.6%;  --t: -1.66%; --b: 0%; }
+  .wwd-panel[data-service="modernise"] .wwd-panel__art { --l: 43.6%;  --w: 57.55%; --t: 3.15%;  --b: 0%; }
+  .wwd-panel[data-service="run"]       .wwd-panel__art { --l: 36.98%; --w: 70.9%;  --t: -2.74%; --b: -3.23%; }
+  .wwd-panel[data-service="secure"]    .wwd-panel__art { --l: 32.26%; --w: 76.87%; --t: -5.39%; --b: -3.48%; }
+}
+
+@media (max-width: 1179px) {
+  .wwd-panel__art { grid-area: auto; width: 100%; max-width: 760px; margin: clamp(24px, 4vw, 40px) auto 0; }
+}
+@media (max-width: 719px) {
+  .wwd-panel__art { max-width: none; }
+  .wwd-panel[data-service="build"]     .wwd-panel__art { width: 112%; margin-left: -8%; }
+  .wwd-panel[data-service="modernise"] .wwd-panel__art { width: 112%; margin-left: -6%; }
+  .wwd-panel[data-service="run"]       .wwd-panel__art { width: 116%; margin-left: -10%; margin-bottom: -6%; }
+  .wwd-panel[data-service="secure"]    .wwd-panel__art { width: 118%; margin-left: -12%; margin-top: 0; margin-bottom: -6%; }
+}
+
+@media (max-width: 719px) {
+  .wwd-chart { padding-bottom: 20px; }
+  .wwd-tabs {
+    position: static; height: auto; padding: 0; margin-bottom: 18px;
+    grid-template-columns: repeat(4, minmax(0, 1fr)); border-bottom: 1px solid var(--line);
+  }
+  .wwd-tab { min-height: 48px; padding: 0 2px; }
+  .wwd-tab__label { margin-top: 0; font-size: 0.8rem; letter-spacing: 0.04em; padding-block: 14px 12px; }
+  .wwd-tab[aria-selected="true"]::after { content: ""; position: absolute; left: 6px; right: 6px; bottom: -1px; height: 2px; background: var(--orange); }
+  .wwd-tab[aria-selected="true"] .wwd-tab__label { color: var(--orange-text); }
+  .wwd-tab:focus-visible .wwd-tab__label { outline-offset: 2px; }
+  .wwd-chart:not(.is-inline) .wwd-tab__label { position: static; width: auto; height: auto; overflow: visible; clip: auto; }
+}
+
+/* ---------- Industries ---------- */
+.wwd-industries-section { padding-block: clamp(64px, 7.6vw, 104px) clamp(64px, 8.57vw, 117px); }
+.wwd-industries-title { max-width: 13.5em; margin-bottom: clamp(32px, 3.6vw, 48px); font-size: clamp(1.9rem, 1.3rem + 1.95vw, 3rem); line-height: 1.333; }
+.wwd-industries .media-card__title { margin-top: clamp(18px, 1.8vw, 24px); font-size: clamp(1.3rem, 1.2rem + 0.4vw, 1.58rem); line-height: 1.3; }
+.wwd-industries .media-card__text { margin-top: 12px; font-size: clamp(0.95rem, 0.92rem + 0.15vw, 1.06rem); line-height: 1.5; }
+.wwd-industries { display: grid; grid-template-columns: 1fr 1fr; gap: 32px 43px; }
+@media (max-width: 560px) { .wwd-industries { grid-template-columns: 1fr; } }
+
+/* ---------- Closing CTA (sized to this page's mockup) ---------- */
+.wwd-cta { padding-block: clamp(56px, 6.37vw, 87px) clamp(56px, 6.8vw, 93px); }
+.wwd-cta .cta-band__grid { grid-template-columns: 1fr minmax(0, 462px); align-items: start; }
+.wwd-cta h2 { font-size: var(--wwd-title); line-height: 1.34; }
+.wwd-cta .cta-band__aside p { font-size: clamp(1.05rem, 1rem + 0.3vw, 1.28rem); line-height: 1.46; margin-bottom: 26px; }
+.wwd-cta .btn { min-height: 55px; min-width: 229px; padding: 12px 30px 12px 25px; font-size: clamp(1rem, 0.95rem + 0.2vw, 1.14rem); }
+.wwd-cta .btn .arw { width: 12px; height: 12px; }
+@media (max-width: 760px) { .wwd-cta .cta-band__grid { grid-template-columns: 1fr; } }

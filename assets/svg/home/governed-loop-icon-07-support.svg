@@ -1,0 +1,3 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" fill="none"><style>.wire{fill:none;stroke:#AEB4AA;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}.gate{fill:none;stroke:#AEB4AA;stroke-width:1}.check{fill:none;stroke:#F15A29;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}</style><g transform="translate(64 64) scale(1.6)" class="wire"><path d="M-4-12a9 9 0 1 0-18 0 9 9 0 1 0 18 0M17-9a8 8 0 1 0-16 0 8 8 0 1 0 16 0M-30 23v-5c0-21 35-21 35 0v5M9 2c15-4 25 4 25 16v5" /></g>
+</svg>

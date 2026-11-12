@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en" class="js-motion">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Framework | Nohvum</title>
+  <meta name="description" content="The Nohvum framework: an AI-native delivery framework spanning the full software lifecycle, built and run by our own engineers, with human approval at every stage.">
+  <meta name="theme-color" content="#fafafa">
+  <link rel="canonical" href="https://nohvum.com/framework.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Nohvum">
+  <meta property="og:title" content="The framework behind the outcomes | Nohvum">
+  <meta property="og:description" content="An AI-native delivery framework spanning the full software lifecycle, built and run by our own engineers.">
+  <meta property="og:url" content="https://nohvum.com/framework.html">
+  <meta property="og:image" content="https://nohvum.com/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
+  <link rel="preload" href="assets/fonts/selawik-light.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/selawik-semilight.woff2" as="font" type="font/woff2" crossorigin>
+  <script>if (matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.classList.remove("js-motion");</script>
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/framework.css">
+  <script defer src="assets/js/motion.min.js"></script>
+  <script defer src="assets/js/site.js"></script>
+  <script defer src="assets/js/framework-ring.js"></script>
+  <script defer src="assets/js/framework.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__logo" href="index.html" aria-label="Nohvum home"><img src="assets/img/nohvum-lockup-vertical-orange-black.svg" alt="Nohvum" width="108" height="63"></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span>Menu</span><span class="nav-toggle__bars" aria-hidden="true"></span></button>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul class="site-nav__list">
+        <li><a href="what-we-do.html">What We Do</a></li>
+        <li><a href="framework.html" aria-current="page">Framework</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="careers.html">Careers</a></li>
+      </ul>
+      <a class="btn" href="talk-to-an-expert.html">Talk to an expert <svg class="arw" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 10.5 10.5 1.5M3.5 1.5h7v7"/></svg></a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- Hero + lifecycle -->
+  <section class="fw-hero" aria-labelledby="fw-title">
+    <div class="container">
+      <h1 class="fw-hero__title" id="fw-title">The framework behind <br class="br-wide">the outcomes.</h1>
+      <p class="fw-hero__lead" data-reveal data-reveal-delay="0.1">An AI-native delivery framework spanning the full software lifecycle, built and run by our own engineers.</p>
+      <div class="ring" data-ring aria-label="Delivery lifecycle">
+        <canvas class="ring__canvas" aria-hidden="true"></canvas>
+        <div class="ring__pills" role="tablist" aria-label="Framework stages">
+          <div class="ring__anchor" role="presentation"><button class="ring-pill" type="button" role="tab" id="tab-plan" data-stage="plan" aria-selected="false" aria-controls="panel-plan" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg><span class="ring-pill__num">01</span><span class="ring-pill__sep">/</span><span class="ring-pill__name">Plan</span></button></div>
+          <div class="ring__anchor" role="presentation"><button class="ring-pill" type="button" role="tab" id="tab-build" data-stage="build" aria-selected="true" aria-controls="panel-build" tabindex="0"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5l8 4.5 8-4.5M12 12v9"/></svg><span class="ring-pill__num">02</span><span class="ring-pill__sep">/</span><span class="ring-pill__name">Build</span></button></div>
+          <div class="ring__anchor" role="presentation"><button class="ring-pill" type="button" role="tab" id="tab-test" data-stage="test" aria-selected="false" aria-controls="panel-test" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16 9.8"/></svg><span class="ring-pill__num">03</span><span class="ring-pill__sep">/</span><span class="ring-pill__name">Test</span></button></div>
+          <div class="ring__anchor" role="presentation"><button class="ring-pill" type="button" role="tab" id="tab-deploy" data-stage="deploy" aria-selected="false" aria-controls="panel-deploy" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 12.5l9 5 9-5"/><path d="M3 16.5l9 5 9-5" opacity=".55"/></svg><span class="ring-pill__num">04</span><span class="ring-pill__sep">/</span><span class="ring-pill__name">Deploy</span></button></div>
+          <div class="ring__anchor" role="presentation"><button class="ring-pill" type="button" role="tab" id="tab-run" data-stage="run" aria-selected="false" aria-controls="panel-run" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M6.5 11h2.5l1.5-3 2.5 6 1.5-3h3"/></svg><span class="ring-pill__num">05</span><span class="ring-pill__sep">/</span><span class="ring-pill__name">Run</span></button></div>
+          <div class="ring__anchor" role="presentation"><button class="ring-pill" type="button" role="tab" id="tab-support" data-stage="support" aria-selected="false" aria-controls="panel-support" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><path d="M16 5.2a3 3 0 0 1 0 5.6M18 14.8c1.8.7 3 2.4 3 4.7"/></svg><span class="ring-pill__num">06</span><span class="ring-pill__sep">/</span><span class="ring-pill__name">Support</span></button></div>
+        </div>
+        <p class="visually-hidden ring__live" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stage detail -->
+  <section class="stage section" id="stages" aria-label="Stage detail">
+    <div class="container stage__inner">
+      <button class="stage-nav stage-nav--prev" type="button" data-stage-prev aria-label="Previous stage: Plan"><span class="stage-nav__btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14.5 6 8.5 12l6 6"/></svg></span><span class="stage-nav__label" data-stage-prev-label>Plan</span></button>
+      <div class="stage__panels" aria-live="polite">
+        <div class="stage-panel" id="panel-plan" role="tabpanel" aria-labelledby="tab-plan" data-stage="plan" tabindex="0" hidden>
+          <div class="stage-panel__copy">
+            <h2 class="stage-panel__title">Clear requirements before delivery begins.</h2>
+            <p class="stage-panel__sub">Enriches stories, drafts acceptance criteria and flags ambiguity for review.</p>
+            <ol class="flow" role="list">
+              <li class="flow__step" data-flow-step><span class="flow__title">Product context</span><span class="flow__text">Goals and requirements</span><span class="flow__gate" data-flow-gate aria-hidden="true"></span></li>
+              <li class="flow__step" data-flow-step><span class="flow__title">BA Agent</span><span class="flow__text">Proposed stories and acceptance criteria</span><span class="flow__gate" data-flow-gate aria-hidden="true"></span></li>
+              <li class="flow__step flow__step--human" data-flow-step><span class="flow__title">Named engineer</span><span class="flow__text">Review and approve</span></li>
+            </ol>
+            <p class="boundary"><span class="boundary__box" aria-hidden="true"></span>Human approval stays the boundary.</p>
+          </div>
+          <div class="stage-panel__art"><img class="stage-panel__img" data-inline-svg data-src="assets/svg/framework/Nohvum-plan-tab-line-art.svg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" width="1000" height="1000"></div>
+        </div>
+        <div class="stage-panel" id="panel-build" role="tabpanel" aria-labelledby="tab-build" data-stage="build" tabindex="0">
+          <div class="stage-panel__copy">
+            <h2 class="stage-panel__title">Changes with a clear path to review.</h2>
+            <p class="stage-panel__sub">Implements agreed changes and prepares work for review.</p>
+            <ol class="flow" role="list">
+              <li class="flow__step" data-flow-step><span class="flow__title">Story context</span><span class="flow__text">Agreed requirements</span><span class="flow__gate" data-flow-gate aria-hidden="true"></span></li>
+              <li class="flow__step" data-flow-step><span class="flow__title">Dev agent</span><span class="flow__text">Proposed change</span><span class="flow__gate" data-flow-gate aria-hidden="true"></span></li>
+              <li class="flow__step flow__step--human" data-flow-step><span class="flow__title">Named engineer</span><span class="flow__text">Review and approve</span></li>
+            </ol>
+            <p class="boundary"><span class="boundary__box" aria-hidden="true"></span>Human approval stays the boundary.</p>
+          </div>
+          <div class="stage-panel__art"><img class="stage-panel__img" data-inline-svg data-src="assets/svg/framework/Nohvum-build-review-square.svg" src="assets/svg/framework/Nohvum-build-review-square.svg" alt="" width="1000" height="1000"></div>
+        </div>
+        <div class="stage-panel" id="panel-test" role="tabpanel" aria-labelledby="tab-test" data-stage="test" tabindex="0" hidden>
+          <div class="stage-panel__copy">
+            <h2 class="stage-panel__title">Test every change against agreed criteria.</h2>
+            <p class="stage-panel__sub">Generates tests from acceptance criteria, identifies coverage gaps and prepares test evidence.</p>
+            <ol class="flow" role="list">
+              <li class="flow__step" data-flow-step><span class="flow__title">Acceptance criteria</span><span class="flow__text">Expected behaviour</span><span class="flow__gate" data-flow-gate aria-hidden="true"></span></li>
+              <li class="flow__step" data-flow-step><span class="flow__title">QA Agent</span><span class="flow__text">Test results and coverage</span><span class="flow__gate" data-flow-gate aria-hidden="true"></span></li>
+              <li class="flow__step flow__step--human" data-flow-step><span class="flow__title">Named engineer</span><span class="flow__text">Review and approve</span></li>
+            </ol>
+            <p class="boundary"><span class="boundary__box" aria-hidden="true"></span>Human approval stays the boundary.</p>
+          </div>
+          <div class="stage-panel__art"><img class="stage-panel__img" data-inline-svg data-src="assets/svg/framework/Nohvum-test-tab-line-art.svg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" width="1000" height="1000"></div>
+        </div>
+        <div class="stage-panel" id="panel-deploy" role="tabpanel" aria-labelledby="tab-deploy" data-stage="deploy" tabindex="0" hidden>
+          <div class="stage-panel__copy">
+            <h2 class="stage-panel__title">Release changes through a controlled pipeline.</h2>
+            <p class="stage-panel__sub">Prepares delivery pipelines, assesses release risk and routes changes through approval gates.</p>
+            <ol class="flow" role="list">
+              <li class="flow__step" data-flow-step><span class="flow__title">Release context</span><span class="flow__text">Reviewed changes and deployment requirements</span><span class="flow__gate" data-flow-gate aria-hidden="true"></span></li>
+              <li class="flow__step" data-flow-step><span class="flow__title">DevOps Agent</span><span class="flow__text">Pipeline checks and release preparation</span><span class="flow__gate" data-flow-gate aria-hidden="true"></span></li>
+              <li class="flow__step flow__step--human" data-flow-step><span class="flow__title">Named engineer</span><span class="flow__text">Review and approve</span></li>
+            </ol>
+            <p class="boundary"><span class="boundary__box" aria-hidden="true"></span>Human approval stays the boundary.</p>
+          </div>
+          <div class="stage-panel__art"><img class="stage-panel__img" data-inline-svg data-src="assets/svg/framework/Nohvum-deploy-tab-line-art.svg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" width="1000" height="1000"></div>
+        </div>
+        <div class="stage-panel" id="panel-run" role="tabpanel" aria-labelledby="tab-run" data-stage="run" tabindex="0" hidden>
+          <div class="stage-panel__copy">
+            <h2 class="stage-panel__title">Keep reliability connected to human oversight.</h2>
+            <p class="stage-panel__sub">Triages incidents, supports root-cause analysis and prepares postmortems with supporting evidence.</p>
+            <ol class="flow" role="list">
+              <li class="flow__step" data-flow-step><span class="flow__title">Operational context</span><span class="flow__text">Telemetry, alerts and incidents</span><span class="flow__gate" data-flow-gate aria-hidden="true"></span></li>
+              <li class="flow__step" data-flow-step><span class="flow__title">SRE Agent</span><span class="flow__text">Incident analysis and proposed response</span><span class="flow__gate" data-flow-gate aria-hidden="true"></span></li>
+              <li class="flow__step flow__step--human" data-flow-step><span class="flow__title">Named engineer</span><span class="flow__text">Review and approve</span></li>
+            </ol>
+            <p class="boundary"><span class="boundary__box" aria-hidden="true"></span>Human approval stays the boundary.</p>
+          </div>
+          <div class="stage-panel__art"><img class="stage-panel__img" data-inline-svg data-src="assets/svg/framework/Nohvum-run-tab-line-art.svg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" width="1000" height="1000"></div>
+        </div>
+        <div class="stage-panel" id="panel-support" role="tabpanel" aria-labelledby="tab-support" data-stage="support" tabindex="0" hidden>
+          <div class="stage-panel__copy">
+            <h2 class="stage-panel__title">Resolve issues. Retain what you learn.</h2>
+            <p class="stage-panel__sub">Classifies tickets, drafts resolutions and prepares knowledge updates for review.</p>
+            <ol class="flow" role="list">
+              <li class="flow__step" data-flow-step><span class="flow__title">Support context</span><span class="flow__text">Tickets and previous resolutions</span><span class="flow__gate" data-flow-gate aria-hidden="true"></span></li>
+              <li class="flow__step" data-flow-step><span class="flow__title">Support Agent</span><span class="flow__text">Ticket classification and draft resolution</span><span class="flow__gate" data-flow-gate aria-hidden="true"></span></li>
+              <li class="flow__step flow__step--human" data-flow-step><span class="flow__title">Named engineer</span><span class="flow__text">Review and approve</span></li>
+            </ol>
+            <p class="boundary"><span class="boundary__box" aria-hidden="true"></span>Human approval stays the boundary.</p>
+          </div>
+          <div class="stage-panel__art"><img class="stage-panel__img" data-inline-svg data-src="assets/svg/framework/Nohvum-support-tab-line-art.svg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" width="1000" height="1000"></div>
+        </div>
+      </div>
+      <button class="stage-nav stage-nav--next" type="button" data-stage-next aria-label="Next stage: Test"><span class="stage-nav__btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.5 6l6 6-6 6"/></svg></span><span class="stage-nav__label" data-stage-next-label>Test</span></button>
+    </div>
+  </section>
+
+  <!-- Knowledge model -->
+  <section class="section section--dark km" aria-labelledby="km-title">
+    <div class="container">
+      <h2 class="h2 km__title" id="km-title" data-reveal>Your estate.<br>A private knowledge model.</h2>
+      <div class="diagram diagram--dark" data-km data-reveal>
+        <img data-inline-svg src="assets/svg/framework/Nohvum-knowledge-model-dark-approval.svg" alt="Your product documentation, release notes, codebase, decision records, data models and tickets feed a private knowledge model inside your client tenant. Certified agents work against that context, a named engineer approves the result at the human approval gate, and delivered work returns its evidence to the knowledge model." width="1600" height="820">
+      </div>
+    </div>
+  </section>
+
+  <!-- Certification -->
+  <section class="section cert" aria-labelledby="cert-title">
+    <div class="container">
+      <h2 class="h2 cert__title" id="cert-title" data-reveal>Nothing goes<br>live unproven.</h2>
+      <div class="diagram" data-cert data-reveal>
+        <img data-inline-svg src="assets/svg/framework/Nohvum-certification-wireframe-no-letter-spacing.svg" alt="Agent certification: experts curate a reference set of input-output pairs, the agent runs a blind evaluation without seeing the answers, experts score quality, fit and compliance, and a named admin certifies, defers or fails the agent at the certification gate. Failures are remediated and re-run. In production, live monitoring watches for drift, which triggers re-evaluation." width="1600" height="660">
+      </div>
+    </div>
+  </section>
+
+  <!-- Continuous learning -->
+  <section class="section section--tint learn" aria-labelledby="learn-title">
+    <div class="container">
+      <h2 class="h2" id="learn-title" data-reveal>Every cycle strengthens the next.</h2>
+      <p class="lead learn__lead" data-reveal>Delivery evidence builds retained knowledge. Updated agents pass through the same certification gate before returning to delivery.</p>
+      <div class="cycle" data-cycle data-reveal>
+        <svg class="cycle__arrows" viewBox="0 0 1206 640" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+          <defs><marker id="cyc-head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M1 1 9 5 1 9" fill="none" stroke="currentColor" stroke-width="1.2"/></marker></defs>
+          <path class="cycle__arrow" d="M250 268 417 170" marker-end="url(#cyc-head)"/>
+          <path class="cycle__arrow" d="M807 170 975 268" marker-end="url(#cyc-head)"/>
+          <path class="cycle__arrow" d="M850 551H356" marker-end="url(#cyc-head)"/>
+        </svg>
+        <figure class="cycle__node cycle__node--top">
+          <img src="assets/svg/framework/Nohvum-learning-01-telemetry.svg" alt="" width="240" height="240">
+          <figcaption><span class="cycle__name">Telemetry</span><span class="cycle__text">Stories, PRs, tests, deployments, incidents and tickets feed one outcome store.</span></figcaption>
+        </figure>
+        <figure class="cycle__node cycle__node--left">
+          <img src="assets/svg/framework/Nohvum-learning-02-knowledge-retained.svg" alt="" width="240" height="240">
+          <figcaption><span class="cycle__name">Knowledge retained</span><span class="cycle__text">Decisions, fixes and context stay in the framework, preserving knowledge between delivery cycles.</span></figcaption>
+        </figure>
+        <figure class="cycle__node cycle__node--right">
+          <img src="assets/svg/framework/Nohvum-learning-03-agents-recalibrated.svg" alt="" width="240" height="240">
+          <figcaption><span class="cycle__name">Agents re-calibrated</span><span class="cycle__text">Outcome data tunes agents to your stack and conventions, through the same certification gate.</span></figcaption>
+        </figure>
+        <div class="cycle__gate">
+          <span class="cycle__gate-label" data-cycle-gate>Same certification gate</span>
+          <span class="cycle__gate-text">Re-evaluate and certify updated agents before the next delivery cycle.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Autonomy -->
+  <section class="section autonomy" aria-labelledby="auto-title">
+    <div class="container autonomy__grid">
+      <div data-reveal>
+        <h2 class="h2" id="auto-title">Configurable<br>AI-SDLC autonomy.</h2>
+        <p class="lead autonomy__lead">Choose how much AI does.<br>Accountability stays.</p>
+      </div>
+      <div class="dial" data-reveal data-reveal-delay="0.1">
+        <div class="dial__options" role="radiogroup" aria-labelledby="auto-title">
+          <span class="dial__track" aria-hidden="true"><span class="dial__marker" data-dial-marker></span></span>
+          <button class="dial__opt" type="button" role="radio" aria-checked="false" tabindex="-1" data-dial="0"><span class="dial__dot" aria-hidden="true"></span><span class="dial__name">Agentic HITL execution</span><span class="dial__text">Agents do the work,<br>people approve it.</span></button>
+          <button class="dial__opt" type="button" role="radio" aria-checked="true" tabindex="0" data-dial="1"><span class="dial__dot" aria-hidden="true"></span><span class="dial__name">AI-augmented execution</span><span class="dial__text">People do the work,<br>AI helps.</span></button>
+          <button class="dial__opt" type="button" role="radio" aria-checked="false" tabindex="-1" data-dial="2"><span class="dial__dot" aria-hidden="true"></span><span class="dial__name" data-dial-third-name>AI tests</span><span class="dial__text" data-dial-third-text>People do the work,<br>AI watches</span></button>
+        </div>
+        <p class="boundary boundary--center"><span class="boundary__box" aria-hidden="true"></span>Human approval stays the boundary.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI use -->
+  <section class="section governance" id="governance" aria-labelledby="env-title">
+    <div class="container split">
+      <h2 class="h2" id="env-title" data-reveal>AI use that fits your environment.</h2>
+      <div class="split__body" data-reveal data-reveal-delay="0.1">
+        <p class="body">Before implementation, we agree which tools and data sources may be used, where code and data can be processed, who approves changes, and what evidence is retained.</p>
+        <p class="body">We align with your access controls, delivery pipeline and engineering review process.</p>
+        <p><a class="link-arrow" href="talk-to-an-expert.html">How governance works <svg class="arw" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 10.5 10.5 1.5M3.5 1.5h7v7"/></svg></a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section--dark cta-band" aria-labelledby="cta-title">
+    <div class="container cta-band__grid" data-reveal>
+      <h2 class="h2" id="cta-title">See how the framework<br>fits your team.</h2>
+      <div class="cta-band__aside">
+        <p>Start with your systems, your priorities and the outcome you need.</p>
+        <div class="cta-band__actions">
+          <a class="btn btn--light" href="talk-to-an-expert.html">Talk to an expert <svg class="arw" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 10.5 10.5 1.5M3.5 1.5h7v7"/></svg></a>
+          <a class="btn btn--ghost-dark" href="what-we-do.html">Explore our services <svg class="arw" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 10.5 10.5 1.5M3.5 1.5h7v7"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <a class="site-footer__logo" href="index.html" aria-label="Nohvum home"><img src="assets/img/nohvum-lockup-vertical-orange-black.svg" alt="Nohvum" width="150" height="88"></a>
+      </div>
+      <nav aria-labelledby="ft-services">
+        <h2 id="ft-services">Services</h2>
+        <ul>
+          <li><a href="what-we-do.html#build">Product &amp; Feature Engineering</a></li>
+          <li><a href="what-we-do.html#modernise">Legacy Modernization</a></li>
+          <li><a href="what-we-do.html#build">QA &amp; Test Automation</a></li>
+          <li><a href="what-we-do.html#run">Application Support &amp; Maintenance</a></li>
+          <li><a href="what-we-do.html#run">DevOps, Cloud &amp; Infrastructure</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="ft-explore">
+        <h2 id="ft-explore">Explore</h2>
+        <ul>
+          <li><a href="what-we-do.html">What We Do</a></li>
+          <li><a href="framework.html">Framework</a></li>
+          <li><a href="framework.html#governance">How Governance Works</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="ft-connect">
+        <h2 id="ft-connect">Connect</h2>
+        <ul>
+          <li><a href="#" data-todo="linkedin">LinkedIn</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="site-footer__legal">
+      <h2>Legal</h2>
+      <ul>
+        <li><a href="#" data-todo="privacy-policy">Privacy Policy</a></li>
+        <li><a href="#" data-todo="cookie-notice">Cookie Notice</a></li>
+        <li><a href="#" data-todo="terms">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="site-footer__bar">
+    <div class="container"><p>&copy; 2026 Nohvum, Inc. All rights reserved.</p><p>Engineering With Intent</p></div>
+  </div>
+</footer>
+</body>
+</html>
