@@ -1,7 +1,13 @@
 /* Homepage */
 
 /* Hero */
-.hero { padding-block: clamp(48px, 7.6vw, 104px) clamp(56px, 7vw, 96px); overflow: hidden; }
+/* fills the first screen below the sticky header; content centred vertically */
+.hero {
+  --hero-pad: clamp(28px, 4vw, 56px);
+  min-height: calc(100vh - var(--header-h) - 1px); min-height: calc(100svh - var(--header-h) - 1px); /* 1px: header border */
+  display: flex; flex-direction: column; justify-content: center;
+  padding-block: var(--hero-pad); overflow: hidden;
+}
 .hero__grid { display: grid; grid-template-columns: minmax(0, 610px) minmax(0, 1fr); gap: 0; align-items: center; }
 .hero__copy { position: relative; z-index: 1; }
 .hero__u { position: relative; display: inline-block; }
@@ -10,13 +16,13 @@
 @keyframes hero-underline { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 .hero__lead { margin-top: clamp(32px, 4vw, 52px); font-size: clamp(1.05rem, 1rem + 0.3vw, 1.22rem); line-height: 1.55; color: var(--text-2); }
 .hero__copy .link-arrow { margin-top: clamp(28px, 3vw, 44px); }
-.hero__art { position: relative; margin: 0 -14px 0 -40px; }
-.hero__ring { width: 100%; height: auto; overflow: visible; }
-.hero__ring text { font-family: var(--font) !important; letter-spacing: 0.02em; }
-.hero__ring .halo { fill: var(--orange); opacity: 0; pointer-events: none; }
+.hero__art { position: relative; margin: 0 calc(var(--gutter) * -1) 0 -120px; }
+.hero__art .ring { height: clamp(420px, min(44vw, 100svh - var(--header-h) - 1px - 2 * var(--hero-pad)), 620px); background: radial-gradient(closest-side at 50% 50%, rgba(253, 241, 230, 0.9), rgba(253, 241, 230, 0)); }
+.hero__art .ring__pills { list-style: none; margin: 0; padding: 0; }
 @media (max-width: 899px) {
   .hero__grid { grid-template-columns: 1fr; }
-  .hero__art { margin: 8px auto 0; max-width: 560px; }
+  .hero__art { margin: 8px calc(var(--gutter) * -1) 0; }
+  .hero__art .ring { height: clamp(340px, 80vw, 520px); }
 }
 
 /* Governed loop */
@@ -151,3 +157,4 @@
   .engage { grid-template-columns: 1fr; max-width: 520px; }
 }
 @media (max-width: 1099px) { .br-wide { display: none; } }
+@media (max-width: 560px) { .br-sm-hide { display: none; } }

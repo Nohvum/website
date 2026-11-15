@@ -7,13 +7,15 @@ the animation brief. No build step, no framework.
 index.html               home
 about.html               about
 what-we-do.html          Build / Modernise / Run / Secure tabs (#build, #modernise, #run, #secure)
-framework.html           lifecycle ring (framework-ring.js) + stage detail (#plan, #build, #test, #deploy, #run, #support)
+framework.html           lifecycle ring (ring.js) + stage detail (#plan, #build, #test, #deploy, #run, #support)
 careers.html             roles + application form (CV as a link)
 talk-to-an-expert.html   contact form
 assets/css/site.css      tokens, header, footer, buttons, forms, shared components
 assets/css/<page>.css    page-specific styles
 assets/js/site.js        mobile nav, scroll reveals, Formspree forms, inline-SVG loader
 assets/js/<page>.js      page animations
+assets/js/ring.js        lifecycle ring (framework: select mode; home hero: overview mode)
+assets/css/ring.css      ring pills and canvas styles shared by both pages
 assets/js/motion.min.js  Motion 14.6.0 (vanilla UMD build, window.Motion), vendored
 assets/fonts/            Selawik (OFL), Microsoft's open-source Segoe UI substitute
 assets/svg/, assets/img/ artwork from the PSD asset export; logo from Branding/
@@ -86,7 +88,10 @@ per form — configure both.
 ## Notes on fidelity
 
 - Formspree's free plan does not accept file uploads, so the mockup's "CV upload" is a CV link field.
-- The framework hero is a port of the "Delivery Loop" reference (`assets/js/framework-ring.js`):
+- The home hero uses the same ring in overview mode, oriented like the original hero art, with a
+  15% wider ribbon. It turns clockwise at a steady rate about its own axis (no pointer or drag
+  influence) and each stage links to its framework section. The hero fills the first screen. The old `assets/svg/home/banner-chart.svg` is no longer used.
+- The framework hero is a port of the "Delivery Loop" reference (`assets/js/ring.js`):
   a canvas ribbon ring whose selected stage turns to the front-centre (rather than the static
   mockup's bottom-left slot). A connector drops from it to the stage detail section below, which
   holds the stage's content; there is no popup card. Drag spins the ring and snaps to a stage. The

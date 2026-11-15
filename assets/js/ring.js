@@ -1,14 +1,25 @@
-/* Framework lifecycle ring — ported from the "Delivery Loop" reference.
-   A 3D ribbon loop of six stages is drawn on canvas; HTML pills (an ARIA tablist) ride the nodes.
-   The selected stage always settles front-centre, and a connector drops from it to the hero's bottom
-   edge, where the stage detail section below takes over (no card: the content lives on the page).
-   API: window.NohvumRing.create(root, { initial, name(i), onChange(i) }) → { select(i, opts), active() } */
+/* Lifecycle ring — ported from the "Delivery Loop" reference. Used on the framework page and the home hero.
+   A 3D ribbon loop of six stages is drawn on canvas; HTML pills ride the nodes.
+   - mode "select" (framework): the pills are an ARIA tablist; the selected stage settles front-centre and a
+     connector drops from it to the stage detail section below.
+   - mode "overview" (home): no selection. The ring sits at a fixed elevation and in-plane roll and turns at a
+     steady rate about its own axis (no pointer or drag influence); each stage is a link.
+   API: window.NohvumRing.create(root, { mode, initial, name(i), onChange(i), elevation, roll, restYaw, fill, pad,
+        thickness (ribbon width multiplier), spin (overview turn rate, rad/s) })
+        → { select(i, opts), active() } */
 (function () {
   "use strict";
   var Motion = window.Motion;
 
   function create(root, opts) {
     if (!root || !Motion) return null;
+    opts = opts || {};
+    var overview = opts.mode === "overview";
+    var DEG = Math.PI / 180;
+    var ROLL = (opts.roll || 0) * DEG, cR = Math.cos(ROLL), sR = Math.sin(ROLL);
+    var REST = opts.restYaw || 0;
+    var FILL = opts.fill || 0.82;
+    var THICK = opts.thickness || 1;
     var animate = Motion.animate, motionValue = Motion.motionValue, frame = Motion.frame,
         hover = Motion.hover, press = Motion.press, stagger = Motion.stagger;
 
@@ -16,7 +27,7 @@
     var ctx = cv.getContext("2d");
     var anchors = Array.prototype.slice.call(root.querySelectorAll(".ring__anchor"));
     var btns = anchors.map(function (a) { return a.querySelector(".ring-pill"); });
-      var live = root.querySelector(".ring__live");
+    var live = root.querySelector(".ring__live");
     var N = btns.length, TAU = Math.PI * 2;
 
     var nodeTheta = function (i) { return (120 - 60 * i) * Math.PI / 180; };   // Plan top-left, then clockwise
@@ -36,7 +47,10 @@
     var T = { strand: [118, 112, 106], hot: [241, 90, 41], ring: [255, 255, 255], alpha: 0.3 };
 
     // animated state
-    var yaw = motionValue(reduced ? 0 : 0.9);
+    var yaw = motionValue(REST + (reduced ? 0 : 0.9));
+    // overview: constant turn about the ring's axis, clockwise on screen (the order the stages run in)
+    var SPIN = overview && !reduced ? (opts.spin || 0.16) : 0;
+    var spinRate = motionValue(0), spun = 0;
     var sel = motionValue(0);
     var intro = motionValue(reduced ? 1 : 0);
     var hoverAmt = btns.map(function () { return motionValue(0); });
@@ -55,7 +69,7 @@
       for (var j = 0; j < N; j++) animate(hoverAmt[j], j === i ? 1 : 0, tr({ duration: 0.3, ease: "easeOut" }));
     }
     btns.forEach(function (b, i) {
-      b.addEventListener("click", function () { if (active !== i) userSelect(i); });
+      if (!overview) b.addEventListener("click", function () { if (active !== i) userSelect(i); });
       hover(b, function () {
         pState[i].h = true; setHover(i); pillScale(i);
         return function () { pState[i].h = false; if (hoverIdx === i) setHover(null); pillScale(i); };
@@ -73,14 +87,16 @@
     var W = 0, H = 0, dpr = 1, compact = false, DROP = 84;
     var G = { nx: new Float32Array(N), ny: new Float32Array(N) };
     function params(s) {
-      var E = lerp(23, 15, s) * Math.PI / 180;
-      var baseS = Math.max(90, Math.min((W / 2 - (compact ? 30 : 104)) / 1.08, H * 0.82, 440));
-      return { ce: Math.cos(E), se: Math.sin(E), S: baseS * lerp(1, 1.08, s), wave: 0.14 * s, rw: lerp(0.085, 0.125, s) };
+      var E = (overview ? (opts.elevation || 40) : lerp(23, 15, s)) * DEG;
+      var pad = opts.pad != null ? opts.pad : 104;
+      var baseS = Math.max(90, Math.min((W / 2 - (compact ? 30 : pad)) / 1.08, H * FILL, overview ? 520 : 440));
+      return { ce: Math.cos(E), se: Math.sin(E), S: baseS * lerp(1, 1.08, s), wave: 0.14 * s, rw: lerp(0.085, 0.125, s) * THICK };
     }
     var Q = [0, 0, 0, 0];
     function project(x, y, z, P, cx, cy) {
       var yy = y * P.ce + z * P.se, zz = -y * P.se + z * P.ce, p = F / (F + zz);
-      Q[0] = cx + x * p * P.S; Q[1] = cy - yy * p * P.S; Q[2] = zz; Q[3] = p;
+      var sx = x * p * P.S, sy = -yy * p * P.S;
+      Q[0] = cx + sx * cR - sy * sR; Q[1] = cy + sx * sR + sy * cR; Q[2] = zz; Q[3] = p;
       return Q;
     }
     function centerY(th, P, yw) { return P.wave * Math.cos(2 * (th + yw)) + 0.016 * Math.sin(3 * th + t * 0.7); }
@@ -129,7 +145,7 @@
 
     function draw() {
       if (W <= 0) return;
-      var s = sel.get(), yw = yaw.get(), drawn = intro.get();
+      var s = sel.get(), yw = yaw.get() + spun, drawn = intro.get();
       var i, th, te, q;
       for (i = 0; i < N; i++) hv[i] = hoverAmt[i].get();
       var P = params(s);
@@ -239,7 +255,7 @@
     function userSelect(i) { i = (i + N) % N; select(i); if (opts.onChange) opts.onChange(i); }
 
     root.addEventListener("keydown", function (e) {
-      if (!e.target.closest(".ring-pill")) return;
+      if (overview || !e.target.closest(".ring-pill")) return;
       var to = null;
       if (e.key === "ArrowRight" || e.key === "ArrowDown") to = active + 1;
       else if (e.key === "ArrowLeft" || e.key === "ArrowUp") to = active - 1;
@@ -272,18 +288,21 @@
         return;
       }
       if (!down.moved && Math.hypot(e.clientX - down.x, e.clientY - down.y) > 5) {
-        down.moved = true; dragging = true; root.classList.add("is-dragging");
+        down.moved = true;
+        if (overview) return;   // the home ring's rotation is not user-driven
+        dragging = true; root.classList.add("is-dragging");
         yaw.stop();
         try { root.setPointerCapture(down.id); } catch (_) {}
       }
-      if (down.moved) { yaw.set(yaw.get() + (e.clientX - down.lx) * 0.0065); down.lx = e.clientX; }
+      if (down.moved && !overview) { yaw.set(yaw.get() + (e.clientX - down.lx) * 0.0065); down.lx = e.clientX; }
     });
     function endPointer(e) {
       if (!down) return;
       if (!down.moved) {
         var n = nodeAt(e.clientX - down.r.left, e.clientY - down.r.top);
-        if (n !== null && n !== active) userSelect(n);
-      } else {
+        if (overview) { if (n !== null && btns[n].href) window.location.href = btns[n].href; }
+        else if (n !== null && n !== active) userSelect(n);
+      } else if (!overview) {
         dragging = false; root.classList.remove("is-dragging");
         var v = yaw.getVelocity();
         var landing = yaw.get() + v * 0.3, best = 0, bd = Infinity;
@@ -306,14 +325,29 @@
     }
     frame.render(function (f) {
       if (!visible) return;
-      if (!reduced) t += Math.min(0.05, f.delta / 1000);
+      var dt = reduced ? 0 : Math.min(0.05, f.delta / 1000);
+      t += dt; spun -= spinRate.get() * dt;
       draw();
     }, true);
 
     // opening: the ribbon draws itself around the loop while it settles, labels arrive in order,
     // then the initial stage turns to the front and the connector drops to its content
     var initial = opts.initial || 0;
-    if (reduced) {
+    if (overview) {
+      if (reduced) { intro.jump(1); }
+      else {
+        btns.forEach(function (b) { b.style.opacity = "0"; });
+        var go = function () {
+          // the opening turn eases straight into the steady rate, so the ring never stops or reverses
+          spinRate.jump(0.75);
+          animate(spinRate, SPIN, { duration: 1.8, ease: [0.22, 1, 0.36, 1] });
+          animate(intro, 1, { duration: 1.5, ease: [0.22, 1, 0.36, 1] });
+          animate(btns, { opacity: [0, 1], scale: [0.8, 1] }, { type: "spring", visualDuration: 0.45, bounce: 0.3, delay: stagger(0.12, { startDelay: 0.1 }) });
+        };
+        if (window.Nohvum && window.Nohvum.onceInView) window.Nohvum.onceInView(root, go, 0.3);
+        else go();
+      }
+    } else if (reduced) {
       select(initial, { instant: true, force: true });
     } else {
       btns.forEach(function (b) { b.style.opacity = "0"; });

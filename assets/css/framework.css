@@ -6,35 +6,9 @@
 .fw-hero__lead { max-width: 29.5em; margin: 18px auto 0; font-size: clamp(1.05rem, 1rem + 0.35vw, 1.3rem); color: var(--text-2); line-height: 1.55; }
 @media (max-width: 1099px) { .br-wide { display: none; } }
 
-/* Lifecycle ring (ported from the Delivery Loop reference) */
-.ring {
-  position: relative; width: min(100vw, 1200px); margin: 0 0 0 50%; transform: translateX(-50%);
-  height: clamp(400px, 33vw, 460px); overflow: hidden; touch-action: pan-y; cursor: grab; user-select: none; -webkit-user-select: none;
-  text-align: left;
-  background: radial-gradient(closest-side at 50% 52%, #fdf1e6, rgba(253, 241, 230, 0.5) 55%, rgba(253, 241, 230, 0));
-}
-.ring.is-dragging { cursor: grabbing; }
-.ring__canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-.ring__anchor { position: absolute; left: 0; top: 0; will-change: transform, opacity; }
-.ring-pill {
-  display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;
-  padding: 9px 15px 9px 12px; border-radius: 12px; border: 1px solid rgba(40, 30, 20, 0.11); background: #fff; color: var(--ink);
-  font: 400 0.9rem/1 var(--font); letter-spacing: 0.03em; text-transform: uppercase; cursor: pointer;
-  box-shadow: 0 1px 2px rgba(40, 30, 20, 0.06), 0 8px 24px rgba(40, 30, 20, 0.07);
-  transform-origin: 50% 50%; transition: border-color 0.25s, box-shadow 0.25s, background-color 0.25s;
-}
-.ring-pill svg { width: 18px; height: 18px; flex: none; color: var(--orange); fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
-.ring-pill__num { color: var(--orange); font-weight: 600; }
-.ring-pill__sep { color: #a39d96; margin-inline: -3px; }
-.ring-pill:hover { border-color: rgba(241, 90, 41, 0.4); }
-.ring-pill:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
-.ring-pill[aria-selected="true"] { border-color: rgba(241, 90, 41, 0.55); box-shadow: 0 0 0 4px rgba(241, 90, 41, 0.12), 0 10px 34px rgba(241, 90, 41, 0.28); }
-.ring.is-compact .ring-pill { padding: 7px 10px; font-size: 0.75rem; gap: 6px; }
-.ring.is-compact .ring-pill svg { width: 15px; height: 15px; }
-.ring.is-compact .ring-pill__sep, .ring.is-compact .ring-pill__name { display: none; }
-.ring.is-compact .ring-pill[aria-selected="true"] .ring-pill__sep, .ring.is-compact .ring-pill[aria-selected="true"] .ring-pill__name { display: inline; }
-
-@media (max-width: 620px) { .ring { height: 380px; } }
+/* Lifecycle ring: shared styles in ring.css; framework layout here */
+.fw-hero .ring { width: min(100vw, 1200px); margin: 0 0 0 50%; transform: translateX(-50%); height: clamp(400px, 33vw, 460px); }
+@media (max-width: 620px) { .fw-hero .ring { height: 380px; } }
 
 /* Stage detail */
 .stage { padding-block: clamp(56px, 7vw, 100px) clamp(64px, 7vw, 110px); }
