@@ -13,16 +13,12 @@
 .careers-why__text p { font-size: clamp(1.05rem, 0.95rem + 0.35vw, 1.25rem); line-height: 1.4; color: var(--ink-2); }
 .careers-why__text p + p { margin-top: 0.9em; }
 
-/* ---------- Open roles ---------- */
-.careers-roles { padding-block: clamp(60px, 7.2vw, 98px) clamp(64px, 8.6vw, 118px); }
-.careers-roles__intro { margin-top: clamp(16px, 2vw, 26px); font-size: clamp(1.05rem, 0.95rem + 0.35vw, 1.25rem); line-height: 1.4; color: var(--ink-2); max-width: 58rem; }
-.jobs { margin-top: 0; }
+/* ---------- Open roles (listed straight after the why-join text) ---------- */
+.jobs { margin-top: clamp(16px, 2vw, 26px); }
 .job { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px 32px; padding-block: clamp(28px, 2.7vw, 36px) 30px; }
 .job + .job { border-top: 1px solid var(--line); }
 .job__title { font-size: clamp(1.55rem, 1.15rem + 1.2vw, 2.25rem); font-weight: 300; line-height: 1.2; letter-spacing: -0.005em; }
 .job__text { font-size: clamp(1rem, 0.96rem + 0.15vw, 1.09rem); color: var(--ink-2); margin-top: 10px; }
-.job__chips { display: flex; flex-wrap: wrap; gap: 12px 19px; margin-top: 20px; }
-.chip { display: inline-flex; align-items: center; min-height: 40px; padding: 6px 26px; background: #000; color: #fff; font-size: clamp(1rem, 0.96rem + 0.15vw, 1.09rem); line-height: 1.2; }
 .job__apply {
   align-self: start; display: inline-flex; align-items: center; gap: 10px;
   font-size: clamp(1.4rem, 1.1rem + 0.9vw, 2rem); font-weight: 350; line-height: 1.2;
@@ -33,7 +29,6 @@
 @media (max-width: 560px) {
   .job { grid-template-columns: 1fr; }
   .job__apply { grid-row: 2; justify-self: start; }
-  .chip { padding-inline: 18px; }
 }
 
 /* ---------- Application form ---------- */
