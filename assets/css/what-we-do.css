@@ -25,6 +25,12 @@
 .wwd-hero__aside { font-size: var(--wwd-hero-aside); line-height: 1.5; color: var(--ink); padding-top: 9px; }
 /* FDE footnote: small, right-aligned under the aside. Beside the title it adds no height; stacked (below 760px) it is the hero's last line. */
 .wwd-hero__note { margin-top: 14px; font-size: var(--fs-xs); line-height: 1.5; color: var(--text-3); text-align: right; }
+/* Beside the title: the note drops to the foot of the column, its baseline on the title's last baseline
+   (title line box depth 0.212em, note's 0.356em, as in the hero padding above) */
+@media (min-width: 761px) {
+  .wwd-hero__side { align-self: stretch; display: flex; flex-direction: column; }
+  .wwd-hero__note { margin-top: auto; padding-top: 14px; margin-bottom: calc(0.212 * var(--wwd-hero-title) - 0.356 * var(--fs-xs)); }
+}
 @media (max-width: 760px) {
   .wwd-hero .page-hero__grid { grid-template-columns: 1fr; } .wwd-hero__aside { padding-top: 0; max-width: 32em; }
   .wwd-hero { padding-bottom: calc(var(--wwd-scene-gap) - 12px - 0.356 * var(--fs-xs)); }   /* the FDE note is the last line here */
@@ -101,11 +107,14 @@
   .wwd-panel[data-service="secure"]    { --trim: 4.5%; }
 }
 @media (max-width: 719px) {
-  .wwd-panel__art { max-width: none; }
-  .wwd-panel[data-service="build"]     .wwd-panel__art { width: 112%; margin-left: -8%; }
-  .wwd-panel[data-service="modernize"] .wwd-panel__art { width: 112%; margin-left: -6%; }
-  .wwd-panel[data-service="run"]       .wwd-panel__art { width: 116%; margin-left: -10%; }
-  .wwd-panel[data-service="secure"]    .wwd-panel__art { width: 118%; margin-left: -12%; margin-top: 0; }
+  /* Each drawing is sized and placed against the text column (--aw wide, --al from its left edge) and may bleed past it.
+     The box spans the screen edge to edge and clips there, so nothing sits past the screen; the drawings do not move. */
+  .wwd-panel__art { max-width: none; width: auto; margin-left: calc(-1 * var(--gutter)); margin-right: calc(-1 * var(--gutter)); overflow-x: clip; }
+  .wwd-panel__art > svg { --col: calc(100% - 2 * var(--gutter)); max-width: none; width: calc(var(--col) * var(--aw)); margin-left: calc(var(--gutter) + var(--col) * var(--al)); }
+  .wwd-panel[data-service="build"]     .wwd-panel__art { --aw: 1.12; --al: -0.08; }
+  .wwd-panel[data-service="modernize"] .wwd-panel__art { --aw: 1.12; --al: -0.06; }
+  .wwd-panel[data-service="run"]       .wwd-panel__art { --aw: 1.16; --al: -0.10; }
+  .wwd-panel[data-service="secure"]    .wwd-panel__art { --aw: 1.18; --al: -0.12; margin-top: 0; }
 }
 
 /* ---------- Industries ---------- */

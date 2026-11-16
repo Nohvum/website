@@ -257,7 +257,15 @@ a.media-card:hover .media-card__img img { transform: scale(1.025); }
   .site-footer__top { grid-template-columns: 1fr; align-items: start; }
   .site-footer__top > nav:last-child { justify-self: start; }
 }
-@media (max-width: 480px) { .site-footer__top { grid-template-columns: 1fr; } .site-footer__top > nav:last-child { justify-self: start; } }
+/* Phones: the five links and LinkedIn share one three-column grid, two even rows (LinkedIn takes the sixth cell) */
+@media (max-width: 480px) {
+  .site-footer__top { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 16px; }
+  .site-footer__brand { grid-column: 1 / -1; }
+  .site-footer__top > .site-footer__explore { grid-column: 1 / -1; grid-row: 2; }
+  .site-footer .site-footer__explore ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 16px; }
+  .site-footer__top a { white-space: nowrap; }
+  .site-footer__top > .site-footer__connect { grid-column: 3; grid-row: 2; align-self: end; justify-self: start; }
+}
 
 /* ---------- Motion ---------- */
 /* Hidden start state only when JS has opted in (html.js-motion) and the visitor allows motion. */
