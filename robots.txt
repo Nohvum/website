@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nohvum.com/sitemap.xml
+Sitemap: https://www.nohvum.com/sitemap.xml
