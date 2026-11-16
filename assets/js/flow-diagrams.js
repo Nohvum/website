@@ -231,7 +231,7 @@
       M.inView(root, function () {
         inView = true; start();
         return function () { inView = false; stop(); };
-      }, { amount: 0.25 });
+      }, { amount: "some", margin: "-20% 0px -20% 0px" }); // any part within the middle of the screen: a share of the diagram's own height fails when it is taller than the screen
     }
   }
 

@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="278.922 -5.844 441.968 374.957" width="441.968" height="374.957" role="img">
-<title>Nohvum mark, full colour</title>
-<defs><linearGradient id="nv-mark-a" gradientUnits="userSpaceOnUse" x1="329.0" y1="176.9" x2="540.9" y2="235.2"><stop offset="0" stop-color="#FFA543"/><stop offset="1" stop-color="#EC0704"/></linearGradient><linearGradient id="nv-mark-b" gradientUnits="userSpaceOnUse" x1="458.9" y1="127.1" x2="670.9" y2="185.3"><stop offset="0" stop-color="#FFA543"/><stop offset="1" stop-color="#EC0704"/></linearGradient></defs>
-<path fill="url(#nv-mark-a)" d="M576.011,108.930 L436.832,14.706 C414.779,-0.224 369.327,26.408 359.308,64.221 L285.887,341.305 C279.808,364.250 303.746,370.418 321.461,353.405 Z"/>
-<path fill="url(#nv-mark-b)" d="M423.802,254.339 L562.980,348.562 C585.033,363.492 630.486,336.861 640.505,299.048 L713.925,21.964 C720.005,-0.981 696.067,-7.150 678.352,9.864 Z"/>
-</svg>

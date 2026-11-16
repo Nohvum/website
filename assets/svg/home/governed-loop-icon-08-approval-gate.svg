@@ -1,2 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" fill="none"><style>.wire{fill:none;stroke:#AEB4AA;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}.gate{fill:none;stroke:#AEB4AA;stroke-width:1}.check{fill:none;stroke:#F15A29;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}</style><g id="approval-gate" transform="translate(64 64) scale(1.6)"><rect x="-14" y="-14" width="28" height="28" class="gate" /><path d="M-6 0l4 4 8-9" class="check" /></g></svg>

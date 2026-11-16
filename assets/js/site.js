@@ -46,6 +46,16 @@
     M.animate(kids, { opacity: [0, 1], y: [y, 0] }, { duration: small.matches ? 0.45 : 0.6, delay: M.stagger(small.matches ? 0.05 : gap), ease: N.ease });
   }
 
+  /* Fire once when `amount` of the element is in view. An element taller than the screen can never
+     show that share of itself (a stacked diagram on a phone held sideways), so it also fires once the
+     element's top edge has come 40% of the way up the screen. Whichever happens first wins. */
+  function seen(el, amount, fn) {
+    var done = false;
+    var once = function () { if (done) return; done = true; fn(); };
+    M.inView(el, once, { amount: amount });
+    M.inView(el, once, { amount: "some", margin: "0px 0px -40% 0px" });
+  }
+
   N.initReveals = function (scope) {
     scope = scope || document;
     var singles = scope.querySelectorAll("[data-reveal]");
@@ -55,10 +65,10 @@
       return;
     }
     singles.forEach(function (el) {
-      M.inView(el, function () { revealOne(el); }, { amount: 0.2 });
+      seen(el, 0.2, function () { revealOne(el); });
     });
     groups.forEach(function (g) {
-      M.inView(g, function () { revealGroup(g); }, { amount: 0.15 });
+      seen(g, 0.15, function () { revealGroup(g); });
     });
   };
 
@@ -66,7 +76,7 @@
   N.onceInView = function (el, fn, amount) {
     if (!el) return;
     if (!M) { fn(); return; }
-    M.inView(el, function () { fn(); }, { amount: amount == null ? 0.35 : amount });
+    seen(el, amount == null ? 0.35 : amount, fn);
   };
 
   /* ---------- Inline SVG loader ----------
