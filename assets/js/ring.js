@@ -4,8 +4,10 @@
      connector drops from it to the stage detail section below.
    - mode "overview" (home): no selection. The ring sits at a fixed elevation and in-plane roll and turns at a
      steady rate about its own axis (no pointer or drag influence); each stage is a link.
+     In overview the ring is scaled to fill its box (less room for the labels), up to maxScale.
    API: window.NohvumRing.create(root, { mode, initial, name(i), onChange(i), elevation, roll, restYaw, fill, pad,
-        thickness (ribbon width multiplier), spin (overview turn rate, rad/s) })
+        thickness (ribbon width multiplier), spin (overview turn rate, rad/s), maxScale (overview, px),
+        align ("end" right-aligns the overview ring in its box) })
         → { select(i, opts), active() } */
 (function () {
   "use strict";
@@ -20,6 +22,7 @@
     var REST = opts.restYaw || 0;
     var FILL = opts.fill || 0.82;
     var THICK = opts.thickness || 1;
+    var SMAX = opts.maxScale || 520;
     var animate = Motion.animate, motionValue = Motion.motionValue, frame = Motion.frame,
         hover = Motion.hover, press = Motion.press, stagger = Motion.stagger;
 
@@ -86,10 +89,35 @@
     var F = 5, K = 22, M = 288, CH = 4;
     var W = 0, H = 0, dpr = 1, compact = false, DROP = 84;
     var G = { nx: new Float32Array(N), ny: new Float32Array(N) };
+    // overview fit: the ring's on-screen outline doesn't change as it turns (a circle under yaw), so its
+    // bounding box at unit scale is measured once; the ring is then scaled and centred to fill the box,
+    // leaving room for the labels that sit on the nodes.
+    var BOX = null, FIT = { S: 0, cx: 0, cy: 0 };
+    function fit() {
+      var E = (opts.elevation || 40) * DEG, P = { ce: Math.cos(E), se: Math.sin(E), S: 1 };
+      var x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity, rw = 0.085 * THICK;
+      for (var a = 0; a < 360; a++) {
+        var te = a * DEG;
+        for (var o = -1; o <= 1; o += 2) {   // both ribbon edges at their widest
+          var q = project(Math.cos(te) * (1 + o * rw), o * rw, Math.sin(te) * (1 + o * rw), P, 0, 0);
+          x0 = Math.min(x0, q[0]); x1 = Math.max(x1, q[0]); y0 = Math.min(y0, q[1]); y1 = Math.max(y1, q[1]);
+        }
+      }
+      BOX = { x0: x0, x1: x1, y0: y0, y1: y1 };
+    }
+    function layoutOverview() {
+      if (!BOX) fit();
+      var padX = compact ? 34 : (opts.pad != null ? opts.pad : 76), padY = compact ? 40 : 56;
+      var S = Math.min((W - 2 * padX) / (BOX.x1 - BOX.x0), (H - 2 * padY) / (BOX.y1 - BOX.y0), SMAX);
+      S = Math.max(90, S);
+      // align "end": hug the right edge when the box is wider than the ring needs (e.g. at maxScale)
+      FIT.S = S; FIT.cx = opts.align === "end" ? W - padX - S * BOX.x1 : W / 2 - S * (BOX.x0 + BOX.x1) / 2; FIT.cy = H / 2 - S * (BOX.y0 + BOX.y1) / 2;
+    }
     function params(s) {
       var E = (overview ? (opts.elevation || 40) : lerp(23, 15, s)) * DEG;
+      if (overview) return { ce: Math.cos(E), se: Math.sin(E), S: FIT.S, wave: 0, rw: 0.085 * THICK };
       var pad = opts.pad != null ? opts.pad : 104;
-      var baseS = Math.max(90, Math.min((W / 2 - (compact ? 30 : pad)) / 1.08, H * FILL, overview ? 520 : 440));
+      var baseS = Math.max(90, Math.min((W / 2 - (compact ? 30 : pad)) / 1.08, H * FILL, 440));
       return { ce: Math.cos(E), se: Math.sin(E), S: baseS * lerp(1, 1.08, s), wave: 0.14 * s, rw: lerp(0.085, 0.125, s) * THICK };
     }
     var Q = [0, 0, 0, 0];
@@ -110,7 +138,8 @@
       var r = root.getBoundingClientRect();
       W = r.width; H = r.height; dpr = Math.min(2, window.devicePixelRatio || 1);
       cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
-      compact = W < 620; root.classList.toggle("is-compact", compact);
+      compact = W < (overview ? 500 : 620); root.classList.toggle("is-compact", compact);
+      if (overview) layoutOverview();
       if (!visible || reduced) draw();
     }
 
@@ -149,7 +178,7 @@
       var i, th, te, q;
       for (i = 0; i < N; i++) hv[i] = hoverAmt[i].get();
       var P = params(s);
-      var cx = W / 2, cy = lerp(H * 0.5, selectedCy(), s);
+      var cx = overview ? FIT.cx : W / 2, cy = overview ? FIT.cy : lerp(H * 0.5, selectedCy(), s);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, W, H);
 

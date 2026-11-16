@@ -90,7 +90,10 @@ per form — configure both.
 - Formspree's free plan does not accept file uploads, so the mockup's "CV upload" is a CV link field.
 - The home hero uses the same ring in overview mode, oriented like the original hero art, with a
   15% wider ribbon. It turns clockwise at a steady rate about its own axis (no pointer or drag
-  influence) and each stage links to its framework section. The hero fills the first screen. The old `assets/svg/home/banner-chart.svg` is no longer used.
+  influence) and each stage links to its framework section. The hero fills the first screen and
+  sits in its own centred frame (up to 1676px, equal margins both sides): the copy is capped (heading
+  max 4.2rem, 680px column) and the ring takes the rest, growing with the window up to the framework
+  page ring's largest size (`maxScale: 407`). The copy lines up with the logo only below ~1370px. The old `assets/svg/home/banner-chart.svg` is no longer used.
 - The framework hero is a port of the "Delivery Loop" reference (`assets/js/ring.js`):
   a canvas ribbon ring whose selected stage turns to the front-centre (rather than the static
   mockup's bottom-left slot). A connector drops from it to the stage detail section below, which

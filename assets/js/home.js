@@ -11,7 +11,9 @@
   /* ---------- Hero ring: the framework ring in overview mode, oriented like the original hero art ---------- */
   var homeRing = document.querySelector("[data-home-ring]");
   if (homeRing && window.NohvumRing) {
-    window.NohvumRing.create(homeRing, { mode: "overview", elevation: 34, roll: -13, restYaw: -0.75, fill: 0.62, pad: 64, thickness: 1.15, spin: 0.08 });
+    window.NohvumRing.create(homeRing, { mode: "overview", elevation: 34, roll: -13, restYaw: -0.75, thickness: 1.15, spin: 0.08,
+      // the framework page ring's largest settled size: 0.82 × its 460px max height × 1.08 focus scale
+      maxScale: 407, align: "end" });
   }
 
   /* ---------- Governed loop: model → stages with their approval checks → return path ---------- */
