@@ -1,9 +1,9 @@
-/* What We Do — service tabs driven by the four-cube chart.
-   - Real <button role="tab"> controls (arrow keys, Home/End), panels with role="tabpanel".
+/* What We Do — service tabs driven by the four-cube scene (cubes.js, built like the framework ring).
+   - The scene's pills are real <button role="tab"> controls (arrow keys, Home/End), panels role="tabpanel".
    - #build / #modernise / #run / #secure select a tab on load; selecting a tab updates the hash
      with history.replaceState (no scroll).
-   - Motion: chart fades in as a whole, then the selected cube's orange stem draws once. Panels
-     cross-fade briefly on tab change. Each panel illustration plays a once-only orange-detail
+   - Motion: the scene runs its own opening (see cubes.js). Panels cross-fade briefly on tab change.
+     Each panel illustration plays a once-only orange-detail
      emphasis the first time it is shown. All of it is skipped with prefers-reduced-motion. */
 (function () {
   "use strict";
@@ -24,7 +24,7 @@
   var aliases = { modernize: "modernise", modernisation: "modernise", modernization: "modernise" };
 
   var current = -1;
-  var cubesSvg = null;
+  var cubes = null;
   var played = {};           // service -> emphasis played
   var artReady = {};         // service -> Promise resolving when the panel art is inlined and primed
   var switchToken = 0;
@@ -37,46 +37,7 @@
     return i < 0 ? 0 : i;
   }
 
-  /* ---------- Cube chart ---------- */
-  function prepareCubes(svg) {
-    if (!svg || svg.tagName.toLowerCase() !== "svg") return null;
-    ids.forEach(function (id) {
-      var g = svg.querySelector("#" + id + "-cube");
-      if (!g) return;
-      g.setAttribute("data-cube", id);
-      var wire = g.querySelector(".wire");
-      if (wire) {
-        wire.classList.add("cube__wire");
-        Array.prototype.slice.call(wire.children).forEach(function (p, i) { if (i >= 2) p.classList.add("cube__stripe"); });
-      }
-      Array.prototype.forEach.call(g.children, function (el) {
-        var tag = el.tagName.toLowerCase();
-        if (tag === "path" && el.hasAttribute("stroke")) el.classList.add("cube__stem");
-        if (tag === "circle") {
-          // The dot where the stem meets the cube follows the selection; inner dots stay orange.
-          el.classList.add(el.getAttribute("cy") === "208" ? "cube__dot" : "cube__accent");
-        }
-      });
-      g.addEventListener("click", function () { select(ids.indexOf(id), { focus: false }); });
-    });
-    // Tabs (HTML) sit over the chart on wide screens; mirror hover onto the cube.
-    tabs.forEach(function (t) {
-      var g = svg.querySelector('[data-cube="' + t.getAttribute("data-service") + '"]');
-      if (!g) return;
-      t.addEventListener("pointerenter", function () { g.classList.add("is-hover"); });
-      t.addEventListener("pointerleave", function () { g.classList.remove("is-hover"); });
-    });
-    return svg;
-  }
-
-  function paintCubes() {
-    if (!cubesSvg) return;
-    ids.forEach(function (id, i) {
-      var g = cubesSvg.querySelector('[data-cube="' + id + '"]');
-      if (g) g.classList.toggle("is-active", i === current);
-    });
-  }
-
+  /* ---------- Panel helpers ---------- */
   function drawIn(el, opts) {
     var len = 0;
     try { len = el.getTotalLength(); } catch (e) { len = 0; }
@@ -91,24 +52,6 @@
   function popIn(el, opts) {
     el.classList.add("wwd-fx");
     return M.animate(el, { opacity: [0, 1], scale: [0.4, 1] }, opts);
-  }
-
-  function introChart() {
-    var art = [chart.querySelector(".wwd-chart__art"), tablist];
-    if (!motionOK()) { art.forEach(function (el) { el.style.opacity = "1"; }); return; }
-    N.onceInView(chart, function () {
-      M.animate(art, { opacity: [0, 1] }, { duration: 0.8, ease: ease });
-      if (!cubesSvg) return;
-      var g = cubesSvg.querySelector('[data-cube="' + ids[current] + '"]');
-      if (!g) return;
-      var stems = g.querySelectorAll(".cube__stem");
-      var dot = g.querySelector(".cube__dot");
-      Array.prototype.forEach.call(stems, function (s, i) { drawIn(s, { duration: 0.55, delay: 0.55 + i * 0.35, ease: ease }); });
-      if (dot) {
-        dot.style.opacity = "0";
-        popIn(dot, { duration: 0.35, delay: 0.95, ease: ease }).finished.then(function () { dot.style.opacity = ""; });
-      }
-    }, 0.3);
   }
 
   /* ---------- Panel illustrations ---------- */
@@ -204,7 +147,7 @@
     if (i === current) return;
     var prev = current;
     current = i;
-    paintCubes();
+    if (cubes && !opts.initial) cubes.select(i);   // the scene selects the initial service itself, after its opening
     if (!opts.initial) {
       var hash = "#" + ids[i];
       if (location.hash !== hash) history.replaceState(null, "", hash);
@@ -249,7 +192,16 @@
     });
   }
 
-  tabs.forEach(function (t, i) {
+  /* ---------- Init ---------- */
+  var start = indexFromHash();
+  // The scene owns the pills' clicks and arrow keys; it reports changes back here.
+  cubes = window.NohvumCubes ? window.NohvumCubes.create(chart, {
+    initial: start,
+    name: function (k) { return tabs[k].querySelector(".ring-pill__name").textContent; },
+    onChange: function (k) { select(k, { focus: false }); }
+  }) : null;
+
+  if (!cubes) tabs.forEach(function (t, i) {
     t.addEventListener("click", function () { select(i, { focus: false }); });
     t.addEventListener("keydown", function (e) {
       var k = e.key, n = tabs.length, to = -1;
@@ -273,8 +225,6 @@
     }
   });
 
-  /* ---------- Init ---------- */
-  var start = indexFromHash();
   panelsWrap.classList.add("is-tabs");
   select(start, { initial: true });
 
@@ -291,15 +241,4 @@
     artReady[service].then(function () { p.querySelector(".wwd-panel__art").style.opacity = "1"; });
   });
 
-  var cubeImg = chart.querySelector("[data-wwd-cubes]");
-  (N.inlineSvg ? N.inlineSvg(cubeImg) : Promise.resolve(cubeImg)).then(function (svg) {
-    cubesSvg = prepareCubes(svg);
-    if (cubesSvg) {
-      cubesSvg.removeAttribute("aria-label");
-      cubesSvg.setAttribute("aria-hidden", "true");
-      chart.classList.add("is-inline");
-      paintCubes();
-    }
-    introChart();
-  });
 })();

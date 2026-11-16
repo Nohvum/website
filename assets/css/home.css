@@ -4,7 +4,7 @@
 /* fills the first screen below the sticky header; content centred vertically */
 .hero {
   --hero-pad: clamp(28px, 4vw, 56px);
-  min-height: calc(100vh - var(--header-h) - 1px); min-height: calc(100svh - var(--header-h) - 1px); /* 1px: header border */
+  min-height: calc(100vh - var(--header-h)); min-height: calc(100svh - var(--header-h));
   display: flex; flex-direction: column; justify-content: center;
   padding-block: var(--hero-pad); overflow: hidden;
 }
@@ -27,7 +27,7 @@
 /* the ring keeps 76px clear for its labels; pull the box into the margin so the ribbon itself, not that
    clearance, meets the frame's right edge (labels may pass it briefly as they turn) */
 .hero__art { position: relative; margin-right: calc(-1 * min(60px, var(--gutter) * 0.75)); }
-.hero__art .ring { height: clamp(380px, min(40vw, 100svh - var(--header-h) - 1px - 2 * var(--hero-pad)), 880px); background: radial-gradient(closest-side at 50% 50%, rgba(253, 241, 230, 0.9), rgba(253, 241, 230, 0)); }
+.hero__art .ring { height: clamp(380px, min(40vw, 100svh - var(--header-h) - 2 * var(--hero-pad)), 880px); background: radial-gradient(closest-side at 50% 50%, rgba(253, 241, 230, 0.9), rgba(253, 241, 230, 0)); }
 .hero__art .ring__pills { list-style: none; margin: 0; padding: 0; }
 @media (max-width: 899px) {
   .hero__grid { grid-template-columns: 1fr; width: min(100% - 2 * var(--gutter), var(--container)); }

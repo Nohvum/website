@@ -1,12 +1,10 @@
-/* What We Do — four-cube service chart (tabs), service panels, industries, closing CTA.
+/* What We Do — four-cube service scene (tabs), service panels, industries, closing CTA.
    Geometry is taken from the 1366px mockups (container 1206px): chart, panel art offsets and
    type sizes are expressed in container-relative units so they scale with the layout. */
 
 :root {
   --wwd-copy: #5f5f5f;
   --wwd-bullet: #7e7e7e;
-  --wwd-cube: #959b94;
-  --wwd-label: #383b39;
   --wwd-title: clamp(2.2rem, 1.2rem + 2.75vw, 3.3rem);
 }
 
@@ -20,49 +18,21 @@
 /* ---------- Services: chart + panels ---------- */
 .wwd-services { padding-block: clamp(24px, 2.6vw, 36px) clamp(64px, 7.6vw, 104px); overflow-x: clip; }
 
-.wwd-chart { position: relative; container-type: inline-size; padding-bottom: clamp(18px, 2.2vw, 29px); border-bottom: 1px solid var(--line); }
-/* The SVG's viewBox is 1400 wide; its artwork spans units 41.5–1352.5, which map onto the container. */
-.wwd-chart__art > img,
-.wwd-chart__art > svg { width: 106.79%; max-width: none; height: auto; margin-left: -3.166%; }
-.wwd-chart__art svg text { display: none; }
-.wwd-chart__art svg [data-cube] { cursor: pointer; }
-
-/* Cube states: only the selected service is orange; the small inner accent dots stay orange. */
-.wwd-chart__art .cube__wire,
-.wwd-chart__art .cube__stem { stroke: var(--wwd-cube); transition: stroke 220ms var(--ease-out); }
-.wwd-chart__art .cube__dot { fill: var(--wwd-cube); transition: fill 220ms var(--ease-out); }
-.wwd-chart__art .cube__stripe { opacity: 0.55; transition: opacity 220ms var(--ease-out); }
-.wwd-chart__art .cube__accent { fill: var(--orange); }
-.wwd-chart__art .is-active .cube__wire,
-.wwd-chart__art .is-active .cube__stem { stroke: var(--orange); }
-.wwd-chart__art .is-active .cube__dot { fill: var(--orange); }
-.wwd-chart__art .is-active .cube__stripe { opacity: 1; }
-.wwd-chart__art .is-hover:not(.is-active) .cube__wire { stroke: #6f766e; }
-
-/* Tabs: on wide screens each button covers one cube column (label + cube); labels sit where the
-   chart's own labels were. On phones they become a segmented row above the chart. */
-.wwd-tabs {
-  position: absolute; inset: 0 0 auto 0; height: 84.6%; z-index: 1;
-  display: grid; grid-template-columns: repeat(4, 24.79%); padding-left: 0.458%;
+/* Service cubes: drawn on canvas by cubes.js the same way the framework ring is (ring.css supplies the
+   pills). The scene spans the page width; its height is 80% of the earlier chart's (0.4215 × container). */
+.cubes {
+  position: relative; width: 100vw; margin-left: calc(50% - 50vw);
+  height: max(230px, calc(0.337 * min(var(--container), 100vw - 2 * var(--gutter))));
+  border-bottom: 1px solid var(--line); user-select: none; -webkit-user-select: none;
 }
-.wwd-tab {
-  position: relative; display: flex; align-items: flex-start; justify-content: center; margin: 0; padding: 0; border: 0; background: none;
-  cursor: pointer; text-align: center; -webkit-tap-highlight-color: transparent;
-}
-.wwd-tab:focus-visible { outline: none; }
-.wwd-tab__label {
-  display: inline-block; margin-top: 4.25cqw;
-  font-size: 2.06cqw; line-height: 1; font-weight: 400; letter-spacing: 0; text-transform: uppercase;
-  color: var(--wwd-label); transition: color 220ms var(--ease-out);
-}
-.wwd-tab:hover .wwd-tab__label { color: var(--ink); }
-.wwd-tab[aria-selected="true"] .wwd-tab__label { color: var(--orange); }
-.wwd-tab:focus-visible .wwd-tab__label { outline: 2px solid var(--orange); outline-offset: 6px; }
-/* Until the chart is inlined, the image carries its own labels: keep ours for assistive tech only. */
-.wwd-chart:not(.is-inline) .wwd-tab__label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-
-.js-motion .wwd-chart__art { opacity: 0; }
-.js-motion .wwd-tabs { opacity: 0; }
+.cubes__canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.cubes .ring-pill { font-size: 0.95rem; }
+.cubes.is-compact .ring-pill { padding: 7px 10px; font-size: 0.72rem; gap: 6px; }
+.cubes.is-compact .ring-pill svg { width: 15px; height: 15px; }
+/* On phones four labelled pills don't fit across: show icon and number, keep the name for assistive tech
+   (the panel title right below names the selected service). */
+.cubes.is-compact .ring-pill__sep { display: none; }
+.cubes.is-compact .ring-pill__name { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* Panels */
 .wwd-panels { padding-top: clamp(40px, 4.55vw, 62px); }
@@ -108,20 +78,6 @@
   .wwd-panel[data-service="modernise"] .wwd-panel__art { width: 112%; margin-left: -6%; }
   .wwd-panel[data-service="run"]       .wwd-panel__art { width: 116%; margin-left: -10%; margin-bottom: -6%; }
   .wwd-panel[data-service="secure"]    .wwd-panel__art { width: 118%; margin-left: -12%; margin-top: 0; margin-bottom: -6%; }
-}
-
-@media (max-width: 719px) {
-  .wwd-chart { padding-bottom: 20px; }
-  .wwd-tabs {
-    position: static; height: auto; padding: 0; margin-bottom: 18px;
-    grid-template-columns: repeat(4, minmax(0, 1fr)); border-bottom: 1px solid var(--line);
-  }
-  .wwd-tab { min-height: 48px; padding: 0 2px; }
-  .wwd-tab__label { margin-top: 0; font-size: 0.8rem; letter-spacing: 0.04em; padding-block: 14px 12px; }
-  .wwd-tab[aria-selected="true"]::after { content: ""; position: absolute; left: 6px; right: 6px; bottom: -1px; height: 2px; background: var(--orange); }
-  .wwd-tab[aria-selected="true"] .wwd-tab__label { color: var(--orange-text); }
-  .wwd-tab:focus-visible .wwd-tab__label { outline-offset: 2px; }
-  .wwd-chart:not(.is-inline) .wwd-tab__label { position: static; width: auto; height: auto; overflow: visible; clip: auto; }
 }
 
 /* ---------- Industries ---------- */

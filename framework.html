@@ -158,53 +158,54 @@
     </div>
   </section>
 
-  <!-- Knowledge model -->
-  <section class="section section--dark km" aria-labelledby="km-title">
-    <div class="container">
-      <h2 class="h2 km__title" id="km-title" data-reveal>Your estate.<br>A private knowledge model.</h2>
-      <div class="diagram diagram--dark" data-km data-reveal>
-        <img data-inline-svg src="assets/svg/framework/Nohvum-knowledge-model-dark-approval.svg" alt="Your product documentation, release notes, codebase, decision records, data models and tickets feed a private knowledge model inside your client tenant. Certified agents work against that context, a named engineer approves the result at the human approval gate, and delivered work returns its evidence to the knowledge model." width="1600" height="820">
+  <!-- Context engineering, certification and the feedback loop: one section, three tabs -->
+  <section class="section pillars" aria-label="How the framework works">
+    <div class="pillars__bar">
+      <div class="pillars__tabs" role="tablist" aria-label="How the framework works" data-pillar-tablist>
+        <button class="pillars__tab" type="button" role="tab" id="tab-context" aria-controls="pillar-context" aria-selected="true">Context Engineering</button>
+        <button class="pillars__tab" type="button" role="tab" id="tab-cert" aria-controls="pillar-cert" aria-selected="false" tabindex="-1">Agent Certification and Accountability</button>
+        <button class="pillars__tab" type="button" role="tab" id="tab-loop" aria-controls="pillar-loop" aria-selected="false" tabindex="-1">Feedback Loop</button>
       </div>
     </div>
-  </section>
-
-  <!-- Certification -->
-  <section class="section cert" aria-labelledby="cert-title">
-    <div class="container">
-      <h2 class="h2 cert__title" id="cert-title" data-reveal>Nothing goes<br>live unproven.</h2>
-      <div class="diagram" data-cert data-reveal>
-        <img data-inline-svg src="assets/svg/framework/Nohvum-certification-wireframe-no-letter-spacing.svg" alt="Agent certification: experts curate a reference set of input-output pairs, the agent runs a blind evaluation without seeing the answers, experts score quality, fit and compliance, and a named admin certifies, defers or fails the agent at the certification gate. Failures are remediated and re-run. In production, live monitoring watches for drift, which triggers re-evaluation." width="1600" height="660">
+    <div class="container pillars__panels">
+      <div class="pillar km" role="tabpanel" id="pillar-context" aria-labelledby="tab-context" tabindex="0">
+        <h2 class="h2 km__title" id="km-title" data-reveal>Your estate.<br>A private knowledge model.</h2>
+        <div class="diagram diagram--dark" data-km data-reveal>
+          <img data-inline-svg src="assets/svg/framework/Nohvum-knowledge-model-dark-approval.svg" alt="Your product documentation, release notes, codebase, decision records, data models and tickets feed a private knowledge model inside your client tenant. Certified agents work against that context, a named engineer approves the result at the human approval gate, and delivered work returns its evidence to the knowledge model." width="1600" height="820">
+        </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Continuous learning -->
-  <section class="section section--tint learn" aria-labelledby="learn-title">
-    <div class="container">
-      <h2 class="h2" id="learn-title" data-reveal>Every cycle strengthens the next.</h2>
-      <p class="lead learn__lead" data-reveal>Delivery evidence builds retained knowledge. Updated agents pass through the same certification gate before returning to delivery.</p>
-      <div class="cycle" data-cycle data-reveal>
-        <svg class="cycle__arrows" viewBox="0 0 1206 640" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-          <defs><marker id="cyc-head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M1 1 9 5 1 9" fill="none" stroke="currentColor" stroke-width="1.2"/></marker></defs>
-          <path class="cycle__arrow" d="M250 268 417 170" marker-end="url(#cyc-head)"/>
-          <path class="cycle__arrow" d="M807 170 975 268" marker-end="url(#cyc-head)"/>
-          <path class="cycle__arrow" d="M850 551H356" marker-end="url(#cyc-head)"/>
-        </svg>
-        <figure class="cycle__node cycle__node--top">
-          <img src="assets/svg/framework/Nohvum-learning-01-telemetry.svg" alt="" width="240" height="240">
-          <figcaption><span class="cycle__name">Telemetry</span><span class="cycle__text">Stories, PRs, tests, deployments, incidents and tickets feed one outcome store.</span></figcaption>
-        </figure>
-        <figure class="cycle__node cycle__node--left">
-          <img src="assets/svg/framework/Nohvum-learning-02-knowledge-retained.svg" alt="" width="240" height="240">
-          <figcaption><span class="cycle__name">Knowledge retained</span><span class="cycle__text">Decisions, fixes and context stay in the framework, preserving knowledge between delivery cycles.</span></figcaption>
-        </figure>
-        <figure class="cycle__node cycle__node--right">
-          <img src="assets/svg/framework/Nohvum-learning-03-agents-recalibrated.svg" alt="" width="240" height="240">
-          <figcaption><span class="cycle__name">Agents re-calibrated</span><span class="cycle__text">Outcome data tunes agents to your stack and conventions, through the same certification gate.</span></figcaption>
-        </figure>
-        <div class="cycle__gate">
-          <span class="cycle__gate-label" data-cycle-gate>Same certification gate</span>
-          <span class="cycle__gate-text">Re-evaluate and certify updated agents before the next delivery cycle.</span>
+      <div class="pillar cert" role="tabpanel" id="pillar-cert" aria-labelledby="tab-cert" tabindex="0" hidden>
+        <h2 class="h2 cert__title" id="cert-title" data-reveal>Nothing goes<br>live unproven.</h2>
+        <div class="diagram" data-cert data-reveal>
+          <img data-inline-svg src="assets/svg/framework/Nohvum-certification-wireframe-no-letter-spacing.svg" alt="Agent certification: experts curate a reference set of input-output pairs, the agent runs a blind evaluation without seeing the answers, experts score quality, fit and compliance, and a named admin certifies, defers or fails the agent at the certification gate. Failures are remediated and re-run. In production, live monitoring watches for drift, which triggers re-evaluation." width="1600" height="660">
+        </div>
+      </div>
+      <div class="pillar learn" role="tabpanel" id="pillar-loop" aria-labelledby="tab-loop" tabindex="0" hidden>
+        <h2 class="h2" id="learn-title" data-reveal>Every cycle strengthens the next.</h2>
+        <p class="lead learn__lead" data-reveal>Delivery evidence builds retained knowledge. Updated agents pass through the same certification gate before returning to delivery.</p>
+        <div class="cycle" data-cycle data-reveal>
+          <svg class="cycle__arrows" viewBox="0 0 1206 640" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+            <defs><marker id="cyc-head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M1 1 9 5 1 9" fill="none" stroke="currentColor" stroke-width="1.2"/></marker></defs>
+            <path class="cycle__arrow" d="M250 268 417 170" marker-end="url(#cyc-head)"/>
+            <path class="cycle__arrow" d="M807 170 975 268" marker-end="url(#cyc-head)"/>
+            <path class="cycle__arrow" d="M850 551H356" marker-end="url(#cyc-head)"/>
+          </svg>
+          <figure class="cycle__node cycle__node--top">
+            <img src="assets/svg/framework/Nohvum-learning-01-telemetry.svg" alt="" width="240" height="240">
+            <figcaption><span class="cycle__name">Telemetry</span><span class="cycle__text">Stories, PRs, tests, deployments, incidents and tickets feed one outcome store.</span></figcaption>
+          </figure>
+          <figure class="cycle__node cycle__node--left">
+            <img src="assets/svg/framework/Nohvum-learning-02-knowledge-retained.svg" alt="" width="240" height="240">
+            <figcaption><span class="cycle__name">Knowledge retained</span><span class="cycle__text">Decisions, fixes and context stay in the framework, preserving knowledge between delivery cycles.</span></figcaption>
+          </figure>
+          <figure class="cycle__node cycle__node--right">
+            <img src="assets/svg/framework/Nohvum-learning-03-agents-recalibrated.svg" alt="" width="240" height="240">
+            <figcaption><span class="cycle__name">Agents re-calibrated</span><span class="cycle__text">Outcome data tunes agents to your stack and conventions, through the same certification gate.</span></figcaption>
+          </figure>
+          <div class="cycle__gate">
+            <span class="cycle__gate-label" data-cycle-gate>Same certification gate</span>
+            <span class="cycle__gate-text">Re-evaluate and certify updated agents before the next delivery cycle.</span>
+          </div>
         </div>
       </div>
     </div>

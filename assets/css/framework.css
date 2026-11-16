@@ -75,14 +75,39 @@
   .boundary { margin-top: 32px; }
 }
 
+/* Context engineering, certification and feedback loop: one section, three tabs under a
+   page-width bar. Tabs follow the header nav: ink text, orange on hover and when selected. */
+.pillars { padding-top: 0; }
+.pillars__bar { border-block: 1px solid var(--line); background: #fff; }
+.pillars__tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding-inline: var(--edge); }
+.pillars__tab {
+  position: relative; display: flex; align-items: center; justify-content: center; min-height: 68px; margin: 0; padding: 14px 18px;
+  border: 0; background: none; font: inherit; font-size: 1.05rem; line-height: 1.3; text-align: center; color: var(--ink);
+  cursor: pointer; transition: color var(--dur-fast); -webkit-tap-highlight-color: transparent;
+}
+.pillars__tab + .pillars__tab::before { content: ""; position: absolute; left: 0; top: 22%; bottom: 22%; width: 1px; background: var(--line); }
+.pillars__tab::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--orange); transform: scaleX(0); transition: transform 320ms var(--ease-out); }
+.pillars__tab:hover, .pillars__tab[aria-selected="true"] { color: var(--orange-text); }
+.pillars__tab[aria-selected="true"]::after { transform: none; }
+.pillars__tab:focus-visible { outline: 2px solid var(--orange); outline-offset: -6px; }
+.pillars__panels { padding-top: clamp(48px, 6vw, 88px); }
+.pillar[hidden] { display: none; }
+.pillar:focus { outline: none; }
+.pillar:focus-visible { outline: 2px solid var(--orange); outline-offset: 12px; }
+@media (prefers-reduced-motion: reduce) { .pillars__tab::after { transition: none; } }
+@media (max-width: 640px) {
+  .pillars__tab { min-height: 72px; padding: 12px 8px; font-size: 0.88rem; }
+}
+
 /* Diagrams */
 .diagram { margin-top: clamp(36px, 4vw, 52px); }
 .diagram svg, .diagram img { width: 100%; height: auto; display: block; }
 @media (min-width: 761px) { .diagram svg, .diagram img { width: 105.4%; margin-left: -2.4%; max-width: none; } }
+/* The knowledge model carries its own dark ground, so on the white section it sits flush with the container. */
+@media (min-width: 761px) { .km .diagram svg, .km .diagram img { width: 100%; margin-left: 0; } }
 .diagram text { font-family: var(--font) !important; }
 .diagram .trace { fill: none; stroke: var(--orange); stroke-width: 2; stroke-linecap: round; }
 .diagram .hl { fill: none; stroke: var(--orange); stroke-width: 2; opacity: 0; }
-.km { padding-bottom: clamp(56px, 6vw, 96px); }
 .km__title, .cert__title { font-weight: 300; }
 @media (max-width: 760px) {
   .diagram { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); }

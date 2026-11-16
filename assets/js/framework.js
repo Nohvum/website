@@ -2,7 +2,8 @@
    - Lifecycle ring: see framework-ring.js (ported from the Delivery Loop reference). The selected
      stage turns to the front-centre; a connector drops from it to the stage detail section below.
    - Stage panels crossfade in place (no scrolling); prev/next drive the same selection.
-   - Diagrams (knowledge model, certification, learning cycle) trace their path once in view. */
+   - Context engineering / certification / feedback loop share one section as tabs.
+   - Diagrams (knowledge model, certification, learning cycle) trace their path the first time their tab is in view. */
 (function () {
   "use strict";
   var N = window.Nohvum;
@@ -206,6 +207,37 @@
       M.animate(layer, { opacity: [1, 0] }, { delay: 0.6, duration: 0.8 }).then(function () { layer.remove(); });
     });
     return end;
+  }
+
+  /* -------------------------------------------------------------------- pillar tabs */
+  var pillarList = document.querySelector("[data-pillar-tablist]");
+  if (pillarList) {
+    var ptabs = Array.prototype.slice.call(pillarList.querySelectorAll('[role="tab"]'));
+    var showPillar = function (i, focus) {
+      ptabs.forEach(function (t, k) {
+        var on = k === i;
+        var panel = document.getElementById(t.getAttribute("aria-controls"));
+        t.setAttribute("aria-selected", on ? "true" : "false");
+        t.tabIndex = on ? 0 : -1;
+        if (!panel) return;
+        if (on && panel.hidden) {
+          panel.hidden = false;
+          if (N.motionOK()) M.animate(panel, { opacity: [0, 1] }, { duration: 0.35, ease: ease });
+        } else if (!on) panel.hidden = true;
+      });
+      if (focus) ptabs[i].focus();
+    };
+    ptabs.forEach(function (t, i) {
+      t.addEventListener("click", function () { showPillar(i); });
+      t.addEventListener("keydown", function (e) {
+        var n = ptabs.length, j = null;
+        if (e.key === "ArrowRight") j = (i + 1) % n;
+        else if (e.key === "ArrowLeft") j = (i - 1 + n) % n;
+        else if (e.key === "Home") j = 0;
+        else if (e.key === "End") j = n - 1;
+        if (j !== null) { e.preventDefault(); showPillar(j, true); }
+      });
+    });
   }
 
   // Knowledge model: sources → context → agents → human approval (pause) → delivered work → back to context.
