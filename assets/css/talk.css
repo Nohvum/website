@@ -5,8 +5,7 @@
 .site-nav .btn[aria-current="page"]:hover { background: var(--orange-text); border-color: var(--orange-text); }
 
 /* ---------- Layout ---------- */
-.talk { padding-block: clamp(32px, 4.6vw, 64px) clamp(72px, 10.4vw, 142px); background: linear-gradient(#fff 55%, var(--bg-soft)); }
-.talk .breadcrumb { font-size: 1rem; margin-bottom: clamp(20px, 2.6vw, 34px); }
+.talk { padding-block: clamp(24px, 2.8vw, 40px) clamp(72px, 10.4vw, 142px); background: linear-gradient(#fff 55%, var(--bg-soft)); }
 .talk__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 688px); gap: 40px clamp(40px, 5vw, 72px); align-items: start; }
 .page-hero__title { font-size: clamp(2.3rem, 1.1rem + 3.3vw, 3.875rem); font-weight: 300; line-height: 1.17; letter-spacing: -0.012em; }
 .talk__lead { margin-top: clamp(12px, 1.4vw, 14px); max-width: 23rem; font-size: clamp(1.05rem, 0.9rem + 0.5vw, 1.375rem); line-height: 1.58; color: var(--ink-2); }
@@ -30,7 +29,6 @@
 .form--page .field--counted { margin-bottom: -18px; }
 .form--page .field input::placeholder, .form--page .field textarea::placeholder { color: #767676; }
 .form--page .form__submit { margin-top: 18px; }
-.form--page .btn { min-width: 227px; min-height: 53px; padding-inline: 24px; font-size: 1.1rem; }
 .talk .form__sent h2 { font-weight: 350; font-size: 1.4rem; margin-bottom: 8px; }
 .form--page .field input:focus, .form--page .field textarea:focus { border-color: var(--orange); }
 .form--page .field[data-invalid] input, .form--page .field[data-invalid] textarea { border-color: #c2280f; }

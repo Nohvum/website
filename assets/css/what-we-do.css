@@ -11,8 +11,7 @@
 }
 
 /* ---------- Hero (inner-page hero, tuned to this page's mockup) ---------- */
-.wwd-hero { padding-block: clamp(28px, 4.4vw, 60px) clamp(40px, 4.8vw, 66px); }
-.wwd-hero .breadcrumb { font-size: clamp(0.95rem, 0.9rem + 0.15vw, 1.05rem); margin-bottom: clamp(24px, 3vw, 41px); }
+.wwd-hero { padding-block: clamp(24px, 2.8vw, 40px) clamp(40px, 4.8vw, 66px); }
 .wwd-hero .page-hero__grid { grid-template-columns: 1fr minmax(0, 316px); }
 .wwd-hero__title { font-size: clamp(2.25rem, 1.2rem + 3.2vw, 3.725rem); line-height: 1.195; letter-spacing: -0.01em; max-width: 11em; }
 .wwd-hero__aside { font-size: clamp(1.1rem, 1rem + 0.45vw, 1.375rem); line-height: 1.5; color: var(--ink); padding-top: 9px; }
@@ -130,7 +129,8 @@
 .wwd-industries-title { max-width: 13.5em; margin-bottom: clamp(32px, 3.6vw, 48px); font-size: clamp(1.9rem, 1.3rem + 1.95vw, 3rem); line-height: 1.333; }
 .wwd-industries .media-card__title { margin-top: clamp(18px, 1.8vw, 24px); font-size: clamp(1.3rem, 1.2rem + 0.4vw, 1.58rem); line-height: 1.3; }
 .wwd-industries .media-card__text { margin-top: 12px; font-size: clamp(0.95rem, 0.92rem + 0.15vw, 1.06rem); line-height: 1.5; }
-.wwd-industries { display: grid; grid-template-columns: 1fr 1fr; gap: 32px 43px; }
+.wwd-industries { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 30px; }
+@media (max-width: 899px) { .wwd-industries { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .wwd-industries { grid-template-columns: 1fr; } }
 
 /* ---------- Closing CTA (sized to this page's mockup) ---------- */
@@ -138,6 +138,4 @@
 .wwd-cta .cta-band__grid { grid-template-columns: 1fr minmax(0, 462px); align-items: start; }
 .wwd-cta h2 { font-size: var(--wwd-title); line-height: 1.34; }
 .wwd-cta .cta-band__aside p { font-size: clamp(1.05rem, 1rem + 0.3vw, 1.28rem); line-height: 1.46; margin-bottom: 26px; }
-.wwd-cta .btn { min-height: 55px; min-width: 229px; padding: 12px 30px 12px 25px; font-size: clamp(1rem, 0.95rem + 0.2vw, 1.14rem); }
-.wwd-cta .btn .arw { width: 12px; height: 12px; }
 @media (max-width: 760px) { .wwd-cta .cta-band__grid { grid-template-columns: 1fr; } }
