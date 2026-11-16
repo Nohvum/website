@@ -154,6 +154,7 @@
     }
 
     if (prev < 0 || !motionOK()) {
+      panelsWrap.style.height = "";
       setStatic(i);
       if (prev >= 0) emphasise(panels[i]);
       return;
@@ -170,6 +171,7 @@
     running = [];
     // Whatever is on screen now (normally the previous panel, or one still mid-fade) fades out.
     var out = panels.filter(function (p) { return !p.hidden && p !== next; });
+    var fromH = panelsWrap.getBoundingClientRect().height;   // the panel area eases from this to the new panel's height
     var outOpacity = out.length ? parseFloat(getComputedStyle(out[0]).opacity) : 0;
     next.hidden = true;
     var fadeOut;
@@ -185,6 +187,13 @@
       out.forEach(function (p) { p.hidden = true; p.style.opacity = ""; });
       next.style.opacity = "0";
       next.hidden = false;
+      panelsWrap.style.height = "";
+      var toH = panelsWrap.getBoundingClientRect().height;
+      if (Math.abs(toH - fromH) > 1) {
+        var h = M.animate(panelsWrap, { height: [fromH + "px", toH + "px"] }, { duration: 0.35, ease: ease });
+        running.push(h);
+        h.finished.then(function () { if (token === switchToken) panelsWrap.style.height = ""; });
+      }
       var b = M.animate(next, { opacity: [0, 1] }, { duration: 0.25, ease: ease });
       running.push(b);
       b.finished.then(function () { if (token === switchToken) next.style.opacity = ""; });
@@ -198,11 +207,23 @@
   cubes = window.NohvumCubes ? window.NohvumCubes.create(chart, {
     initial: start,
     name: function (k) { return tabs[k].querySelector(".ring-pill__name").textContent; },
-    onChange: function (k) { select(k, { focus: false }); }
+    onChange: function (k) { select(k, { focus: false }); toTop(); }
   }) : null;
 
+  // Choosing a service brings the cube scene to the top of the window, its pills just under the sticky
+  // header, so the scene and the panel it opens fill the screen. (The scene's box starts above the pills,
+  // so the pills set the line.)
+  function toTop() {
+    var header = document.querySelector(".site-header");
+    var gap = (header ? header.getBoundingClientRect().height : 0) + 24;
+    var top = Math.min.apply(null, tabs.map(function (t) { return t.getBoundingClientRect().top; }));
+    var y = Math.max(0, Math.round(top + window.scrollY - gap));
+    if (Math.abs(y - window.scrollY) < 4) return;
+    window.scrollTo({ top: y, behavior: motionOK() ? "smooth" : "auto" });
+  }
+
   if (!cubes) tabs.forEach(function (t, i) {
-    t.addEventListener("click", function () { select(i, { focus: false }); });
+    t.addEventListener("click", function () { select(i, { focus: false }); toTop(); });
     t.addEventListener("keydown", function (e) {
       var k = e.key, n = tabs.length, to = -1;
       if (k === "ArrowRight" || k === "ArrowDown") to = (i + 1) % n;
@@ -225,7 +246,6 @@
     }
   });
 
-  panelsWrap.classList.add("is-tabs");
   select(start, { initial: true });
 
   panels.forEach(function (p) { artReady[p.getAttribute("data-service")] = prepareArt(p); });

@@ -81,7 +81,7 @@
 <path d="M824 682V719Q824 741 802 741H669" stroke="#90998B" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a)"/>
 <path d="M550 772H675" stroke="#171717" stroke-width="5" fill="none" stroke-linejoin="round" stroke-linecap="round" />
 <circle cx="613" cy="772" r="24" fill="none" stroke="#A3AD9A" stroke-width="1.5"/>
-<circle cx="613" cy="772" r="21" fill="#FFFFFF"/>
+<circle cx="613" cy="772" r="21" fill="#F5F6F1"/>
 <path d="M603 772l7 7 15 -18" stroke="#F15A29" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round" />
 <path d="M613 799V834Q613 852 592 852H425" stroke="#90998B" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a)"/>
 </svg>

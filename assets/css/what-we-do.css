@@ -6,17 +6,31 @@
   --wwd-copy: #5f5f5f;
   --wwd-bullet: #7e7e7e;
   --wwd-title: clamp(2.2rem, 1.2rem + 2.75vw, 3.3rem);
+  /* empty space above the cube scene (hero text to the pills) and below it (lowest cube line to the panel title) */
+  --wwd-scene-gap: clamp(35px, 4.16vw, 60px);
+  --wwd-hero-title: clamp(2.25rem, 1.2rem + 3.2vw, 3.725rem);
+  --wwd-hero-aside: clamp(1.1rem, 1rem + 0.45vw, 1.375rem);
+  /* empty space above the Industries headline (from the selected panel's lowest line) and below its taglines */
+  --wwd-ind-gap: clamp(64px, 8.57vw, 117px);
+  --wwd-ind-title: clamp(1.9rem, 1.3rem + 1.95vw, 3rem);
+  --wwd-list: clamp(1.02rem, 0.96rem + 0.25vw, 1.18rem);
 }
 
 /* ---------- Hero (inner-page hero, tuned to this page's mockup) ---------- */
-.wwd-hero { padding-block: clamp(24px, 2.8vw, 40px) clamp(40px, 4.8vw, 66px); }
+/* The gap above the cubes runs from the hero's last baseline (the eye ignores descenders) to the pills: the bottom
+   padding is that gap less cubes.js's 12px of headroom above the pills and the line box's depth below the baseline. */
+.wwd-hero { padding-block: clamp(24px, 2.8vw, 40px) calc(var(--wwd-scene-gap) - 12px - 0.212 * var(--wwd-hero-title)); border-bottom: 0; }
 .wwd-hero .page-hero__grid { grid-template-columns: 1fr minmax(0, 316px); }
-.wwd-hero__title { font-size: clamp(2.25rem, 1.2rem + 3.2vw, 3.725rem); line-height: 1.195; letter-spacing: -0.01em; max-width: 11em; }
-.wwd-hero__aside { font-size: clamp(1.1rem, 1rem + 0.45vw, 1.375rem); line-height: 1.5; color: var(--ink); padding-top: 9px; }
-@media (max-width: 760px) { .wwd-hero .page-hero__grid { grid-template-columns: 1fr; } .wwd-hero__aside { padding-top: 0; max-width: 32em; } }
+.wwd-hero__title { font-size: var(--wwd-hero-title); line-height: 1.195; letter-spacing: -0.01em; max-width: 11em; }
+.wwd-hero__aside { font-size: var(--wwd-hero-aside); line-height: 1.5; color: var(--ink); padding-top: 9px; }
+@media (max-width: 760px) {
+  .wwd-hero .page-hero__grid { grid-template-columns: 1fr; } .wwd-hero__aside { padding-top: 0; max-width: 32em; }
+  .wwd-hero { padding-bottom: calc(var(--wwd-scene-gap) - 12px - 0.356 * var(--wwd-hero-aside)); }   /* the aside is the last line here */
+}
+@media (max-width: 719px) { .wwd-hero { padding-bottom: calc(var(--wwd-scene-gap) - 8px - 0.356 * var(--wwd-hero-aside)); } }   /* compact scene: 8px headroom */
 
 /* ---------- Services: chart + panels ---------- */
-.wwd-services { padding-block: clamp(24px, 2.6vw, 36px) clamp(64px, 7.6vw, 104px); overflow-x: clip; }
+.wwd-services { padding-block: 0; overflow-x: clip; }
 
 /* Service cubes: drawn on canvas by cubes.js the same way the framework ring is (ring.css supplies the
    pills). The scene spans the page width; its height is 80% of the earlier chart's (0.4215 × container). */
@@ -24,18 +38,17 @@
   position: relative; width: 100vw; margin-left: calc(50% - 50vw);
   height: max(230px, calc(0.337 * min(var(--container), 100vw - 2 * var(--gutter))));
   user-select: none; -webkit-user-select: none;
+  isolation: isolate;   /* the pills' z-index stays inside the scene, under the sticky header */
 }
-.cubes__canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-.cubes .ring-pill { font-size: 0.95rem; }
-.cubes.is-compact .ring-pill { padding: 7px 10px; font-size: 0.72rem; gap: 6px; }
-.cubes.is-compact .ring-pill svg { width: 15px; height: 15px; }
-/* On phones four labelled pills don't fit across: show icon and number, keep the name for assistive tech
-   (the panel title right below names the selected service). */
-.cubes.is-compact .ring-pill__sep { display: none; }
-.cubes.is-compact .ring-pill__name { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+/* The canvas bleeds past the scene's top and bottom so the selected cube's glow fades out instead of being
+   cut at the edge; it ignores the pointer (cubes.js listens on .cubes) so it never blocks what it overlaps. */
+.cubes__canvas { position: absolute; left: 0; top: -160px; width: 100%; height: calc(100% + 320px); display: block; pointer-events: none; }
+.cubes .ring-pill { font-size: 0.95rem; padding-inline: 16px; }
+/* Name-only pills; on phones they shrink so all four names fit across. */
+.cubes.is-compact .ring-pill { padding: 7px 9px; font-size: 0.66rem; letter-spacing: 0.02em; }
 
 /* Panels */
-.wwd-panels { padding-top: clamp(40px, 4.55vw, 62px); }
+.wwd-panels { padding-top: calc(var(--wwd-scene-gap) + 5px - 0.2 * var(--wwd-title) - 2px); }   /* the gap below the cubes is 5px more than above; less the title's leading above its capitals and the cubes' 2px footing */
 .wwd-panel { display: grid; }
 .wwd-panel:focus-visible { outline: 2px solid var(--orange); outline-offset: 12px; }
 .wwd-panel[hidden] { display: none; }
@@ -47,7 +60,7 @@
 .wwd-panel__list { list-style: none; padding: 0; margin: clamp(6px, 0.66vw, 9px) 0 0; }
 .wwd-panel__list li {
   position: relative; padding-left: 20px;
-  font-size: clamp(1.02rem, 0.96rem + 0.25vw, 1.18rem); line-height: 1.91; color: var(--wwd-copy);
+  font-size: var(--wwd-list); line-height: 1.91; color: var(--wwd-copy);
 }
 .wwd-panel__list li::before { content: ""; position: absolute; left: 0; top: calc(0.955em - 4px); width: 8px; height: 8px; border-radius: 50%; background: var(--wwd-bullet); }
 
@@ -57,32 +70,46 @@
 .wwd-panel__art .wwd-fx { transform-box: fill-box; transform-origin: center; }
 
 @media (min-width: 1180px) {
-  /* All panels share one grid cell so the page height does not jump between tabs. */
-  .wwd-panels.is-tabs { display: grid; }
-  .wwd-panels.is-tabs > .wwd-panel { grid-area: 1 / 1; }
-  .wwd-panels.is-tabs > .wwd-panel[hidden] { display: grid; visibility: hidden; }
+  /* Only the selected panel takes space: the panel area eases to its height on a tab change (what-we-do.js),
+     so the gap down to the Industries headline is the same on every tab. The drawings' --b already ends each
+     panel on the drawing's lowest line; Build ends on its list, so its trailing line spacing is trimmed. */
+  .wwd-panel[data-service="build"] { margin-bottom: calc(-0.54 * var(--wwd-list)); }
   .wwd-panel__text { min-height: 5em; }
   .wwd-panel__art { width: var(--w); margin: var(--t) 0 var(--b, 0) var(--l); }
-  .wwd-panel[data-service="build"]     .wwd-panel__art { --l: 43.95%; --w: 63.6%;  --t: -1.66%; --b: 0%; }
-  .wwd-panel[data-service="modernize"] .wwd-panel__art { --l: 43.6%;  --w: 57.55%; --t: 3.15%;  --b: 0%; }
-  .wwd-panel[data-service="run"]       .wwd-panel__art { --l: 36.98%; --w: 70.9%;  --t: -2.74%; --b: -3.23%; }
-  .wwd-panel[data-service="secure"]    .wwd-panel__art { --l: 32.26%; --w: 76.87%; --t: -5.39%; --b: -3.48%; }
+  /* --l centres the drawing (its inked centre sits at --c of the image width) on the midpoint between the Run
+     and Secure cubes. cubes.js spaces the cubes across the full viewport: D = (100vw - 2 * edge) / 4 with
+     edge = clamp(16px, 2.2vw, 32px), centred on the page, so that midpoint is half the panel plus one D. */
+  .wwd-panel__art { --l: calc(50% + (100vw - 2 * clamp(16px, 2.2vw, 32px)) / 4 - var(--w) * var(--c)); }
+  /* Each drawing is scaled so it stands about as tall as the copy beside it (the
+     artwork's own margins are left out of the sizing), and its top lines up with the panel title.
+     --t and --b trim the empty margin above and below the drawing inside each SVG. */
+  .wwd-panel[data-service="build"]     .wwd-panel__art { --c: 0.5035; --w: 55%;    --t: -3.36%; --b: 0%; }
+  .wwd-panel[data-service="modernize"] .wwd-panel__art { --c: 0.498;  --w: 50.8%;  --t: -2.79%; --b: -0.51%; }
+  .wwd-panel[data-service="run"]       .wwd-panel__art { --c: 0.4705; --w: 54.6%;  --t: -3.28%; --b: -0.79%; }
+  .wwd-panel[data-service="secure"]    .wwd-panel__art { --c: 0.4755; --w: 53.73%; --t: -3.52%; --b: -2.45%; }
 }
 
 @media (max-width: 1179px) {
   .wwd-panel__art { grid-area: auto; width: 100%; max-width: 760px; margin: clamp(24px, 4vw, 40px) auto 0; }
+  /* The drawing ends the panel here: trim the empty margin under it inside each SVG (as a share of its width) so
+     the gap down to the Industries headline is the same on every tab. */
+  .wwd-panel__art > img, .wwd-panel__art > svg { display: block; margin-bottom: calc(-1 * var(--trim, 0%)); }
+  .wwd-panel[data-service="modernize"] { --trim: 0.87%; }
+  .wwd-panel[data-service="run"]       { --trim: 1.37%; }
+  .wwd-panel[data-service="secure"]    { --trim: 4.5%; }
 }
 @media (max-width: 719px) {
   .wwd-panel__art { max-width: none; }
   .wwd-panel[data-service="build"]     .wwd-panel__art { width: 112%; margin-left: -8%; }
   .wwd-panel[data-service="modernize"] .wwd-panel__art { width: 112%; margin-left: -6%; }
-  .wwd-panel[data-service="run"]       .wwd-panel__art { width: 116%; margin-left: -10%; margin-bottom: -6%; }
-  .wwd-panel[data-service="secure"]    .wwd-panel__art { width: 118%; margin-left: -12%; margin-top: 0; margin-bottom: -6%; }
+  .wwd-panel[data-service="run"]       .wwd-panel__art { width: 116%; margin-left: -10%; }
+  .wwd-panel[data-service="secure"]    .wwd-panel__art { width: 118%; margin-left: -12%; margin-top: 0; }
 }
 
 /* ---------- Industries ---------- */
-.wwd-industries-section { padding-block: clamp(64px, 7.6vw, 104px) clamp(64px, 8.57vw, 117px); }
-.wwd-industries-title { max-width: 13.5em; margin-bottom: clamp(32px, 3.6vw, 48px); font-size: clamp(1.9rem, 1.3rem + 1.95vw, 3rem); line-height: 1.333; }
+/* Top and bottom padding less the headline's leading above its capitals and the taglines' below their last line */
+.wwd-industries-section { padding-block: calc(var(--wwd-ind-gap) - 0.32 * var(--wwd-ind-title)) calc(var(--wwd-ind-gap) - 2px); }
+.wwd-industries-title { max-width: 13.5em; margin-bottom: clamp(32px, 3.6vw, 48px); font-size: var(--wwd-ind-title); line-height: 1.333; }
 .wwd-industries .media-card__title { margin-top: clamp(18px, 1.8vw, 24px); font-size: clamp(1.3rem, 1.2rem + 0.4vw, 1.58rem); line-height: 1.3; }
 .wwd-industries .media-card__text { margin-top: 12px; font-size: clamp(0.95rem, 0.92rem + 0.15vw, 1.06rem); line-height: 1.5; }
 .wwd-industries { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 30px; }

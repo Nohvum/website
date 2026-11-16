@@ -1,7 +1,6 @@
 /* Lifecycle ring — ported from the "Delivery Loop" reference. Used on the framework page and the home hero.
    A 3D ribbon loop of six stages is drawn on canvas; HTML pills ride the nodes.
-   - mode "select" (framework): the pills are an ARIA tablist; the selected stage settles front-centre and a
-     connector drops from it to the stage detail section below.
+   - mode "select" (framework): the pills are an ARIA tablist; the selected stage settles front-centre.
    - mode "overview" (home): no selection. The ring sits at a fixed elevation and in-plane roll and turns at a
      steady rate about its own axis (no pointer or drag influence); each stage is a link.
      In overview the ring is scaled to fill its box (less room for the labels), up to maxScale.
@@ -47,7 +46,7 @@
     var pad2 = function (n) { return String(n).padStart(2, "0"); };
 
     // palette (site tokens: ink #171717, orange #f15a29)
-    var T = { strand: [118, 112, 106], hot: [241, 90, 41], ring: [255, 255, 255], alpha: 0.3 };
+    var T = { strand: [118, 112, 106], hot: [241, 90, 41], ring: [245, 246, 241], alpha: 0.3 };   // node fill: the page colour (--bg)
 
     // animated state
     var yaw = motionValue(REST + (reduced ? 0 : 0.9));
@@ -59,7 +58,6 @@
     var hoverAmt = btns.map(function () { return motionValue(0); });
     var yawTarget = 0, active = null, hoverIdx = null, t = 0;
     var dragging = false, visible = true;
-    var link = motionValue(0), linkOn = false;   // connector from the front stage down to the content
 
     var pState = btns.map(function () { return { h: false, p: false }; });
     function pillScale(i) {
@@ -110,8 +108,10 @@
       var padX = compact ? 34 : (opts.pad != null ? opts.pad : 76), padY = compact ? 40 : 56;
       var S = Math.min((W - 2 * padX) / (BOX.x1 - BOX.x0), (H - 2 * padY) / (BOX.y1 - BOX.y0), SMAX);
       S = Math.max(90, S);
-      // align "end": hug the right edge when the box is wider than the ring needs (e.g. at maxScale)
-      FIT.S = S; FIT.cx = opts.align === "end" ? W - padX - S * BOX.x1 : W / 2 - S * (BOX.x0 + BOX.x1) / 2; FIT.cy = H / 2 - S * (BOX.y0 + BOX.y1) / 2;
+      // align "end": hug the right edge when the box is wider than the ring needs (e.g. at maxScale);
+      // a function is asked again at every layout, so the alignment can follow the window
+      var align = typeof opts.align === "function" ? opts.align() : opts.align;
+      FIT.S = S; FIT.cx = align === "end" ? W - padX - S * BOX.x1 : W / 2 - S * (BOX.x0 + BOX.x1) / 2; FIT.cy = H / 2 - S * (BOX.y0 + BOX.y1) / 2;
     }
     function params(s) {
       var E = (overview ? (opts.elevation || 40) : lerp(23, 15, s)) * DEG;
@@ -140,6 +140,13 @@
       cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
       compact = W < (overview ? 500 : 620); root.classList.toggle("is-compact", compact);
       if (overview) layoutOverview();
+      else {
+        // select mode: below the settled front stage there is only glow (the connector that used to drop
+        // there is gone), so the content below is pulled up to 16px under the ribbon's lowest edge there
+        var P1 = params(1), cy1 = selectedCy(), low = 0;
+        for (var e = -1; e <= 1; e += 2) low = Math.max(low, project(0, -P1.wave + e * P1.rw, -(1 + e * P1.rw), P1, 0, cy1)[1]);
+        root.style.marginBottom = (-Math.max(0, H - low - 16)).toFixed(1) + "px";
+      }
       if (!visible || reduced) draw();
     }
 
@@ -241,26 +248,6 @@
         el.style.zIndex = isA ? 200 : Math.round(100 - q[2] * 50);
         el.style.opacity = isA ? 1 : (0.62 + 0.38 * fz).toFixed(3);
       }
-
-      // connector: once the turn settles, a line drops from the front stage to the hero's bottom edge,
-      // right above the detail section it has opened
-      if (active !== null) {
-        var settled = !dragging && s > 0.75 && Math.abs(wrap(yawTarget - yw)) < 0.12;
-        if (settled !== linkOn) { linkOn = settled; animate(link, settled ? 1 : 0, tr(settled ? { duration: 0.5, ease: [0.22, 1, 0.36, 1] } : { duration: 0.12 })); }
-        var lk = link.get();
-        if (lk > 0.01) {
-          var x0 = G.nx[active], y0 = G.ny[active] + 9, y1 = H - 5;
-          var yEnd = y0 + (y1 - y0) * lk;
-          var lg = ctx.createLinearGradient(0, y0, 0, y1);
-          lg.addColorStop(0, "rgba(" + T.hot + ",0.95)"); lg.addColorStop(1, "rgba(" + T.hot + ",0.55)");
-          ctx.strokeStyle = lg; ctx.lineWidth = 1.25;
-          ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, yEnd); ctx.stroke();
-          if (lk > 0.96) {
-            ctx.fillStyle = "rgb(" + T.hot + ")";
-            ctx.beginPath(); ctx.arc(x0, y1, 3.5 * (lk - 0.96) / 0.04, 0, TAU); ctx.fill();
-          }
-        }
-      }
     }
 
     // selection: the chosen stage turns to the front (−90° on the ring) and the ring flattens into focus
@@ -279,7 +266,7 @@
       if (prev !== null) pillScale(prev);
       pillScale(i);
       if (live) live.textContent = opts.name(i) + " stage selected";
-      if (o.instant || reduced) { link.jump(1); linkOn = true; draw(); }
+      if (o.instant || reduced) draw();
     }
     function userSelect(i) { i = (i + N) % N; select(i); if (opts.onChange) opts.onChange(i); }
 
@@ -360,7 +347,7 @@
     }, true);
 
     // opening: the ribbon draws itself around the loop while it settles, labels arrive in order,
-    // then the initial stage turns to the front and the connector drops to its content
+    // then the initial stage turns to the front
     var initial = opts.initial || 0;
     if (overview) {
       if (reduced) { intro.jump(1); }

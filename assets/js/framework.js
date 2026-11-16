@@ -16,7 +16,7 @@
   var COUNT = STAGES.length;
   var mod = function (a, n) { return ((a % n) + n) % n; };
 
-  var selected = 1;
+  var selected = 0;
   var ring = null;
 
   /* ------------------------------------------------------------------------------- panels */
@@ -135,7 +135,7 @@
   if (nextBtn) nextBtn.addEventListener("click", function () { select(selected + 1, { dir: 1 }); });
 
   var fromHash = STAGES.indexOf((location.hash || "").slice(1).toLowerCase());
-  var initial = fromHash >= 0 ? fromHash : 1;
+  var initial = fromHash >= 0 ? fromHash : 0;
   select(initial, { instant: true, force: true, initial: true });
   if (window.NohvumRing) {
     ring = window.NohvumRing.create(document.querySelector("[data-ring]"), {

@@ -24,9 +24,9 @@
   --sage: #e8ebe4;
   --sage-line: #c6cdc1;
 
-  --bg: #ffffff;
+  --bg: #f5f6f1;        /* the nav bar colour (--bg-hero): no pure white anywhere */
   --bg-hero: #f5f6f1;
-  --bg-soft: #fafaf8;
+  --bg-soft: #f5f6f1;
   --bg-tint: #f6f6f4;
   --bg-footer: #f2f2f2;
   --bg-footer-bar: #e9e8e8;
@@ -93,6 +93,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .section--tint { background: var(--bg-tint); }
 .section--dark { background: var(--bg-dark); color: var(--text-on-dark); }
 .rule { border: 0; border-top: 1px solid var(--line); margin: 0; }
+.nowrap { white-space: nowrap; }
 
 /* ---------- Type ---------- */
 .display { font-size: var(--fs-display); font-weight: 300; line-height: 1.06; letter-spacing: -0.025em; }
@@ -122,7 +123,7 @@ a:hover > .arw, button:hover > .arw, a:focus-visible > .arw, button:focus-visibl
   transition: background-color var(--dur-fast), color var(--dur-fast), border-color var(--dur-fast);
 }
 .btn:hover { background: #000; }
-.btn--light { background: #fff; color: var(--ink); border-color: #fff; }
+.btn--light { background: var(--bg); color: var(--ink); border-color: var(--bg); }
 .btn--light:hover { background: #ececea; border-color: #ececea; }
 .btn[disabled], .btn[aria-disabled="true"] { opacity: 0.6; cursor: progress; }
 
@@ -241,7 +242,7 @@ a.media-card:hover .media-card__img img { transform: scale(1.025); }
 .field { display: grid; gap: 8px; }
 .field label, .field .field__label { font-size: 0.95rem; color: var(--ink); }
 .field input, .field textarea, .field select {
-  width: 100%; border: 1px solid #c4c4c4; background: #fff; padding: 12px 14px;
+  width: 100%; border: 1px solid #c4c4c4; background: var(--bg); padding: 12px 14px;
   font-size: 0.9rem; font-weight: 350; border-radius: 0; color: var(--ink);
   transition: border-color var(--dur-fast), box-shadow var(--dur-fast);
 }

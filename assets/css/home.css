@@ -9,12 +9,11 @@
   padding-block: var(--hero-pad); overflow: hidden;
 }
 /* The hero sits in its own centred frame (equal margins left and right at every width), wider than the page
-   container so the ring can reach the framework page ring's size. Copy on the left, capped (heading tops out at
-   --fs-display's 4.2rem, column at 680px); the ring takes the rest. The frame max is that 680px plus the
-   width the ring needs at its maxScale (407px × its 2.22 outline width + 152px for the labels), less the
-   60px the ring's box reaches into the right margin. */
+   container so the ring has room. Copy on the left (heading tops out at --fs-display's 4.2rem); the ring takes
+   the right half. The frame is centred, so splitting it at 50% puts the ring's box, and so its left edge, on
+   or right of the middle of the page at every width. */
 .hero__grid {
-  display: grid; grid-template-columns: min(50%, 680px) minmax(0, 1fr); gap: 0; align-items: center;
+  display: grid; grid-template-columns: 50% minmax(0, 1fr); gap: 0; align-items: center;
   width: min(100% - 2 * var(--gutter), 1676px);
 }
 .hero__copy { position: relative; z-index: 1; max-width: 610px; margin-right: clamp(16px, 2vw, 32px); }
@@ -29,7 +28,8 @@
 .hero__art { position: relative; margin-right: calc(-1 * min(60px, var(--gutter) * 0.75)); }
 .hero__art .ring { height: clamp(380px, min(40vw, 100svh - var(--header-h) - 2 * var(--hero-pad)), 880px); background: radial-gradient(closest-side at 50% 50%, rgba(253, 241, 230, 0.9), rgba(253, 241, 230, 0)); }
 .hero__art .ring__pills { list-style: none; margin: 0; padding: 0; }
-@media (max-width: 899px) {
+/* Narrow or portrait windows stack the copy above the ring, which is then centred on the page */
+@media (max-width: 899px), (orientation: portrait) {
   .hero__grid { grid-template-columns: 1fr; width: min(100% - 2 * var(--gutter), var(--container)); }
   .hero__copy { max-width: none; margin-right: 0; }
   .hero__art { margin: 8px calc(var(--gutter) * -1) 0; }  /* phones: the ring runs edge to edge */
@@ -131,9 +131,11 @@
 
 /* Services */
 .services { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(16px, 2vw, 30px); list-style: none; padding: 0; margin: clamp(40px, 4vw, 58px) 0 0; }
-.services li { display: flex; border: 1px solid #dedede; border-top: 2px solid var(--orange); background: #fff; box-shadow: 0 0 0 rgba(17, 17, 17, 0); transition: border-color 300ms var(--ease-out), box-shadow 300ms var(--ease-out), translate 300ms var(--ease-out); }
-.services li:hover, .services li:focus-within { border-color: #c8c8c8; border-top-color: var(--orange); box-shadow: 0 14px 32px -12px rgba(17, 17, 17, 0.18), 0 4px 10px -4px rgba(17, 17, 17, 0.08); translate: 0 -3px; } /* translate, not transform: the reveal leaves an inline transform */
-@media (prefers-reduced-motion: reduce) { .services li, .services__name .arw { transition: none; } .services li:hover, .services li:focus-within { translate: none; } }
+.services li { display: flex; border: 1px solid #dedede; border-top: 2px solid var(--orange); background: var(--bg); }
+/* Shared card lift: the service links and the (non-clickable) engagement cards */
+.services li, .engage__card { box-shadow: 0 0 0 rgba(17, 17, 17, 0); transition: border-color 300ms var(--ease-out), box-shadow 300ms var(--ease-out), translate 300ms var(--ease-out); }
+.services li:hover, .services li:focus-within, .engage__card:hover { border-color: #c8c8c8; border-top-color: var(--orange); box-shadow: 0 14px 32px -12px rgba(17, 17, 17, 0.18), 0 4px 10px -4px rgba(17, 17, 17, 0.08); translate: 0 -3px; } /* translate, not transform: the reveal leaves an inline transform */
+@media (prefers-reduced-motion: reduce) { .services li, .engage__card, .services__name .arw { transition: none; } .services li:hover, .services li:focus-within, .engage__card:hover { translate: none; } }
 .services a { display: block; width: 100%; padding: 30px 28px; text-decoration: none; color: inherit; }
 .services__name { display: flex; align-items: center; gap: 12px; font-size: clamp(1.5rem, 1.2rem + 0.9vw, 1.95rem); font-weight: 300; margin-bottom: 18px; transition: color var(--dur-fast); }
 .services a:hover .services__name { color: var(--orange-text); }
@@ -160,7 +162,7 @@
 /* Engagement. Top gap is half the old gap between the services and engagement sections (two section paddings). */
 .engage__title { margin-top: clamp(64px, 8vw, 120px); }
 .engage { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px; list-style: none; padding: 0; margin: clamp(40px, 4vw, 58px) 0 0; }
-.engage__card { border: 1px solid #dedede; border-top: 2px solid var(--orange); padding: 30px 28px 30px; background: #fff; }
+.engage__card { border: 1px solid #dedede; border-top: 2px solid var(--orange); padding: 30px 28px 30px; background: var(--bg); }
 .engage__card > img { width: 56px; height: 56px; margin: 0 0 22px -6px; }
 .engage__name { font-size: clamp(1.45rem, 1.25rem + 0.5vw, 1.75rem); font-weight: 350; line-height: 1.25; }
 .engage__model { color: var(--text-2); font-size: 1.12rem; margin-top: 8px; padding-bottom: 20px; border-bottom: 1px solid #dedede; }

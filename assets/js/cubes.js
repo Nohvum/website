@@ -1,8 +1,7 @@
 /* Service cubes (What We Do) — built the same way as the lifecycle ring (ring.js): a canvas scene drawn
    on Motion's frameloop, with HTML pills (the ARIA tablist) riding the projected geometry.
    Four wireframe cubes stand on a woven ribbon that runs the width of the page. The selected cube turns a
-   quarter on a spring, lifts and glows orange, the ribbon warms around it, and once it settles a connector
-   drops from it to the panel below.
+   quarter on a spring, lifts and glows orange, and the ribbon warms around it.
    API: window.NohvumCubes.create(root, { initial, name(i), onChange(i) }) → { select(i, opts), active() } */
 (function () {
   "use strict";
@@ -31,7 +30,7 @@
     var POP = { type: "spring", visualDuration: 0.3, bounce: 0.3 };
 
     // palette: the ring's (site tokens: ink #171717, orange #f15a29)
-    var T = { strand: [118, 112, 106], hot: [241, 90, 41], white: [255, 255, 255], alpha: 0.3 };
+    var T = { strand: [118, 112, 106], hot: [241, 90, 41], white: [245, 246, 241], alpha: 0.3 };   // "white" is the page colour (--bg)
     var rgba = function (c, a) { return "rgba(" + c[0] + "," + c[1] + "," + c[2] + "," + a + ")"; };
     var mix = function (g) {
       return [Math.round(lerp(T.strand[0], T.hot[0], g)), Math.round(lerp(T.strand[1], T.hot[1], g)), Math.round(lerp(T.strand[2], T.hot[2], g))];
@@ -45,7 +44,6 @@
     var hoverAmt = btns.map(function () { return motionValue(0); });
     var spinTarget = btns.map(function () { return 0; });
     var active = null, hoverIdx = null, t = 0, visible = true;
-    var link = motionValue(0), linkOn = false;
 
     var pState = btns.map(function () { return { h: false, p: false }; });
     function pillScale(i) {
@@ -74,7 +72,7 @@
        World units are CSS pixels, centred on the canvas: x right, y up, z away from the viewer.
        The camera looks down at E degrees with a perspective (F), as the ring does. */
     var E = 28 * DEG, ce = Math.cos(E), se = Math.sin(E), F = 9000;   // long lens: the row spans the page, so cubes at the ends must not lean
-    var W = 0, H = 0, dpr = 1, compact = false;
+    var W = 0, H = 0, dpr = 1, compact = false, OY = 0, BH = 0;   // OY, BH: the canvas bleeds OY px above the scene, BH tall
     var D = 0, C = 0, CX = 0, CY = 0, PILL_Y = 0, DROP = 40;
     var Q = [0, 0, 0, 0];
     function project(x, y, z) {
@@ -85,24 +83,34 @@
     var cubeX = function (i) { return (i - (N - 1) / 2) * D; };
 
     function resize() {
-      var r = root.getBoundingClientRect();
-      W = r.width; H = r.height; dpr = Math.min(2, window.devicePixelRatio || 1);
-      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+      var r = root.getBoundingClientRect(), cr = cv.getBoundingClientRect();
+      W = r.width; H = r.height; OY = r.top - cr.top; BH = cr.height;
+      dpr = Math.min(2, window.devicePixelRatio || 1);
+      cv.width = Math.round(W * dpr); cv.height = Math.round(BH * dpr);
       compact = W < 720; root.classList.toggle("is-compact", compact);
       var edge = clamp(W * 0.022, 16, 32);
       D = (W - 2 * edge) / N;
       var pillH = compact ? 30 : 38;
+      // DROP was the room for the connector under the selected cube; it still sizes the cubes so they stay as
+      // large as before, but the cubes now stand on the scene's bottom edge (2px keeps the lowest line whole)
       DROP = Math.max(compact ? 26 : 34, H * 0.09);
-      // the cube's on-screen height is about 3.1 half-sides (vertical edges plus the lid's diagonal)
-      C = Math.max(12, Math.min(D * (compact ? 0.25 : 0.21), (H - DROP - pillH - (compact ? 40 : 64)) / 3.25));
+      // the cube's on-screen height is about 3.1 half-sides (vertical edges plus the lid's diagonal);
+      // SIZE draws the cubes (and the ribbon and floor sized to them) smaller than the space allows
+      var SIZE = 0.85, K2 = ce + Math.SQRT2 * se;
+      var fit = Math.max(12, Math.min(D * (compact ? 0.25 : 0.21), (H - DROP - pillH - (compact ? 40 : 64)) / 3.25));
+      C = Math.max(12, SIZE * fit);
       CX = W / 2;
-      CY = H - DROP - C * (ce + Math.SQRT2 * se) - 6;
+      CY = H - C * K2 - 2;
       PILL_Y = Math.max(pillH / 2 + 4, CY - C * (ce + Math.SQRT2 * se) - (compact ? 22 : 38) - pillH / 2);
+      // the scene stands on its bottom edge, so the space above the pills is empty: pull the scene up
+      // until only a little headroom is left above them (the canvas bleed keeps the glow uncut)
+      var HEAD = compact ? 8 : 12;
+      root.style.marginTop = (-Math.max(0, PILL_Y - pillH / 2 - HEAD)).toFixed(1) + "px";
       if (!visible || reduced) draw();
     }
 
     // ribbon samples
-    var M = 260, K = 16, CH = 4;
+    var M = 260, K = 22, CH = 4;
     var px = new Float32Array(M + 1), py = new Float32Array(M + 1), pz = new Float32Array(M + 1);
 
     function heatAtU(u) {
@@ -237,10 +245,11 @@
       if (W <= 0) return;
       var drawn = intro.get(), i, j, k;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      ctx.clearRect(0, 0, W, H);
+      ctx.clearRect(0, 0, W, BH);
+      ctx.translate(0, OY);   // draw in scene coordinates; the bleed lets the glow fade out past the scene's edges
 
       // ribbon: K strands woven along the row, pinched at each cube, fading at the page edges
-      var x0 = -W / 2, x1 = W / 2, rw = C * 0.6, heat = new Float32Array(M + 1);
+      var x0 = -W / 2, x1 = W / 2, rw = C * 0.95, heat = new Float32Array(M + 1);
       for (j = 0; j <= M; j++) heat[j] = heatAtU((x0 + (x1 - x0) * j / M - cubeX(0)) / D);
       ctx.lineCap = "round";
       for (k = 0; k < K; k++) {
@@ -273,26 +282,6 @@
       }
 
       for (i = 0; i < N; i++) drawCube(i, drawn);
-
-      // connector: once the turn settles, a line drops from the selected cube to the bottom edge,
-      // right above the panel it has opened
-      if (active !== null) {
-        var settled = Math.abs(spinTarget[active] - spinV[active].get()) < 0.06 && liftV[active].get() > 0.85;
-        if (settled !== linkOn) { linkOn = settled; animate(link, settled ? 1 : 0, tr(settled ? { duration: 0.5, ease: [0.22, 1, 0.36, 1] } : { duration: 0.12 })); }
-        var lk = link.get();
-        if (lk > 0.01) {
-          var lx = cubeScreen[active].x, ly0 = cubeScreen[active].bottom + 8, ly1 = H - 4;
-          var yEnd = ly0 + (ly1 - ly0) * lk;
-          var lg = ctx.createLinearGradient(0, ly0, 0, ly1);
-          lg.addColorStop(0, rgba(T.hot, 0.95)); lg.addColorStop(1, rgba(T.hot, 0.55));
-          ctx.strokeStyle = lg; ctx.lineWidth = 1.25;
-          line(lx, ly0, lx, yEnd);
-          if (lk > 0.96) {
-            ctx.fillStyle = rgba(T.hot, 1);
-            ctx.beginPath(); ctx.arc(lx, ly1, 3.5 * (lk - 0.96) / 0.04, 0, TAU); ctx.fill();
-          }
-        }
-      }
     }
 
     /* ------------------------------------------------------------------ selection */
@@ -315,7 +304,7 @@
       if (prev !== null) pillScale(prev);
       pillScale(i);
       if (live && opts.name) live.textContent = opts.name(i) + " selected";
-      if (o.instant || reduced) { link.jump(1); linkOn = true; draw(); }
+      if (o.instant || reduced) draw();
     }
     function userSelect(i) { i = (i + N) % N; select(i); if (opts.onChange) opts.onChange(i); }
 
@@ -340,14 +329,17 @@
       }
       return null;
     }
-    cv.addEventListener("pointermove", function (e) {
-      if (e.pointerType !== "mouse") return;
+    // (the canvas bleeds over its neighbours and ignores the pointer, so the scene box listens; the pills
+    // handle their own hover and click)
+    root.addEventListener("pointermove", function (e) {
+      if (e.pointerType !== "mouse" || e.target.closest(".ring-pill")) return;
       var r = root.getBoundingClientRect(), n = cubeAt(e.clientX - r.left, e.clientY - r.top);
       root.style.cursor = n !== null ? "pointer" : "";
       if (n !== hoverIdx && btns.indexOf(document.activeElement) < 0) setHover(n);
     });
-    cv.addEventListener("pointerleave", function () { root.style.cursor = ""; if (btns.indexOf(document.activeElement) < 0) setHover(null); });
-    cv.addEventListener("click", function (e) {
+    root.addEventListener("pointerleave", function () { root.style.cursor = ""; if (btns.indexOf(document.activeElement) < 0) setHover(null); });
+    root.addEventListener("click", function (e) {
+      if (e.target.closest(".ring-pill")) return;
       var r = root.getBoundingClientRect(), n = cubeAt(e.clientX - r.left, e.clientY - r.top);
       if (n !== null && n !== active) userSelect(n);
     });
@@ -367,7 +359,7 @@
     }, true);
 
     // opening: the ribbon draws across the page while the cubes arrive in order, the pills pop in,
-    // then the initial service turns, lifts and drops its connector
+    // then the initial service turns and lifts
     var initial = opts.initial || 0;
     btns.forEach(function (b, j) { b.setAttribute("aria-selected", j === initial ? "true" : "false"); b.tabIndex = j === initial ? 0 : -1; });
     if (reduced) {

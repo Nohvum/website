@@ -12,8 +12,12 @@
   var homeRing = document.querySelector("[data-home-ring]");
   if (homeRing && window.NohvumRing) {
     window.NohvumRing.create(homeRing, { mode: "overview", elevation: 34, roll: -13, restYaw: -0.75, thickness: 1.15, spin: 0.08,
-      // the framework page ring's largest settled size: 0.82 × its 460px max height × 1.08 focus scale
-      maxScale: 407, align: "end" });
+      // 15% above the framework page ring's largest settled size (0.82 × its 460px max height × 1.08 focus scale);
+      // the labels reach only ~20px past the ribbon, so 32px of side clearance keeps them inside the box, whose
+      // left edge never passes the middle of the page
+      maxScale: 468, pad: 32,
+      // beside the copy in a landscape window the ring hugs the right edge; in a portrait window it is centred
+      align: function () { return window.matchMedia("(orientation: landscape) and (min-width: 900px)").matches ? "end" : "center"; } });
   }
 
   /* ---------- Governed loop: model → stages with their approval checks → return path ---------- */
