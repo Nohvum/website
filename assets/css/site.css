@@ -234,22 +234,30 @@ a.media-card:hover .media-card__img img { transform: scale(1.025); }
 
 /* ---------- Footer ---------- */
 .site-footer { background: var(--bg-footer); font-size: 0.95rem; }
-.site-footer__top { display: grid; grid-template-columns: 1.4fr 1.2fr 0.9fr 0.5fr; gap: 40px; padding-block: 64px 56px; }
-.site-footer__logo img { width: 150px; }
+/* Same three columns as the header: logo | Explore on the page centre, under the nav links | Connect at the right edge. */
+.site-footer__top { display: grid; grid-template-columns: minmax(max-content, 1fr) auto minmax(max-content, 1fr); gap: 40px; padding-block: 64px 56px; }
+.site-footer__top > nav:last-child { justify-self: end; }
+/* Explore: one row of links, spaced like the top nav */
+.site-footer .site-footer__explore ul { display: flex; flex-wrap: wrap; gap: 12px clamp(24px, 3.3vw, 44px); }
+.site-footer .site-footer__explore a, .site-footer .site-footer__connect a { color: var(--ink); }
+.site-footer__top { align-items: center; }
+/* same lockup and size as the header logo; a block so it centres on the link row with no baseline gap */
+.site-footer__logo { display: block; width: 220px; }
+.site-footer__logo img { display: block; width: 100%; height: auto; }
+@media (max-width: 899px) { .site-footer__logo { width: 164px; } }
 .site-footer h2 { font-size: var(--fs-xs); font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-2); margin-bottom: 22px; }
 .site-footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
 .site-footer a { text-decoration: none; color: var(--text-2); }
 .site-footer a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 .site-footer__legal { display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px 26px; padding-block: 36px 40px; border-top: 1px solid #cfcfcf; }
-.site-footer__legal h2 { margin: 0 34px 0 0; }
 .site-footer__legal ul { display: flex; flex-wrap: wrap; gap: 12px 26px; }
 .site-footer__bar { background: var(--bg-footer-bar); }
 .site-footer__bar .container { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-block: 20px; color: var(--text-2); }
 @media (max-width: 899px) {
-  .site-footer__top { grid-template-columns: 1fr 1fr; }
-  .site-footer__brand { grid-column: 1 / -1; }
+  .site-footer__top { grid-template-columns: 1fr; align-items: start; }
+  .site-footer__top > nav:last-child { justify-self: start; }
 }
-@media (max-width: 480px) { .site-footer__top { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .site-footer__top { grid-template-columns: 1fr; } .site-footer__top > nav:last-child { justify-self: start; } }
 
 /* ---------- Motion ---------- */
 /* Hidden start state only when JS has opted in (html.js-motion) and the visitor allows motion. */
