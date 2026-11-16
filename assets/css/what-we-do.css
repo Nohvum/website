@@ -23,7 +23,7 @@
 .cubes {
   position: relative; width: 100vw; margin-left: calc(50% - 50vw);
   height: max(230px, calc(0.337 * min(var(--container), 100vw - 2 * var(--gutter))));
-  border-bottom: 1px solid var(--line); user-select: none; -webkit-user-select: none;
+  user-select: none; -webkit-user-select: none;
 }
 .cubes__canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 .cubes .ring-pill { font-size: 0.95rem; }

@@ -3,13 +3,12 @@
      stage turns to the front-centre; a connector drops from it to the stage detail section below.
    - Stage panels crossfade in place (no scrolling); prev/next drive the same selection.
    - Context engineering / certification / feedback loop share one section as tabs.
-   - Diagrams (knowledge model, certification, learning cycle) trace their path the first time their tab is in view. */
+   - The knowledge model, certification and feedback-loop diagrams are cards wired by flow-diagrams.js. */
 (function () {
   "use strict";
   var N = window.Nohvum;
   var M = window.Motion;
   if (!N) return;
-  var SVGNS = "http://www.w3.org/2000/svg";
   var ease = N.ease;
 
   var STAGES = ["plan", "build", "test", "deploy", "run", "support"];
@@ -186,29 +185,6 @@
     if ("ResizeObserver" in window) new ResizeObserver(function () { place(false); }).observe(track);
   }
 
-  /* ------------------------------------------------------------------------------- diagram traces */
-  function el(svg, tag, attrs) {
-    var n = document.createElementNS(SVGNS, tag);
-    for (var k in attrs) n.setAttribute(k, attrs[k]);
-    svg.appendChild(n);
-    return n;
-  }
-  function trace(layer, d, extra) {
-    var p = el(layer, "path", Object.assign({ d: d, class: "trace", pathLength: "1", "stroke-dasharray": "1 1", "stroke-dashoffset": "1" }, extra || {}));
-    return p;
-  }
-  function hl(layer, x, y, w, h, extra) {
-    return el(layer, "rect", Object.assign({ x: x, y: y, width: w, height: h, class: "hl" }, extra || {}));
-  }
-  function runSequence(steps, layer) {
-    var seq = steps.map(function (s) { return [s[0], s[1], Object.assign({ at: s[2] }, s[3] || {})]; });
-    var end = steps.reduce(function (m, s) { return Math.max(m, s[2] + ((s[3] && s[3].duration) || 0.5)); }, 0);
-    M.animate(seq).then(function () {
-      M.animate(layer, { opacity: [1, 0] }, { delay: 0.6, duration: 0.8 }).then(function () { layer.remove(); });
-    });
-    return end;
-  }
-
   /* -------------------------------------------------------------------- pillar tabs */
   var pillarList = document.querySelector("[data-pillar-tablist]");
   if (pillarList) {
@@ -239,84 +215,4 @@
       });
     });
   }
-
-  // Knowledge model: sources → context → agents → human approval (pause) → delivered work → back to context.
-  var km = document.querySelector("[data-km] img, [data-km] svg");
-  if (km) N.inlineSvg(km).then(function (svg) {
-    if (svg.tagName.toLowerCase() !== "svg") return;
-    N.onceInView(svg, function () {
-      if (!N.motionOK()) return;
-      var layer = el(svg, "g", {});
-      var srcs = [40, 295, 550, 805, 1060, 1315].map(function (x) { return hl(layer, x, 35, 240, 153); });
-      var bus = trace(layer, "M160 224H1435");
-      var drop = trace(layer, "M800 224V270");
-      var a1 = trace(layer, "M392 477H548");
-      var a2 = trace(layer, "M694 477H856");
-      var gate = hl(layer, 874, 396, 245, 160);
-      var a3 = trace(layer, "M1137 477H1261");
-      var back = trace(layer, "M1415 665V704H252V669");
-      var dur = { duration: 0.45, ease: ease };
-      var steps = [];
-      srcs.forEach(function (r, i) { steps.push([r, { opacity: [0, 1] }, 0.1 + i * 0.07, { duration: 0.3 }]); });
-      steps.push([bus, { strokeDashoffset: [1, 0] }, 0.6, { duration: 0.6, ease: ease }]);
-      steps.push([srcs, { opacity: 0 }, 1.0, { duration: 0.4 }]);
-      steps.push([drop, { strokeDashoffset: [1, 0] }, 1.15, { duration: 0.25 }]);
-      steps.push([a1, { strokeDashoffset: [1, 0] }, 1.55, dur]);
-      steps.push([a2, { strokeDashoffset: [1, 0] }, 2.05, dur]);
-      steps.push([gate, { opacity: [0, 1] }, 2.45, { duration: 0.3 }]);
-      steps.push([a3, { strokeDashoffset: [1, 0] }, 3.35, dur]);
-      steps.push([back, { strokeDashoffset: [1, 0] }, 3.85, { duration: 1.3, ease: [0.45, 0, 0.2, 1] }]);
-      runSequence(steps, layer);
-    }, 0.45);
-  });
-
-  // Certification: each step in order, short pause at the certification gate. Return paths stay drawn.
-  var cert = document.querySelector("[data-cert] img, [data-cert] svg");
-  if (cert) N.inlineSvg(cert).then(function (svg) {
-    if (svg.tagName.toLowerCase() !== "svg") return;
-    N.onceInView(svg, function () {
-      if (!N.motionOK()) return;
-      var layer = el(svg, "g", {});
-      var r1 = hl(layer, 35, 250, 250, 155), r2 = hl(layer, 340, 250, 250, 155), r3 = hl(layer, 645, 250, 250, 155);
-      var g = el(layer, "rect", { x: 1009, y: 218, width: 10, height: 216, fill: "#f15a29", opacity: 0 });
-      var r4 = hl(layer, 1160, 235, 385, 185);
-      var a1 = trace(layer, "M285 326H340"), a2 = trace(layer, "M590 326H645"), a3 = trace(layer, "M895 326H1008"), a4 = trace(layer, "M1021 326H1160");
-      var d = { duration: 0.3, ease: ease };
-      runSequence([
-        [r1, { opacity: [0, 1] }, 0.1, { duration: 0.3 }],
-        [a1, { strokeDashoffset: [1, 0] }, 0.5, d],
-        [r1, { opacity: 0.25 }, 0.6, { duration: 0.3 }],
-        [r2, { opacity: [0, 1] }, 0.8, { duration: 0.3 }],
-        [a2, { strokeDashoffset: [1, 0] }, 1.2, d],
-        [r2, { opacity: 0.25 }, 1.3, { duration: 0.3 }],
-        [r3, { opacity: [0, 1] }, 1.5, { duration: 0.3 }],
-        [a3, { strokeDashoffset: [1, 0] }, 1.9, { duration: 0.45, ease: ease }],
-        [r3, { opacity: 0.25 }, 2.0, { duration: 0.3 }],
-        [g, { opacity: [0, 1] }, 2.35, { duration: 0.25 }],
-        [a4, { strokeDashoffset: [1, 0] }, 3.25, d],
-        [r4, { opacity: [0, 1] }, 3.55, { duration: 0.3 }]
-      ], layer);
-    }, 0.45);
-  });
-
-  // Learning cycle: one gentle trace around the cycle, including the certification gate.
-  var cycle = document.querySelector("[data-cycle]");
-  if (cycle) N.onceInView(cycle, function () {
-    if (!N.motionOK() || !window.matchMedia("(min-width: 1100px)").matches) return;
-    var svg = cycle.querySelector(".cycle__arrows");
-    var layer = el(svg, "g", {});
-    var src = svg.querySelectorAll(".cycle__arrow");
-    var lines = Array.prototype.map.call(src, function (p) {
-      return el(layer, "path", { d: p.getAttribute("d"), class: "cycle__arrow cycle__arrow--trace", pathLength: "1", "stroke-dasharray": "1 1", "stroke-dashoffset": "1" });
-    });
-    var gateLabel = cycle.querySelector("[data-cycle-gate]");
-    var steps = [
-      [lines[0], { strokeDashoffset: [1, 0] }, 0.3, { duration: 0.8, ease: ease }],
-      [lines[1], { strokeDashoffset: [1, 0] }, 1.2, { duration: 0.8, ease: ease }],
-      [lines[2], { strokeDashoffset: [1, 0] }, 2.1, { duration: 1.2, ease: [0.45, 0, 0.2, 1] }]
-    ];
-    setTimeout(function () { gateLabel && gateLabel.classList.add("is-lit"); }, 2500);
-    setTimeout(function () { gateLabel && gateLabel.classList.remove("is-lit"); }, 3600);
-    runSequence(steps, layer);
-  }, 0.45);
 })();
