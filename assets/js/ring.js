@@ -42,6 +42,10 @@
     var tr = function (o) { return reduced ? { duration: 0 } : o; };
     var ROTATE = { type: "spring", visualDuration: 0.85, bounce: 0.12 };
     var FOCUS = { type: "spring", visualDuration: 0.7, bounce: 0 };
+    // opening (focus mode): one unbroken turn that slows into the initial stage, flattening into focus as it lands
+    var OPEN_LEAD = 1.7;   // radians (~100°) the ring still has to turn when it appears
+    var OPEN_TURN = { duration: 2.4, ease: [0.16, 1, 0.3, 1] };
+    var OPEN_FOCUS = { duration: 1.5, delay: 0.7, ease: [0.45, 0, 0.25, 1] };
     var POP = { type: "spring", visualDuration: 0.3, bounce: 0.3 };
     var pad2 = function (n) { return String(n).padStart(2, "0"); };
 
@@ -258,6 +262,7 @@
       active = i;
       yawTarget = yaw.get() + wrap((-Math.PI / 2 - nodeTheta(i)) - yaw.get());
       if (o.instant || reduced) { yaw.jump(yawTarget); sel.jump(1); }
+      else if (o.opening) { animate(yaw, yawTarget, OPEN_TURN); animate(sel, 1, OPEN_FOCUS); }
       else { animate(yaw, yawTarget, ROTATE); animate(sel, 1, FOCUS); }
       btns.forEach(function (b, j) {
         b.setAttribute("aria-selected", j === i ? "true" : "false");
@@ -370,10 +375,14 @@
       var started = false;
       var start = function () {
         if (started) return; started = true;
-        animate(yaw, 0, { type: "spring", visualDuration: 1.6, bounce: 0 });
+        // nothing is drawn yet, so the ring can start a little short of the initial stage and turn the same
+        // way all the way in (decreasing yaw: clockwise on screen, the order the stages run in)
+        if (active === null) {
+          yaw.jump(-Math.PI / 2 - nodeTheta(initial) + OPEN_LEAD);
+          select(initial, { opening: true });
+        }
         animate(intro, 1, { duration: 1.5, ease: [0.22, 1, 0.36, 1] });
         animate(btns, { opacity: [0, 1], scale: [0.8, 1] }, { type: "spring", visualDuration: 0.45, bounce: 0.3, delay: stagger(0.12, { startDelay: 0.1 }) });
-        setTimeout(function () { if (active === null) select(initial); }, 900);
       };
       if (window.Nohvum && window.Nohvum.onceInView) window.Nohvum.onceInView(root, start, 0.3);
       else start();
