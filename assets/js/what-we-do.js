@@ -1,6 +1,6 @@
 /* What We Do — service tabs driven by the four-cube scene (cubes.js, built like the framework ring).
    - The scene's pills are real <button role="tab"> controls (arrow keys, Home/End), panels role="tabpanel".
-   - #build / #modernise / #run / #secure select a tab on load; selecting a tab updates the hash
+   - #build / #modernize / #run / #secure select a tab on load; selecting a tab updates the hash
      with history.replaceState (no scroll).
    - Motion: the scene runs its own opening (see cubes.js). Panels cross-fade briefly on tab change.
      Each panel illustration plays a once-only orange-detail
@@ -21,7 +21,7 @@
   var tabs = Array.prototype.slice.call(tablist.querySelectorAll('[role="tab"]'));
   var panels = tabs.map(function (t) { return document.getElementById(t.getAttribute("aria-controls")); });
   var ids = tabs.map(function (t) { return t.getAttribute("data-service"); });
-  var aliases = { modernize: "modernise", modernisation: "modernise", modernization: "modernise" };
+  var aliases = { modernise: "modernize", modernisation: "modernize", modernization: "modernize" };   // old and alternative spellings still land on the tab
 
   var current = -1;
   var cubes = null;
@@ -62,7 +62,7 @@
       ['path[d^="M413 339"]', "draw", 0.2],
       ['path[d^="m502 323"]', "pop", 0.75]
     ],
-    modernise: [
+    modernize: [
       ['circle[cx="378"]', "pop", 0],
       ['path[d^="M378 315"]', "draw", 0.15],
       ['circle[cx="594"]', "pop", 0.75]

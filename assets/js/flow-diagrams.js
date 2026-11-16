@@ -118,27 +118,28 @@
   }
   /* ----------------------------------------------------------------- feedback loop */
   function planLoop(root, node) {
-    var T = rel(node("telemetry"), root), A = rel(node("agents"), root), G = rel(node("gate"), root), K = rel(node("knowledge"), root);
+    var T = rel(node("telemetry"), root), A = rel(node("agents"), root), K = rel(node("knowledge"), root),
+        Gb = rel(root.querySelector("[data-gate-bar]"), root);
     var wires = [], steps = [];
     var lit = function (n, at) { steps.push({ lit: n, at: at }); };
     var go = function (id, at, dur) { steps.push({ wire: id, at: at, dur: dur }); };
     if (same(K.t, A.t)) {
       var y = (K.t + Math.min(K.b, A.b)) / 2;
       wires.push({ id: "t2a", pts: [[T.r, T.cy], [A.cx, T.cy], [A.cx, A.t]], arrow: true });
-      wires.push({ id: "a2g", pts: [[A.l, y], [G.r, y]], arrow: true });
-      wires.push({ id: "g2k", pts: [[G.l, y], [K.r, y]], arrow: true });
+      wires.push({ id: "a2g", pts: [[A.l, y], [Gb.r + 17, y]], arrow: true });
+      wires.push({ id: "g2k", pts: [[Gb.l - 17, y], [K.r, y]], arrow: true });
       wires.push({ id: "k2t", pts: [[K.cx, K.t], [K.cx, T.cy], [T.l, T.cy]], arrow: true });
     } else {
-      var x = Math.max(T.r, A.r, G.r, K.r) + 28;
+      var x = Math.max(T.r, A.r, Gb.r, K.r) + 28;
       wires.push({ id: "t2a", pts: [[T.cx, T.b], [A.cx, A.t]], arrow: true });
-      wires.push({ id: "a2g", pts: [[A.cx, A.b], [G.cx, G.t]], arrow: true });
-      wires.push({ id: "g2k", pts: [[G.cx, G.b], [K.cx, K.t]], arrow: true });
+      wires.push({ id: "a2g", pts: [[A.cx, A.b], [Gb.cx, Gb.t - 4]], arrow: true });
+      wires.push({ id: "g2k", pts: [[Gb.cx, Gb.b], [K.cx, K.t]], arrow: true });
       wires.push({ id: "k2t", pts: [[K.r, K.cy], [x, K.cy], [x, T.cy], [T.r, T.cy]], arrow: true });
     }
     // telemetry → agents re-calibrated → held at the same certification gate → knowledge retained → telemetry
     lit("telemetry", 0);
     go("t2a", 0.45, 0.7); lit("agents", 1.15);
-    go("a2g", 1.6, 0.45); lit("gate", 2.05);
+    go("a2g", 1.6, 0.45); steps.push({ gate: true, at: 2.05 });
     go("g2k", 2.9, 0.45); lit("knowledge", 3.35);
     go("k2t", 3.8, 0.8); lit("telemetry", 4.6);
     return { wires: wires, steps: steps };

@@ -6,7 +6,7 @@ the animation brief. No build step, no framework.
 ```
 index.html               home
 about.html               about
-what-we-do.html          Build / Modernise / Run / Secure tabs (#build, #modernise, #run, #secure)
+what-we-do.html          Build / Modernize / Run / Secure tabs (#build, #modernize, #run, #secure; #modernise still works)
 framework.html           lifecycle ring (ring.js) + stage detail (#plan, #build, #test, #deploy, #run, #support)
 careers.html             roles + application form (CV as a link)
 talk-to-an-expert.html   contact form
