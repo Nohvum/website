@@ -18,8 +18,8 @@
 }
 .hero__copy { position: relative; z-index: 1; max-width: 610px; margin-right: clamp(16px, 2vw, 32px); }
 .hero__u { position: relative; display: inline-block; }
-.hero__u::after { content: ""; position: absolute; left: -2px; right: -6px; bottom: -0.12em; height: 2px; background: var(--orange); transform-origin: left; }
-.js-motion .hero__u::after { animation: hero-underline 700ms var(--ease-out) 250ms both; }
+.hero__u::after { content: ""; position: absolute; left: -2px; right: -2px; bottom: -0.12em; height: 2px; background: var(--orange); transform-origin: left; }
+.js-motion .hero__u::after { animation: hero-underline 900ms var(--ease-out) 250ms both; }
 @keyframes hero-underline { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 .hero__lead { margin-top: clamp(32px, 4vw, 52px); font-size: clamp(1.05rem, 1rem + 0.3vw, 1.22rem); line-height: 1.55; color: var(--text-2); }
 .hero__copy .link-arrow { margin-top: clamp(28px, 3vw, 44px); }
