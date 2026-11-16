@@ -1,11 +1,9 @@
-/* Homepage (and About's comparison): hero ring, governed-loop sequence,
-   approval-gate emphasis, principle icon details. Every effect plays once. */
+/* Homepage: hero ring and governed-loop sequence. Every effect plays once. */
 (function () {
   "use strict";
   var N = window.Nohvum;
   var M = window.Motion;
   if (!N) return;
-  var ease = N.ease;
   var SVGNS = "http://www.w3.org/2000/svg";
 
   /* ---------- Hero ring: the framework ring in overview mode, oriented like the original hero art ---------- */
@@ -81,52 +79,5 @@
       timeline.forEach(function (e) { setTimeout(e[1], e[0]); });
     };
     N.onceInView(loop, play, 0.45);
-  }
-
-  /* ---------- Comparison: brief emphasis on the approval gate ---------- */
-  document.querySelectorAll("[data-compare]").forEach(function (cmp) {
-    var dot = cmp.querySelector("[data-compare-dot]");
-    var label = cmp.querySelector("[data-compare-gate-label]");
-    if (!dot) return;
-    N.onceInView(cmp, function () {
-      if (!N.motionOK()) return;
-      var ring = document.createElement("span");
-      ring.className = "gate-stack__ring";
-      ring.setAttribute("aria-hidden", "true");
-      dot.parentNode.appendChild(ring);
-      M.animate([
-        [dot, { scale: [1, 1.45, 1] }, { at: 0.5, duration: 0.7, ease: "easeInOut" }],
-        [ring, { opacity: [0.5, 0], scale: [1, 3.2] }, { at: 0.5, duration: 1.1, ease: ease }],
-        label ? [label, { color: ["#171717", "#d9401a", "#171717"] }, { at: 0.5, duration: 1.4 }] : [dot, {}, { at: 0.5 }]
-      ]).then(function () { ring.remove(); });
-    }, 0.5);
-  });
-
-  /* ---------- Principles: animate each icon's orange detail once ---------- */
-  var principles = document.querySelector(".principles");
-  if (principles) {
-    var icons = Array.prototype.slice.call(principles.querySelectorAll("img[data-inline-svg]"));
-    Promise.all(icons.map(N.inlineSvg)).then(function (svgs) {
-      if (!N.motionOK()) return;
-      var parts = svgs.map(function (s) { return s.tagName.toLowerCase() === "svg" ? N.orangeParts(s) : []; });
-      parts.forEach(function (list) {
-        list.forEach(function (el) { el.style.opacity = "0"; el.style.transformBox = "fill-box"; el.style.transformOrigin = "center"; });
-      });
-      N.onceInView(principles, function () {
-        parts.forEach(function (list, i) {
-          list.forEach(function (el) {
-            var tag = el.tagName.toLowerCase();
-            var delay = 0.55 + i * 0.18;
-            if (tag === "path" || tag === "polyline" || tag === "line") {
-              el.setAttribute("pathLength", "1");
-              el.style.strokeDasharray = "1 1";
-              M.animate(el, { opacity: [0, 1], strokeDashoffset: [1, 0] }, { delay: delay, duration: 0.6, ease: ease });
-            } else {
-              M.animate(el, { opacity: [0, 1], scale: [0.4, 1] }, { delay: delay + 0.2, duration: 0.4, ease: ease });
-            }
-          });
-        });
-      }, 0.3);
-    });
   }
 })();

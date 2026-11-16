@@ -198,35 +198,6 @@ a:hover > .arw, button:hover > .arw, a:focus-visible > .arw, button:focus-visibl
 .cta-band__actions { display: flex; flex-wrap: wrap; gap: 12px 32px; align-items: center; }
 @media (max-width: 760px) { .cta-band__grid { grid-template-columns: 1fr; } }
 
-/* ---------- Comparison (Traditional vs Nohvum) ---------- */
-.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 48px clamp(40px, 6vw, 96px); position: relative; }
-.compare__side { display: flex; flex-direction: column; }
-.compare__side .compare__figure { margin-top: auto; }
-.compare__label { font-size: 1.15rem; font-weight: 350; margin-bottom: 18px; }
-.compare__q { font-size: clamp(1.35rem, 1.1rem + 0.8vw, 1.85rem); font-weight: 300; line-height: 1.28; margin-bottom: clamp(40px, 5vw, 64px); }
-.compare__figure { display: flex; flex-direction: column; align-items: center; }
-.compare__stack { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 10px; }
-.tier { display: grid; place-items: center; height: 60px; background: var(--sage); border: 1px solid var(--sage-line); color: var(--text-2); font-size: 1.2rem; font-weight: 350; }
-.tier--1 { width: 36%; } .tier--2 { width: 68%; } .tier--3 { width: 97%; }
-.gate-stack { width: 100%; display: flex; flex-direction: column; align-items: center; }
-.gate-stack__seniors { width: 64%; height: 60px; display: grid; place-items: center; background: #333; color: #fff; font-size: 1.2rem; font-weight: 350; }
-.gate-stack__stem { width: 1px; height: 22px; background: var(--line-strong); }
-.gate-stack__label { font-size: 1.2rem; font-weight: 350; margin: 4px 0 14px; }
-.gate-stack__bar { position: relative; width: 86%; height: 3px; background: #333; }
-.gate-stack__dot { position: absolute; left: 50%; top: 50%; width: 13px; height: 13px; margin: -6.5px 0 0 -6.5px; border-radius: 50%; background: var(--orange); }
-.gate-stack__ring { position: absolute; left: 50%; top: 50%; width: 13px; height: 13px; margin: -6.5px 0 0 -6.5px; border-radius: 50%; border: 1.5px solid var(--orange); opacity: 0; pointer-events: none; }
-.gate-stack__output { width: 100%; height: 60px; display: grid; place-items: center; border: 1px solid var(--sage-line); background: #fffdfa; color: var(--orange); font-size: 1.2rem; font-weight: 350; }
-.compare__base { width: 100%; height: 14px; margin-top: 16px; border: 1px solid var(--line-strong); border-top: 0; }
-.compare__caption { text-align: center; margin-top: 26px; min-height: 72px; }
-.compare__caption strong { display: block; font-weight: 350; font-size: 1.2rem; }
-.compare__caption span { display: block; font-size: 0.95rem; color: var(--text-2); margin-top: 6px; }
-.compare__divider { position: absolute; left: calc(50% - 52px); bottom: 158px; width: 104px; height: 1px; background: var(--line); }
-.compare__divider::after { content: ""; position: absolute; left: 50%; top: 50%; width: 13px; height: 13px; margin: -6.5px 0 0 -6.5px; border-radius: 50%; background: var(--orange); }
-@media (max-width: 760px) {
-  .compare { grid-template-columns: 1fr; }
-  .compare__divider { display: none; }
-}
-
 /* ---------- Cards / images ---------- */
 .media-card { display: block; text-decoration: none; color: inherit; }
 .media-card__img { overflow: hidden; border: 1px solid var(--line); aspect-ratio: 579 / 282; background: #eee; }
