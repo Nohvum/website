@@ -109,7 +109,7 @@
 /* ---------- Industries ---------- */
 /* Top and bottom padding less the headline's leading above its capitals and the taglines' below their last line */
 .wwd-industries-section { padding-block: calc(var(--wwd-ind-gap) - 0.32 * var(--wwd-ind-title)) calc(var(--wwd-ind-gap) - 2px); }
-.wwd-industries-title { max-width: 13.5em; margin-bottom: clamp(32px, 3.6vw, 48px); font-size: var(--wwd-ind-title); line-height: 1.333; }
+.wwd-industries-title { margin-bottom: clamp(32px, 3.6vw, 48px); font-size: var(--wwd-ind-title); line-height: 1.333; }
 .wwd-industries .media-card__title { margin-top: clamp(18px, 1.8vw, 24px); font-size: clamp(1.3rem, 1.2rem + 0.4vw, 1.58rem); line-height: 1.3; }
 .wwd-industries .media-card__text { margin-top: 12px; font-size: clamp(0.95rem, 0.92rem + 0.15vw, 1.06rem); line-height: 1.5; }
 .wwd-industries { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 30px; }

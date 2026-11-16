@@ -1,8 +1,9 @@
 /* Talk to an expert page. Loaded after site.css. */
 
 /* The header button is this page's "you are here" marker (orange in the mockup). */
-.site-nav .btn[aria-current="page"] { background: var(--orange); border-color: var(--orange); color: #fff; }
-.site-nav .btn[aria-current="page"]:hover { background: var(--orange-text); border-color: var(--orange-text); }
+/* ink text on the orange (5.3:1; white was 3.4:1); hover lightens so the text keeps its contrast (6.1:1) */
+.site-nav .btn[aria-current="page"] { background: var(--orange); border-color: var(--orange); color: var(--ink); font-weight: 350; }
+.site-nav .btn[aria-current="page"]:hover { background: #f37046; border-color: #f37046; }
 
 /* ---------- Layout ---------- */
 .talk { padding-block: clamp(24px, 2.8vw, 40px) clamp(72px, 10.4vw, 142px); background: linear-gradient(var(--bg) 55%, var(--bg-soft)); }

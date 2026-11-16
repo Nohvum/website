@@ -17,7 +17,6 @@
   --text-on-dark: #f4f4f2;
   --text-on-dark-2: #b8b8b4;
   --orange: #f15a29;
-  --orange-text: #d9401a;
   --line: #d9d9d6;
   --line-strong: #949494;
   --line-dark: #4a4a4a;
@@ -148,8 +147,8 @@ a:hover > .arw, button:hover > .arw, a:focus-visible > .arw, button:focus-visibl
 .site-nav { display: flex; align-items: center; gap: clamp(24px, 3.3vw, 44px); }
 .site-nav__list { display: flex; gap: clamp(24px, 3.3vw, 44px); list-style: none; margin: 0; padding: 0; }
 .site-nav__list a { text-decoration: none; font-size: 0.95rem; color: var(--ink); padding-block: 6px; transition: color var(--dur-fast); }
-.site-nav__list a:hover { color: var(--orange-text); }
-.site-nav__list a[aria-current="page"] { color: var(--orange-text); text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 1px; }
+/* ink text (16.5:1); the orange lives in the underline, not the text */
+.site-nav__list a:hover, .site-nav__list a[aria-current="page"] { color: var(--ink); text-decoration: underline; text-decoration-color: var(--orange); text-underline-offset: 5px; text-decoration-thickness: 1px; }
 .site-nav .btn { margin-left: clamp(0px, 1.5vw, 14px); }
 .nav-toggle { display: none; }
 /* Desktop: logo | centred links | CTA. The side columns are equal so the links sit on the page centre;

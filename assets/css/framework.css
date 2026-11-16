@@ -36,7 +36,7 @@
 .flow__step.is-lit { border-color: var(--orange); box-shadow: 0 0 0 1px var(--orange); }
 .flow__step--human.is-lit { box-shadow: 0 0 0 3px rgba(241, 90, 41, 0.45); }
 .flow__gate.is-lit { border-color: var(--orange); background: #fff4ee; }
-.boundary { display: inline-flex; align-items: center; gap: 12px; margin-top: 46px; color: var(--orange-text); font-size: 1.05rem; }
+.boundary { display: inline-flex; align-items: center; gap: 12px; margin-top: 46px; color: var(--ink); font-size: 1.05rem; } /* ink text; the orange checkbox carries the colour */
 .boundary__box { position: relative; width: 22px; height: 22px; flex: none; background: var(--orange); }
 .boundary__box::after { content: ""; position: absolute; left: 6px; top: 6px; width: 10px; height: 5.5px; border-left: 1.7px solid #fff; border-bottom: 1.7px solid #fff; transform: rotate(-45deg); }
 .stage-panel__art { margin: -110px -40px -60px 0; }
@@ -89,7 +89,8 @@
   cursor: pointer; transition: color var(--dur-fast); -webkit-tap-highlight-color: transparent;
 }
 .pillars__tab::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--orange); transform: scaleX(0); transition: transform 320ms var(--ease-out); }
-.pillars__tab:hover, .pillars__tab[aria-selected="true"] { color: var(--orange-text); }
+/* ink text; the orange underline marks the selected tab (and previews on hover) */
+.pillars__tab:hover:not([aria-selected="true"])::after { transform: none; opacity: 0.35; }
 .pillars__tab[aria-selected="true"]::after { transform: none; }
 .pillars__tab:focus-visible { outline: 2px solid var(--orange); outline-offset: -6px; }
 .pillars__panels { padding-top: clamp(48px, 6vw, 88px); }
@@ -122,7 +123,7 @@
 .dg-art { width: auto; height: 140px; max-width: 100%; object-fit: contain; stroke-linecap: round; stroke-linejoin: round; }
 .dg-art--icon { height: 52px; }
 .dg-accent, .dg-accent-stroke { stroke: var(--orange); }
-.dg-card__eyebrow { margin-bottom: 6px; font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange-text); }
+.dg-card__eyebrow { margin-bottom: 6px; font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-3); } /* grey text; the orange top rule carries the colour */
 .dg-card__title { font-size: 1.12rem; font-weight: 350; line-height: 1.3; color: var(--ink); }
 .dg-card__text { margin-top: 6px; font-size: 0.9rem; line-height: 1.5; color: var(--text-2); }
 /* the human step is dark, as in the stage flows above */
