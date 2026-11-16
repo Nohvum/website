@@ -3,3 +3,33 @@
 # Imported Claude Design project. Reference only — the page does not use it
 # (renders pixel-identically without it), and it must never reach a deploy.
 design-source/
+
+# Agent/editor tool directories — a design skill pack installed itself into one
+# copy per tool. Local tooling only; never part of the site.
+.agents/
+.augment/
+.claude/
+.codebuddy/
+.codewhale/
+.continue/
+.cursor/
+.factory/
+.gemini/
+.github/
+.kilocode/
+.kiro/
+.opencode/
+.qoder/
+.roo/
+.trae/
+.warp/
+.windsurf/
+
+# Internal notes and the share-card source: kept locally, never served on the live site.
+TODOS.md
+TODOS.html
+og.html
+README.md
+
+# Browser-test screenshots and logs (Playwright MCP writes here); never part of the site.
+.playwright-mcp/

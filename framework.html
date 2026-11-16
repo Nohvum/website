@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en" class="js-motion">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Framework | Nohvum</title>
+  <meta name="description" content="The Nohvum framework: an AI-native delivery framework spanning the full software lifecycle, built and run by Nohvum engineers, with human approval at every stage.">
+  <meta name="theme-color" content="#f5f6f1">
+  <link rel="canonical" href="https://nohvum.com/framework.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Nohvum">
+  <meta property="og:title" content="Framework | Nohvum">
+  <meta property="og:description" content="An AI-native delivery framework spanning the full software lifecycle, built and run by Nohvum engineers.">
+  <meta property="og:url" content="https://nohvum.com/framework.html">
+  <meta property="og:image" content="https://nohvum.com/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
+  <link rel="preload" href="assets/fonts/selawik-light.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/selawik-semilight.woff2" as="font" type="font/woff2" crossorigin>
+  <script>if (matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.classList.remove("js-motion");</script>
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/ring.css">
+  <link rel="stylesheet" href="assets/css/framework.css">
+  <script defer src="assets/js/motion.min.js"></script>
+  <script defer src="assets/js/site.js"></script>
+  <script defer src="assets/js/ring.js"></script>
+  <script defer src="assets/js/flow-diagrams.js"></script>
+  <script defer src="assets/js/framework.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__logo" href="index.html" aria-label="Nohvum home"><img src="assets/img/nohvum-lockup-horizontal.svg" alt="Nohvum" width="220" height="32"></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span>Menu</span><span class="nav-toggle__bars" aria-hidden="true"></span></button>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul class="site-nav__list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="framework.html" aria-current="page">Framework</a></li>
+        <li><a href="what-we-do.html">What We Do</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="careers.html">Careers</a></li>
+      </ul>
+      <a class="btn" href="talk-to-an-expert.html">Talk to an Expert</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- Hero + lifecycle -->
+  <section class="fw-hero" aria-labelledby="fw-title">
+    <div class="container">
+      <h1 class="fw-hero__title" id="fw-title">The framework behind the outcomes.</h1>
+      <p class="fw-hero__lead" data-reveal data-reveal-delay="0.1">An AI-native delivery framework spanning the full software lifecycle, built and run by Nohvum engineers.</p>
+      <div class="ring" data-ring aria-label="Delivery lifecycle">
+        <canvas class="ring__canvas" aria-hidden="true"></canvas>
+        <div class="ring__pills" role="tablist" aria-label="Framework stages">
+          <div class="ring__anchor" role="presentation"><button class="ring-pill" type="button" role="tab" id="tab-plan" data-stage="plan" aria-selected="true" aria-controls="panel-plan" tabindex="0"><span class="ring-pill__name">Plan</span></button></div>
+          <div class="ring__anchor" role="presentation"><button class="ring-pill" type="button" role="tab" id="tab-build" data-stage="build" aria-selected="false" aria-controls="panel-build" tabindex="-1"><span class="ring-pill__name">Build</span></button></div>
+          <div class="ring__anchor" role="presentation"><button class="ring-pill" type="button" role="tab" id="tab-test" data-stage="test" aria-selected="false" aria-controls="panel-test" tabindex="-1"><span class="ring-pill__name">Test</span></button></div>
+          <div class="ring__anchor" role="presentation"><button class="ring-pill" type="button" role="tab" id="tab-deploy" data-stage="deploy" aria-selected="false" aria-controls="panel-deploy" tabindex="-1"><span class="ring-pill__name">Deploy</span></button></div>
+          <div class="ring__anchor" role="presentation"><button class="ring-pill" type="button" role="tab" id="tab-run" data-stage="run" aria-selected="false" aria-controls="panel-run" tabindex="-1"><span class="ring-pill__name">Run</span></button></div>
+          <div class="ring__anchor" role="presentation"><button class="ring-pill" type="button" role="tab" id="tab-support" data-stage="support" aria-selected="false" aria-controls="panel-support" tabindex="-1"><span class="ring-pill__name">Support</span></button></div>
+        </div>
+        <p class="visually-hidden ring__live" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stage detail -->
+  <section class="stage section" id="stages" aria-label="Stage detail">
+    <div class="container stage__inner">
+      <button class="stage-nav stage-nav--prev" type="button" data-stage-prev aria-label="Previous stage: Support"><span class="stage-nav__btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14.5 6 8.5 12l6 6"/></svg></span><span class="stage-nav__label" data-stage-prev-label>Support</span></button>
+      <div class="stage__panels" aria-live="polite">
+        <div class="stage-panel" id="panel-plan" role="tabpanel" aria-labelledby="tab-plan" data-stage="plan" tabindex="0">
+          <div class="stage-panel__copy">
+            <h2 class="stage-panel__title">Clear requirements before delivery begins.</h2>
+            <p class="stage-panel__sub">Enriches stories, drafts acceptance criteria and flags ambiguity for review.</p>
+            <ol class="flow" role="list">
+              <li class="flow__step" data-flow-step><span class="flow__title">Product context</span><span class="flow__text">Goals and requirements</span><span class="flow__gate" data-flow-gate aria-hidden="true"></span></li>
+              <li class="flow__step" data-flow-step><span class="flow__title">BA Agent</span><span class="flow__text">Proposed stories and acceptance criteria</span><span class="flow__gate" data-flow-gate aria-hidden="true"></span></li>
+              <li class="flow__step flow__step--human" data-flow-step><span class="flow__title">Named engineer</span><span class="flow__text">Review and approve</span></li>
+            </ol>
+            <p class="boundary"><span class="boundary__box" aria-hidden="true"></span>Human approval stays the boundary.</p>
+          </div>
+          <div class="stage-panel__art"><img class="stage-panel__img" data-inline-svg data-src="assets/svg/framework/Nohvum-plan-tab-line-art.svg" src="assets/svg/framework/Nohvum-plan-tab-line-art.svg" alt="" width="1000" height="1000"></div>
+        </div>
+        <div class="stage-panel" id="panel-build" role="tabpanel" aria-labelledby="tab-build" data-stage="build" tabindex="0" hidden>
+          <div class="stage-panel__copy">
+            <h2 class="stage-panel__title">Changes with a clear path to review.</h2>
+            <p class="stage-panel__sub">Implements agreed changes and prepares work for review.</p>
+            <ol class="flow" role="list">
+              <li class="flow__step" data-flow-step><span class="flow__title">Story context</span><span class="flow__text">Agreed requirements</span><span class="flow__gate" data-flow-gate aria-hidden="true"></span></li>
+              <li class="flow__step" data-flow-step><span class="flow__title">Dev agent</span><span class="flow__text">Proposed change</span><span class="flow__gate" data-flow-gate aria-hidden="true"></span></li>
+              <li class="flow__step flow__step--human" data-flow-step><span class="flow__title">Named engineer</span><span class="flow__text">Review and approve</span></li>
+            </ol>
+            <p class="boundary"><span class="boundary__box" aria-hidden="true"></span>Human approval stays the boundary.</p>
+          </div>
+          <div class="stage-panel__art"><img class="stage-panel__img" data-inline-svg data-src="assets/svg/framework/Nohvum-build-review-square.svg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" width="1000" height="1000"></div>
+        </div>
+        <div class="stage-panel" id="panel-test" role="tabpanel" aria-labelledby="tab-test" data-stage="test" tabindex="0" hidden>
+          <div class="stage-panel__copy">
+            <h2 class="stage-panel__title">Test every change against agreed criteria.</h2>
+            <p class="stage-panel__sub">Generates tests from acceptance criteria, identifies coverage gaps and prepares test evidence.</p>
+            <ol class="flow" role="list">
+              <li class="flow__step" data-flow-step><span class="flow__title">Acceptance criteria</span><span class="flow__text">Expected behavior</span><span class="flow__gate" data-flow-gate aria-hidden="true"></span></li>
+              <li class="flow__step" data-flow-step><span class="flow__title">QA Agent</span><span class="flow__text">Test results and coverage</span><span class="flow__gate" data-flow-gate aria-hidden="true"></span></li>
+              <li class="flow__step flow__step--human" data-flow-step><span class="flow__title">Named engineer</span><span class="flow__text">Review and approve</span></li>
+            </ol>
+            <p class="boundary"><span class="boundary__box" aria-hidden="true"></span>Human approval stays the boundary.</p>
+          </div>
+          <div class="stage-panel__art"><img class="stage-panel__img" data-inline-svg data-src="assets/svg/framework/Nohvum-test-tab-line-art.svg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" width="1000" height="1000"></div>
+        </div>
+        <div class="stage-panel" id="panel-deploy" role="tabpanel" aria-labelledby="tab-deploy" data-stage="deploy" tabindex="0" hidden>
+          <div class="stage-panel__copy">
+            <h2 class="stage-panel__title">Release changes through a controlled pipeline.</h2>
+            <p class="stage-panel__sub">Prepares delivery pipelines, assesses release risk and routes changes through approval gates.</p>
+            <ol class="flow" role="list">
+              <li class="flow__step" data-flow-step><span class="flow__title">Release context</span><span class="flow__text">Reviewed changes and deployment requirements</span><span class="flow__gate" data-flow-gate aria-hidden="true"></span></li>
+              <li class="flow__step" data-flow-step><span class="flow__title">DevOps Agent</span><span class="flow__text">Pipeline checks and release preparation</span><span class="flow__gate" data-flow-gate aria-hidden="true"></span></li>
+              <li class="flow__step flow__step--human" data-flow-step><span class="flow__title">Named engineer</span><span class="flow__text">Review and approve</span></li>
+            </ol>
+            <p class="boundary"><span class="boundary__box" aria-hidden="true"></span>Human approval stays the boundary.</p>
+          </div>
+          <div class="stage-panel__art"><img class="stage-panel__img" data-inline-svg data-src="assets/svg/framework/Nohvum-deploy-tab-line-art.svg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" width="1000" height="1000"></div>
+        </div>
+        <div class="stage-panel" id="panel-run" role="tabpanel" aria-labelledby="tab-run" data-stage="run" tabindex="0" hidden>
+          <div class="stage-panel__copy">
+            <h2 class="stage-panel__title">Keep reliability connected to human oversight.</h2>
+            <p class="stage-panel__sub">Triages incidents, supports root-cause analysis and prepares postmortems with supporting evidence.</p>
+            <ol class="flow" role="list">
+              <li class="flow__step" data-flow-step><span class="flow__title">Operational context</span><span class="flow__text">Telemetry, alerts and incidents</span><span class="flow__gate" data-flow-gate aria-hidden="true"></span></li>
+              <li class="flow__step" data-flow-step><span class="flow__title">SRE Agent</span><span class="flow__text">Incident analysis and proposed response</span><span class="flow__gate" data-flow-gate aria-hidden="true"></span></li>
+              <li class="flow__step flow__step--human" data-flow-step><span class="flow__title">Named engineer</span><span class="flow__text">Review and approve</span></li>
+            </ol>
+            <p class="boundary"><span class="boundary__box" aria-hidden="true"></span>Human approval stays the boundary.</p>
+          </div>
+          <div class="stage-panel__art"><img class="stage-panel__img" data-inline-svg data-src="assets/svg/framework/Nohvum-run-tab-line-art.svg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" width="1000" height="1000"></div>
+        </div>
+        <div class="stage-panel" id="panel-support" role="tabpanel" aria-labelledby="tab-support" data-stage="support" tabindex="0" hidden>
+          <div class="stage-panel__copy">
+            <h2 class="stage-panel__title">Resolve issues. Retain what you learn.</h2>
+            <p class="stage-panel__sub">Classifies tickets, drafts resolutions and prepares knowledge updates for review.</p>
+            <ol class="flow" role="list">
+              <li class="flow__step" data-flow-step><span class="flow__title">Support context</span><span class="flow__text">Tickets and previous resolutions</span><span class="flow__gate" data-flow-gate aria-hidden="true"></span></li>
+              <li class="flow__step" data-flow-step><span class="flow__title">Support Agent</span><span class="flow__text">Ticket classification and draft resolution</span><span class="flow__gate" data-flow-gate aria-hidden="true"></span></li>
+              <li class="flow__step flow__step--human" data-flow-step><span class="flow__title">Named engineer</span><span class="flow__text">Review and approve</span></li>
+            </ol>
+            <p class="boundary"><span class="boundary__box" aria-hidden="true"></span>Human approval stays the boundary.</p>
+          </div>
+          <div class="stage-panel__art"><img class="stage-panel__img" data-inline-svg data-src="assets/svg/framework/Nohvum-support-tab-line-art.svg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" width="1000" height="1000"></div>
+        </div>
+      </div>
+      <button class="stage-nav stage-nav--next" type="button" data-stage-next aria-label="Next stage: Build"><span class="stage-nav__btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.5 6l6 6-6 6"/></svg></span><span class="stage-nav__label" data-stage-next-label>Build</span></button>
+    </div>
+  </section>
+
+  <!-- Context engineering, certification and the feedback loop: one section, three tabs -->
+  <section class="section pillars" aria-label="How the framework works">
+    <div class="pillars__bar">
+      <div class="pillars__tabs" role="tablist" aria-label="How the framework works" data-pillar-tablist>
+        <button class="pillars__tab" type="button" role="tab" id="tab-context" aria-controls="pillar-context" aria-selected="true">Context Engineering</button>
+        <button class="pillars__tab" type="button" role="tab" id="tab-cert" aria-controls="pillar-cert" aria-selected="false" tabindex="-1">Agent Certification and Accountability</button>
+        <button class="pillars__tab" type="button" role="tab" id="tab-loop" aria-controls="pillar-loop" aria-selected="false" tabindex="-1">Feedback Loop and Telemetry</button>
+      </div>
+    </div>
+    <div class="container pillars__panels">
+      <div class="pillar km" role="tabpanel" id="pillar-context" aria-labelledby="tab-context" tabindex="0">
+        <h2 class="h2 km__title" id="km-title" data-reveal>Your estate. A private knowledge model.</h2>
+        <div class="flowd kmd" data-flowd="km" data-reveal>
+          <ul class="kmd__sources" role="list" aria-label="Your sources">
+            <li class="dg-card kmd__source" data-node="src"><svg class="kmd__doc" viewBox="56 56 30 34" fill="none" aria-hidden="true" focusable="false"><path d="M58 58h18l7 7v23h-25Z M76 58v8h7 M64 74h13 M64 80h10"/></svg><h3 class="dg-card__title">Product documentation</h3><p class="dg-card__text">Product goals, requirements and acceptance criteria.</p></li>
+            <li class="dg-card kmd__source" data-node="src"><svg class="kmd__doc" viewBox="56 56 30 34" fill="none" aria-hidden="true" focusable="false"><path d="M58 58h18l7 7v23h-25Z M76 58v8h7 M64 74h13 M64 80h10"/></svg><h3 class="dg-card__title">Release notes</h3><p class="dg-card__text">Released changes, versions and delivery history.</p></li>
+            <li class="dg-card kmd__source" data-node="src"><svg class="kmd__doc" viewBox="56 56 30 34" fill="none" aria-hidden="true" focusable="false"><path d="M58 58h18l7 7v23h-25Z M76 58v8h7 M64 74h13 M64 80h10"/></svg><h3 class="dg-card__title">Codebase</h3><p class="dg-card__text">Source code, architecture and dependencies.</p></li>
+            <li class="dg-card kmd__source" data-node="src"><svg class="kmd__doc" viewBox="56 56 30 34" fill="none" aria-hidden="true" focusable="false"><path d="M58 58h18l7 7v23h-25Z M76 58v8h7 M64 74h13 M64 80h10"/></svg><h3 class="dg-card__title">Decision records</h3><p class="dg-card__text">Technical decisions, rationale and agreed trade-offs.</p></li>
+            <li class="dg-card kmd__source" data-node="src"><svg class="kmd__doc" viewBox="56 56 30 34" fill="none" aria-hidden="true" focusable="false"><path d="M58 58h18l7 7v23h-25Z M76 58v8h7 M64 74h13 M64 80h10"/></svg><h3 class="dg-card__title">Data models &amp; conventions</h3><p class="dg-card__text">Schemas, naming standards and engineering patterns.</p></li>
+            <li class="dg-card kmd__source" data-node="src"><svg class="kmd__doc" viewBox="56 56 30 34" fill="none" aria-hidden="true" focusable="false"><path d="M58 58h18l7 7v23h-25Z M76 58v8h7 M64 74h13 M64 80h10"/></svg><h3 class="dg-card__title">Tickets &amp; incidents</h3><p class="dg-card__text">Support issues, resolutions and operational learning.</p></li>
+          </ul>
+          <div class="kmd__tenant" data-node="tenant">
+            <p class="kmd__tenant-label">Private context instance / client tenant</p>
+            <ol class="kmd__stages" role="list">
+              <li class="dg-card kmd__stage" data-node="knowledge"><div class="dg-card__art"><svg class="dg-art" viewBox="90 320 272 266" fill="none" aria-hidden="true" focusable="false"><g transform="translate(0 35) scale(1 .88)"><path d="M96 407.0l112 -56.0 112 56.0 -112 56.0Z M96 407.0v155l112 56.0 112 -56.0V407.0 M208 463.0v155" stroke="currentColor" opacity="0.8" /><path d="M96 445.75l112 56.0 112 -56.0" stroke="currentColor" opacity="0.2" /><path d="M96 484.5l112 56.0 112 -56.0" stroke="currentColor" opacity="0.2" /><path d="M96 523.25l112 56.0 112 -56.0" stroke="currentColor" opacity="0.2" /><path d="M114 398.0l112 -56.0 112 56.0 -112 56.0Z M114 398.0v155l112 56.0 112 -56.0V398.0 M226 454.0v155" stroke="currentColor" opacity="0.8" /><path d="M114 436.75l112 56.0 112 -56.0" stroke="currentColor" opacity="0.2" /><path d="M114 475.5l112 56.0 112 -56.0" stroke="currentColor" opacity="0.2" /><path d="M114 514.25l112 56.0 112 -56.0" stroke="currentColor" opacity="0.2" /><path d="M132 389.0l112 -56.0 112 56.0 -112 56.0Z M132 389.0v155l112 56.0 112 -56.0V389.0 M244 445.0v155" stroke="currentColor" opacity="0.8" /><path d="M132 427.75l112 56.0 112 -56.0" stroke="currentColor" opacity="0.2" /><path d="M132 466.5l112 56.0 112 -56.0" stroke="currentColor" opacity="0.2" /><path d="M132 505.25l112 56.0 112 -56.0" stroke="currentColor" opacity="0.2" /><path d="M118 408l78 -39 78 39 -78 39Z" stroke="currentColor" opacity="0.65" /><path d="M118 408v9l78 39 78 -39v-9" stroke="currentColor" opacity="0.35" /><path d="M118 442l78 -39 78 39 -78 39Z" stroke="currentColor" opacity="0.65" /><path d="M118 442v9l78 39 78 -39v-9" stroke="currentColor" opacity="0.35" /><path d="M118 476l78 -39 78 39 -78 39Z" stroke="currentColor" opacity="0.65" /><path d="M118 476v9l78 39 78 -39v-9" stroke="currentColor" opacity="0.35" /><path d="M118 510l78 -39 78 39 -78 39Z" stroke="currentColor" opacity="0.65" /><path d="M118 510v9l78 39 78 -39v-9" stroke="currentColor" opacity="0.35" /><path class="dg-accent" d="M118 408l78 -39 78 39" stroke-width="1.3"/></g></svg></div><h3 class="dg-card__title">Application knowledge model</h3><p class="dg-card__text">Your context, indexed and retained.</p></li>
+              <li class="dg-card kmd__stage" data-node="agents"><div class="dg-card__art"><svg class="dg-art" viewBox="562 370 102 214" fill="none" aria-hidden="true" focusable="false"><path d="M570 397l43 -21.5 43 21.5 -43 21.5Z M570 397v42l43 21.5 43 -21.5V397 M613 418.5v42" stroke="currentColor" opacity="0.8" /><path d="M570 407.5l43 21.5 43 -21.5" stroke="currentColor" opacity="0.2" /><path d="M570 418.0l43 21.5 43 -21.5" stroke="currentColor" opacity="0.2" /><path d="M570 428.5l43 21.5 43 -21.5" stroke="currentColor" opacity="0.2" /><path d="M570 456l43 -21.5 43 21.5 -43 21.5Z M570 456v42l43 21.5 43 -21.5V456 M613 477.5v42" stroke="currentColor" opacity="0.8" /><path d="M570 466.5l43 21.5 43 -21.5" stroke="currentColor" opacity="0.2" /><path d="M570 477.0l43 21.5 43 -21.5" stroke="currentColor" opacity="0.2" /><path d="M570 487.5l43 21.5 43 -21.5" stroke="currentColor" opacity="0.2" /><path d="M570 515l43 -21.5 43 21.5 -43 21.5Z M570 515v42l43 21.5 43 -21.5V515 M613 536.5v42" stroke="currentColor" opacity="0.8" /><path d="M570 525.5l43 21.5 43 -21.5" stroke="currentColor" opacity="0.2" /><path d="M570 536.0l43 21.5 43 -21.5" stroke="currentColor" opacity="0.2" /><path d="M570 546.5l43 21.5 43 -21.5" stroke="currentColor" opacity="0.2" /></svg></div><h3 class="dg-card__title">Certified agents</h3><p class="dg-card__text">Work against your context.</p></li>
+              <li class="dg-card dg-card--human kmd__stage" data-node="gate"><div class="dg-card__art"><svg class="dg-art dg-art--icon" viewBox="884 410 66 54" fill="none" aria-hidden="true" focusable="false"><g stroke="currentColor" fill="none" stroke-width="1.7"><circle cx="905" cy="426" r="10" /><path d="M890 452c0-21 30-21 30 0" /><circle cx="935" cy="447" r="12" /><path d="m929 447 4 4 8-9" class="dg-accent-stroke" /></g></svg></div><h3 class="dg-card__title">Human approval gate</h3><p class="dg-card__text">A named engineer reviews and approves the work. A person owns the result.</p></li>
+              <li class="dg-card kmd__stage" data-node="delivered"><div class="dg-card__art"><svg class="dg-art" viewBox="1276 372 200 212" fill="none" aria-hidden="true" focusable="false"><g transform="translate(0 35) scale(1 .88)"><path d="M1282 390l128 64v136l-128 -64Z" stroke="currentColor" opacity="0.4" /><path d="M1297 425l83 41" stroke="currentColor" opacity="0.35" /><path d="M1297 444l83 41" stroke="currentColor" opacity="0.35" /><path d="M1297 463l83 41" stroke="currentColor" opacity="0.35" /><path d="M1297 482l83 41" stroke="currentColor" opacity="0.35" /><path d="M1297 501l83 41" stroke="currentColor" opacity="0.35" /><path d="M1302 399l128 64v136l-128 -64Z" stroke="currentColor" opacity="0.55" /><path d="M1317 434l83 41" stroke="currentColor" opacity="0.35" /><path d="M1317 453l83 41" stroke="currentColor" opacity="0.35" /><path d="M1317 472l83 41" stroke="currentColor" opacity="0.35" /><path d="M1317 491l83 41" stroke="currentColor" opacity="0.35" /><path d="M1317 510l83 41" stroke="currentColor" opacity="0.35" /><path d="M1322 408l128 64v136l-128 -64Z" stroke="currentColor" opacity="0.7" /><path d="M1337 443l83 41" stroke="currentColor" opacity="0.35" /><path d="M1337 462l83 41" stroke="currentColor" opacity="0.35" /><path d="M1337 481l83 41" stroke="currentColor" opacity="0.35" /><path d="M1337 500l83 41" stroke="currentColor" opacity="0.35" /><path d="M1337 519l83 41" stroke="currentColor" opacity="0.35" /><path d="M1342 417l128 64v136l-128 -64Z" stroke="currentColor" opacity="0.85" /><path d="M1357 452l83 41" stroke="currentColor" opacity="0.35" /><path d="M1357 471l83 41" stroke="currentColor" opacity="0.35" /><path d="M1357 490l83 41" stroke="currentColor" opacity="0.35" /><path d="M1357 509l83 41" stroke="currentColor" opacity="0.35" /><path d="M1357 528l83 41" stroke="currentColor" opacity="0.35" /></g></svg></div><h3 class="dg-card__title">Delivered work</h3><p class="dg-card__text">Reviewed changes and evidence.</p></li>
+            </ol>
+            <p class="kmd__return" data-node="return"><span>Evidence returned to context</span></p>
+            <p class="kmd__note">Client context stays within its agreed tenant boundary.</p>
+          </div>
+        </div>
+      </div>
+      <div class="pillar cert" role="tabpanel" id="pillar-cert" aria-labelledby="tab-cert" tabindex="0" hidden>
+        <h2 class="h2 cert__title" id="cert-title" data-reveal>Nothing goes live unproven.</h2>
+        <div class="flowd certd" data-flowd="cert" data-reveal>
+          <ol class="certd__row" role="list">
+            <li class="dg-card certd__card" data-node="reference"><div class="dg-card__art"><svg class="dg-art" viewBox="62 40 196 210" fill="none" aria-hidden="true" focusable="false"><path d="M70 195l90 -35 90 35 -90 35Z" stroke="currentColor" stroke-opacity="0.13" /><path d="M70 204l90 -35 90 35 -90 35Z" stroke="currentColor" stroke-opacity="0.13" /><path d="M70 213l90 -35 90 35 -90 35Z" stroke="currentColor" stroke-opacity="0.13" /><path d="M70 222l90 -35 90 35 -90 35Z" stroke="currentColor" stroke-opacity="0.13" /><path d="M91 91l87 -40v95l-87 40Z" stroke="currentColor" stroke-opacity="0.45" /><path d="M105 113l59 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M105 129l59 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M105 145l59 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M105 161l59 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M111 99l87 -40v95l-87 40Z" stroke="currentColor" stroke-opacity="0.45" /><path d="M125 121l59 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M125 137l59 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M125 153l59 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M125 169l59 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M131 107l87 -40v95l-87 40Z" stroke="currentColor" stroke-opacity="0.45" /><path d="M145 129l59 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M145 145l59 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M145 161l59 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M145 177l59 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M151 115l87 -40v95l-87 40Z" stroke="currentColor" stroke-opacity="0.45" /><path d="M165 137l59 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M165 153l59 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M165 169l59 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M165 185l59 -29" stroke="currentColor" stroke-opacity="0.24" /></svg></div><h3 class="dg-card__title">Reference set</h3><p class="dg-card__text">Experts curate input-output pairs.</p></li>
+            <li class="dg-card certd__card" data-node="blind"><div class="dg-card__art"><svg class="dg-art" viewBox="367 40 196 210" fill="none" aria-hidden="true" focusable="false"><path d="M375 195l90 -35 90 35 -90 35Z" stroke="currentColor" stroke-opacity="0.13" /><path d="M375 204l90 -35 90 35 -90 35Z" stroke="currentColor" stroke-opacity="0.13" /><path d="M375 213l90 -35 90 35 -90 35Z" stroke="currentColor" stroke-opacity="0.13" /><path d="M375 222l90 -35 90 35 -90 35Z" stroke="currentColor" stroke-opacity="0.13" /><path d="M395 88l98 -40v100l-98 40Z" stroke="currentColor" stroke-opacity="0.45" /><path d="M409 110l70 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M409 126l70 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M409 142l70 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M409 158l70 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M422 99l98 -40v100l-98 40Z" stroke="currentColor" stroke-opacity="0.45" /><path d="M436 121l70 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M436 137l70 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M436 153l70 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M436 169l70 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M449 110l98 -40v100l-98 40Z" stroke="currentColor" stroke-opacity="0.45" /><path d="M463 132l70 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M463 148l70 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M463 164l70 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M463 180l70 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M420 125l35 -14 M450 157l34 -14" stroke="currentColor" stroke-opacity="0.7" stroke-width="1.7" /></svg></div><h3 class="dg-card__title">Blind evaluation</h3><p class="dg-card__text">Agent runs without seeing the answers.</p></li>
+            <li class="dg-card certd__card" data-node="scoring"><div class="dg-card__art"><svg class="dg-art" viewBox="672 40 196 210" fill="none" aria-hidden="true" focusable="false"><path d="M680 195l90 -35 90 35 -90 35Z" stroke="currentColor" stroke-opacity="0.13" /><path d="M680 204l90 -35 90 35 -90 35Z" stroke="currentColor" stroke-opacity="0.13" /><path d="M680 213l90 -35 90 35 -90 35Z" stroke="currentColor" stroke-opacity="0.13" /><path d="M680 222l90 -35 90 35 -90 35Z" stroke="currentColor" stroke-opacity="0.13" /><path d="M697 91l94 -40v100l-94 40Z" stroke="currentColor" stroke-opacity="0.45" /><path d="M711 113l66 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M711 129l66 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M711 145l66 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M711 161l66 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M721 101l94 -40v100l-94 40Z" stroke="currentColor" stroke-opacity="0.45" /><path d="M735 123l66 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M735 139l66 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M735 155l66 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M735 171l66 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M745 111l94 -40v100l-94 40Z" stroke="currentColor" stroke-opacity="0.45" /><path d="M759 133l66 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M759 149l66 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M759 165l66 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M759 181l66 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M774 125l7 6 13 -19" stroke="currentColor" stroke-opacity="0.8" stroke-width="1.5" /><path d="M774 154l7 6 13 -19" stroke="currentColor" stroke-opacity="0.8" stroke-width="1.5" /><path d="M774 183l7 6 13 -19" stroke="currentColor" stroke-opacity="0.8" stroke-width="1.5" /></svg></div><h3 class="dg-card__title">Expert scoring</h3><p class="dg-card__text">Quality, fit and compliance.</p></li>
+            <li class="dg-gate" data-node="gate"><span class="dg-gate__label">Certification gate</span><span class="dg-gate__bar" data-gate-bar aria-hidden="true"></span><span class="dg-gate__note">Named admin certifies, defers or fails.</span></li>
+            <li class="dg-card certd__card" data-node="monitoring"><div class="dg-card__art"><svg class="dg-art" viewBox="1250 40 222 210" fill="none" aria-hidden="true" focusable="false"><path d="M1270 195l90 -35 90 35 -90 35Z" stroke="currentColor" stroke-opacity="0.13" /><path d="M1270 204l90 -35 90 35 -90 35Z" stroke="currentColor" stroke-opacity="0.13" /><path d="M1270 213l90 -35 90 35 -90 35Z" stroke="currentColor" stroke-opacity="0.13" /><path d="M1270 222l90 -35 90 35 -90 35Z" stroke="currentColor" stroke-opacity="0.13" /><path d="M1258 91l140 -40v105l-140 40Z" stroke="currentColor" stroke-opacity="0.45" /><path d="M1272 113l112 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M1272 129l112 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M1272 145l112 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M1272 161l112 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M1287 102l140 -40v105l-140 40Z" stroke="currentColor" stroke-opacity="0.45" /><path d="M1301 124l112 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M1301 140l112 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M1301 156l112 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M1301 172l112 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M1316 113l140 -40v105l-140 40Z" stroke="currentColor" stroke-opacity="0.45" /><path d="M1330 135l112 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M1330 151l112 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M1330 167l112 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M1330 183l112 -29" stroke="currentColor" stroke-opacity="0.24" /><path d="M1275 159l18 -8 10 -23 12 17 20 -35 12 19 18 -15 19 3" stroke="currentColor" stroke-opacity="0.9" stroke-width="1.5" /></svg></div><p class="dg-card__eyebrow">In production</p><h3 class="dg-card__title">Live monitoring</h3><p class="dg-card__text">Drift triggers re-evaluation. Renewal depends on evidence.</p></li>
+          </ol>
+          <ul class="certd__loops" role="list">
+            <li class="certd__loop" data-loop="fail">Fails / remediate and re-run</li>
+            <li class="certd__loop" data-loop="drift">Drift detected / re-evaluate</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pillar learn" role="tabpanel" id="pillar-loop" aria-labelledby="tab-loop" tabindex="0" hidden>
+        <h2 class="h2" id="learn-title" data-reveal>Every cycle strengthens the next.</h2>
+        <p class="lead learn__lead" data-reveal>Delivery evidence builds retained knowledge. Updated agents pass through the same certification gate before returning to delivery.</p>
+        <div class="flowd loopd" data-flowd="loop" data-reveal>
+          <ol class="loopd__grid" role="list">
+            <li class="dg-card loopd__node loopd__node--top" data-node="telemetry"><div class="dg-card__art"><img class="dg-art" src="assets/svg/framework/Nohvum-learning-01-telemetry.svg" alt="" width="240" height="240"></div><h3 class="dg-card__title">Telemetry</h3><p class="dg-card__text">Stories, PRs, tests, deployments, incidents and tickets feed one outcome store.</p></li>
+            <li class="dg-card loopd__node loopd__node--right" data-node="agents"><div class="dg-card__art"><img class="dg-art" src="assets/svg/framework/Nohvum-learning-03-agents-recalibrated.svg" alt="" width="240" height="240"></div><h3 class="dg-card__title">Agents re-calibrated</h3><p class="dg-card__text">Outcome data tunes agents to your stack and conventions, through the same certification gate.</p></li>
+            <li class="dg-gate loopd__node--gate" data-node="gate"><span class="dg-gate__label">Certification gate</span><span class="dg-gate__bar" data-gate-bar aria-hidden="true"></span><span class="dg-gate__note">Re-evaluate and certify updated agents before the next delivery cycle.</span></li>
+            <li class="dg-card loopd__node loopd__node--left" data-node="knowledge"><div class="dg-card__art"><img class="dg-art" src="assets/svg/framework/Nohvum-learning-02-knowledge-retained.svg" alt="" width="240" height="240"></div><h3 class="dg-card__title">Knowledge retained</h3><p class="dg-card__text">Decisions, fixes and context stay in the framework, preserving knowledge between delivery cycles.</p></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Autonomy -->
+  <section class="section autonomy" aria-labelledby="auto-title">
+    <div class="container autonomy__grid">
+      <div data-reveal>
+        <h2 class="h2" id="auto-title">Configurable<br>AI-SDLC autonomy.</h2>
+        <p class="lead autonomy__lead">Choose how much AI does.<br>Accountability stays.</p>
+      </div>
+      <div class="dial" data-reveal data-reveal-delay="0.1">
+        <div class="dial__options" role="radiogroup" aria-labelledby="auto-title">
+          <span class="dial__track" aria-hidden="true"><span class="dial__marker" data-dial-marker></span></span>
+          <button class="dial__opt" type="button" role="radio" aria-checked="false" tabindex="-1" data-dial="0"><span class="dial__dot" aria-hidden="true"></span><span class="dial__name">Agentic HITL execution</span><span class="dial__text">Agents do the work,<br>people approve it.</span></button>
+          <button class="dial__opt" type="button" role="radio" aria-checked="true" tabindex="0" data-dial="1"><span class="dial__dot" aria-hidden="true"></span><span class="dial__name">AI-augmented execution</span><span class="dial__text">People do the work,<br>AI helps.</span></button>
+          <button class="dial__opt" type="button" role="radio" aria-checked="false" tabindex="-1" data-dial="2"><span class="dial__dot" aria-hidden="true"></span><span class="dial__name">AI-monitored execution</span><span class="dial__text">People do the work,<br>AI watches.</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI use -->
+  <section class="section governance" id="governance" aria-labelledby="env-title">
+    <div class="container split">
+      <h2 class="h2" id="env-title" data-reveal>AI use that fits your environment.</h2>
+      <div class="split__body" data-reveal data-reveal-delay="0.1">
+        <p class="body">Before implementation, we agree which tools and data sources may be used, where code and data can be processed, who approves changes, and what evidence is retained.</p>
+        <p class="body">We align with your access controls, delivery pipeline and engineering review process.</p>
+        <p><a class="link-arrow" href="talk-to-an-expert.html">How governance works <svg class="arw" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 10.5 10.5 1.5M3.5 1.5h7v7"/></svg></a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section--dark cta-band" aria-labelledby="cta-title">
+    <div class="container cta-band__grid" data-reveal>
+      <h2 class="h2" id="cta-title">See how the framework<br>fits your team.</h2>
+      <div class="cta-band__aside">
+        <p>Start with your systems, your priorities and the outcome you need.</p>
+        <div class="cta-band__actions">
+          <a class="btn btn--light" href="talk-to-an-expert.html">Talk to an Expert</a>
+          <a class="btn btn--light" href="what-we-do.html">Explore our services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <a class="site-footer__logo" href="index.html" aria-label="Nohvum home"><img src="assets/img/nohvum-lockup-horizontal.svg" alt="Nohvum" width="220" height="32"></a>
+      </div>
+      <nav class="site-footer__explore" aria-label="Explore">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="framework.html">Framework</a></li>
+          <li><a href="what-we-do.html">What We Do</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </nav>
+      <nav class="site-footer__connect" aria-label="Connect">
+        <ul>
+          <li><a href="https://www.linkedin.com/company/nohvum/home/" target="_blank" rel="noopener">LinkedIn<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="site-footer__legal">
+      <ul aria-label="Legal">
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="cookie-notice.html">Cookie Notice</a></li>
+        <li><a href="terms.html">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="site-footer__bar">
+    <div class="container"><p>&copy; 2026 Nohvum Pvt Ltd. All rights reserved.</p><p>Engineering outcomes, delivered</p></div>
+  </div>
+</footer>
+</body>
+</html>

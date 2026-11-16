@@ -1,171 +1,271 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="js-motion">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nohvum: AI-Native Software Services</title>
-  <meta name="description" content="AI-DLC driven software delivery for Healthcare, Life Sciences and Financial Services. Faster delivery. Human approval gates. Audit-ready evidence.">
-  <meta name="theme-color" content="#f23617">
+  <title>AI-Native Software Services | Nohvum</title>
+  <meta name="description" content="Software engineering rebuilt for the age of AI. Engineering outcomes delivered by domain experts, powered by the Nohvum AI-SDLC framework.">
+  <meta name="theme-color" content="#f5f6f1">
   <link rel="canonical" href="https://nohvum.com/">
-
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Nohvum">
-  <meta property="og:title" content="Nohvum: AI-Native Software Services">
-  <meta property="og:description" content="AI-DLC driven software delivery for Healthcare, Life Sciences and Financial Services. Faster delivery. Human approval gates. Audit-ready evidence.">
+  <meta property="og:title" content="AI-Native Software Services | Nohvum">
+  <meta property="og:description" content="Engineering outcomes delivered by domain experts, powered by the Nohvum AI-SDLC framework.">
   <meta property="og:url" content="https://nohvum.com/">
   <meta property="og:image" content="https://nohvum.com/assets/og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Nohvum: AI-Native Software Services">
-  <meta name="twitter:description" content="AI-DLC driven software delivery for Healthcare, Life Sciences and Financial Services.">
-  <meta name="twitter:image" content="https://nohvum.com/assets/og-image.png">
-
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Manrope:wght@400;500;600;700;800&display=swap">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="preload" href="assets/fonts/selawik-light.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/selawik-semilight.woff2" as="font" type="font/woff2" crossorigin>
+  <script>if (matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.classList.remove("js-motion");</script>
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/ring.css">
+  <link rel="stylesheet" href="assets/css/home.css">
+  <script defer src="assets/js/motion.min.js"></script>
+  <script defer src="assets/js/site.js"></script>
+  <script defer src="assets/js/ring.js"></script>
+  <script defer src="assets/js/home.js"></script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
-<svg class="sprite" aria-hidden="true" focusable="false">
-  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
-  <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
-  <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
-</svg>
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__logo" href="index.html" aria-label="Nohvum home"><img src="assets/img/nohvum-lockup-horizontal.svg" alt="Nohvum" width="220" height="32"></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span>Menu</span><span class="nav-toggle__bars" aria-hidden="true"></span></button>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul class="site-nav__list">
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="framework.html">Framework</a></li>
+        <li><a href="what-we-do.html">What We Do</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="careers.html">Careers</a></li>
+      </ul>
+      <a class="btn" href="talk-to-an-expert.html">Talk to an Expert</a>
+    </nav>
+  </div>
+</header>
 
-<div class="page">
+<main id="main">
 
-  <aside class="hero">
-    <div class="hero__brand">
-      <img class="hero__mark" src="assets/logo-mark-white.png" alt="Nohvum" width="354" height="300">
-      <img class="hero__wordmark" src="assets/logo-wordmark-white.png" alt="" width="638" height="92">
+  <!-- Hero -->
+  <section class="hero section--hero" aria-labelledby="hero-title">
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <h1 class="display" id="hero-title">Software engineering <br class="br-wide">rebuilt for the <br class="br-wide"><span class="hero__u">age of AI</span>.</h1>
+        <p class="hero__lead" data-reveal data-reveal-delay="0.15">Engineering outcomes delivered by domain experts,<br class="br-sm-hide"> powered by the Nohvum AI-SDLC framework.</p>
+        <p data-reveal data-reveal-delay="0.25"><a class="link-arrow" href="framework.html">Explore the framework <svg class="arw" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 10.5 10.5 1.5M3.5 1.5h7v7"/></svg></a></p>
+      </div>
+      <div class="hero__art">
+        <nav class="ring ring--overview" data-home-ring aria-label="The Nohvum delivery loop">
+          <canvas class="ring__canvas" aria-hidden="true"></canvas>
+          <ul class="ring__pills" role="list">
+            <li class="ring__anchor"><a class="ring-pill" href="framework.html#plan" aria-label="Plan stage of the framework"><span class="ring-pill__name">Plan</span></a></li>
+            <li class="ring__anchor"><a class="ring-pill" href="framework.html#build" aria-label="Build stage of the framework"><span class="ring-pill__name">Build</span></a></li>
+            <li class="ring__anchor"><a class="ring-pill" href="framework.html#test" aria-label="Test stage of the framework"><span class="ring-pill__name">Test</span></a></li>
+            <li class="ring__anchor"><a class="ring-pill" href="framework.html#deploy" aria-label="Deploy stage of the framework"><span class="ring-pill__name">Deploy</span></a></li>
+            <li class="ring__anchor"><a class="ring-pill" href="framework.html#run" aria-label="Run stage of the framework"><span class="ring-pill__name">Run</span></a></li>
+            <li class="ring__anchor"><a class="ring-pill" href="framework.html#support" aria-label="Support stage of the framework"><span class="ring-pill__name">Support</span></a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
-    <div class="hero__body">
-      <p class="pill"><span class="pill__dot"></span>Coming soon</p>
-      <h1 class="hero__title">AI-DLC driven software delivery for <em>Healthcare, Life Sciences &amp; Financial Services</em></h1>
-      <p class="hero__lede">Faster delivery. Human approval gates. Audit-ready evidence.</p>
-    </div>
-  </aside>
+  </section>
 
-  <main class="panel">
-    <div class="panel__inner">
+  <!-- Governed loop -->
+  <section class="loop section section--dark" aria-labelledby="loop-title">
+    <div class="container">
+      <div class="loop__head">
+        <h2 class="h2" id="loop-title" data-reveal>One governed loop across the software lifecycle.</h2>
+        <div class="loop__aside" data-reveal data-reveal-delay="0.1">
+          <p class="loop__aside-title">Your context in.<br>Accountable outcomes out.</p>
+        </div>
+      </div>
 
-      <header class="section-head">
-        <span class="eyebrow">Contact</span>
-        <h2>Get in touch</h2>
-      </header>
-
-      <section class="request card" id="request" data-phase="open" aria-label="Request a conversation">
-
-        <form class="form" data-view="open" data-form="contact" action="https://formspree.io/f/xjyvwaww" method="POST" novalidate>
-          <div class="form__grid">
-            <label class="field">
-              <span class="field__label">Name</span>
-              <span class="field__control">
-                <input class="field__input" type="text" name="name" placeholder="Your name" autocomplete="name" required>
-              </span>
-            </label>
-            <label class="field field--icon">
-              <span class="field__label">Work email</span>
-              <span class="field__control">
-                <span class="field__icon"><svg class="icon" width="18" height="18"><use href="#i-mail"/></svg></span>
-                <input class="field__input" type="email" name="email" placeholder="you@company.com" autocomplete="email" inputmode="email" required>
-              </span>
-            </label>
+      <div class="loop__diagram" data-loop>
+        <div class="loop__model" data-loop-model>
+          <img src="assets/svg/home/governed-loop-icon-01-knowledge-model.svg" alt="" width="40" height="40">
+          <div>
+            <p class="loop__model-title">Nohvum application knowledge model</p>
+            <p class="loop__model-text">Your codebase, tickets, incidents and decisions.</p>
           </div>
-          <label class="field">
-            <span class="field__label">Message (optional)</span>
-            <span class="field__control">
-              <textarea class="field__input field__input--multiline" name="message" rows="3" placeholder="A few lines is plenty."></textarea>
-            </span>
-          </label>
-          <label class="hp" aria-hidden="true"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
-          <div class="form__actions">
-            <p class="form__error" data-error hidden></p>
-            <button class="btn btn--secondary" type="submit">Send request</button>
-          </div>
-        </form>
-
-        <div class="sent" data-view="sent" role="status" hidden>
-          <span class="sent__badge"><svg class="icon" width="20" height="20"><use href="#i-check"/></svg></span>
-          <div class="sent__copy">
-            <p class="sent__title" tabindex="-1">Request sent.</p>
-            <p class="sent__text">Shrey replies from shrey@nohvum.com, usually the same working day.</p>
-          </div>
+          <p class="loop__model-tag">Context to<br>Every Stage</p>
         </div>
 
-      </section>
+        <div class="loop__bus" aria-hidden="true"><span class="loop__trunk"></span><span class="loop__rail"></span></div>
 
-      <footer class="foot">
-        <hr class="hairline">
-        <div class="foot__row">
+        <div class="loop__track">
+        <ol class="loop__stages" role="list">
+          <li class="loop__stage" data-loop-stage>
+            <a href="framework.html#plan">
+              <img src="assets/svg/home/governed-loop-icon-02-plan.svg" alt="" width="44" height="44">
+              <span class="loop__stage-title">Plan</span>
+              <span class="loop__stage-text">Turn goals and context into a delivery plan.</span>
+              <svg class="arw" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 10.5 10.5 1.5M3.5 1.5h7v7"/></svg>
+            </a>
+            <span class="gate" data-loop-gate aria-hidden="true"></span>
+          </li>
+          <li class="loop__stage" data-loop-stage>
+            <a href="framework.html#build">
+              <img src="assets/svg/home/governed-loop-icon-03-build.svg" alt="" width="44" height="44">
+              <span class="loop__stage-title">Build</span>
+              <span class="loop__stage-text">Implement changes against requirements.</span>
+              <svg class="arw" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 10.5 10.5 1.5M3.5 1.5h7v7"/></svg>
+            </a>
+            <span class="gate" data-loop-gate aria-hidden="true"></span>
+          </li>
+          <li class="loop__stage" data-loop-stage>
+            <a href="framework.html#test">
+              <img src="assets/svg/home/governed-loop-icon-04-test.svg" alt="" width="44" height="44">
+              <span class="loop__stage-title">Test</span>
+              <span class="loop__stage-text">Check behavior, coverage and acceptance criteria.</span>
+              <svg class="arw" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 10.5 10.5 1.5M3.5 1.5h7v7"/></svg>
+            </a>
+            <span class="gate" data-loop-gate aria-hidden="true"></span>
+          </li>
+          <li class="loop__stage" data-loop-stage>
+            <a href="framework.html#deploy">
+              <img src="assets/svg/home/governed-loop-icon-05-deploy.svg" alt="" width="44" height="44">
+              <span class="loop__stage-title">Deploy</span>
+              <span class="loop__stage-text">Release through controlled delivery pipelines.</span>
+              <svg class="arw" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 10.5 10.5 1.5M3.5 1.5h7v7"/></svg>
+            </a>
+            <span class="gate" data-loop-gate aria-hidden="true"></span>
+          </li>
+          <li class="loop__stage" data-loop-stage>
+            <a href="framework.html#run">
+              <img src="assets/svg/home/governed-loop-icon-06-run.svg" alt="" width="44" height="44">
+              <span class="loop__stage-title">Run</span>
+              <span class="loop__stage-text">Monitor reliability and respond to operational signals.</span>
+              <svg class="arw" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 10.5 10.5 1.5M3.5 1.5h7v7"/></svg>
+            </a>
+            <span class="gate" data-loop-gate aria-hidden="true"></span>
+          </li>
+          <li class="loop__stage" data-loop-stage>
+            <a href="framework.html#support">
+              <img src="assets/svg/home/governed-loop-icon-07-support.svg" alt="" width="44" height="44">
+              <span class="loop__stage-title">Support</span>
+              <span class="loop__stage-text">Resolve issues and feed learning into the next cycle.</span>
+              <svg class="arw" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 10.5 10.5 1.5M3.5 1.5h7v7"/></svg>
+            </a>
+          </li>
+        </ol>
 
-          <section class="hiring" id="hiring" data-phase="collapsed" aria-label="We're hiring">
-
-            <div class="hiring__collapsed" data-view="collapsed">
-              <p>We're Hiring!</p>
-              <button class="btn btn--secondary btn--sm" type="button" data-action="open">Apply</button>
-            </div>
-
-            <form class="hiring__form" data-view="form" data-form="hiring" action="https://formspree.io/f/xdeozele" method="POST" novalidate hidden>
-              <div class="hiring__head">
-                <span class="eyebrow eyebrow--muted">Apply</span>
-              </div>
-              <div class="form__grid">
-                <label class="field">
-                  <span class="field__label">Name</span>
-                  <span class="field__control">
-                    <input class="field__input" type="text" name="name" placeholder="Your name" autocomplete="name" required>
-                  </span>
-                </label>
-                <label class="field">
-                  <span class="field__label">Email</span>
-                  <span class="field__control">
-                    <input class="field__input" type="email" name="email" placeholder="you@company.com" autocomplete="email" inputmode="email" required>
-                  </span>
-                </label>
-              </div>
-              <label class="field">
-                <span class="field__label">LinkedIn or CV link</span>
-                <span class="field__control">
-                  <input class="field__input" type="text" name="link" placeholder="linkedin.com/in/yourname" autocomplete="url" inputmode="url">
-                </span>
-              </label>
-              <label class="hp" aria-hidden="true"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
-              <div class="hiring__actions">
-                <button class="btn btn--secondary" type="submit">Send application</button>
-                <button class="btn btn--ghost" type="button" data-action="cancel">Cancel</button>
-                <p class="form__error" data-error hidden></p>
-              </div>
-            </form>
-
-            <div class="sent hiring__sent" data-view="sent" role="status" hidden>
-              <span class="sent__badge"><svg class="icon" width="20" height="20"><use href="#i-check"/></svg></span>
-              <div class="sent__copy">
-                <p class="sent__title" tabindex="-1">Application received.</p>
-                <p class="sent__text">We read every one and reply within a week.</p>
-              </div>
-            </div>
-
-          </section>
-
-          <p class="legal">
-            <span>&copy; 2026 Nohvum Ltd</span>
-          </p>
-
+        <div class="loop__return" aria-hidden="true" data-loop-return><span class="gate gate--return" data-loop-gate-final></span></div>
         </div>
-      </footer>
 
+        <p class="loop__foot"><span class="loop__foot-title">Human approval at every stage</span><span class="loop__foot-text">Evidence / Telemetry / Continuous Learning</span></p>
+      </div>
     </div>
-  </main>
+  </section>
 
-</div>
+  <!-- Services and engagement -->
+  <section class="section section--soft" aria-labelledby="services-title">
+    <div class="container">
+      <h2 class="h2 services__title" id="services-title" data-reveal>Engineering outcomes delivered for your domain.</h2>
+      <ul class="services" role="list" data-reveal-group>
+        <li><a href="what-we-do.html#build"><span class="services__name">Build <svg class="arw" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 10.5 10.5 1.5M3.5 1.5h7v7"/></svg></span><span class="services__text">Create products and features with clear requirements and accountable delivery.</span></a></li>
+        <li><a href="what-we-do.html#modernize"><span class="services__name">Modernize <svg class="arw" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 10.5 10.5 1.5M3.5 1.5h7v7"/></svg></span><span class="services__text">Evolve legacy platforms in manageable, well-understood steps.</span></a></li>
+        <li><a href="what-we-do.html#run"><span class="services__name">Run <svg class="arw" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 10.5 10.5 1.5M3.5 1.5h7v7"/></svg></span><span class="services__text">Keep applications reliable with support, maintenance, and operations.</span></a></li>
+        <li><a href="what-we-do.html#secure"><span class="services__name">Secure <svg class="arw" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 10.5 10.5 1.5M3.5 1.5h7v7"/></svg></span><span class="services__text">Identify and remediate vulnerabilities across your software estate.</span></a></li>
+      </ul>
 
-<script src="script.js"></script>
+      <div class="domains" data-reveal-group="0.12">
+        <article class="media-card">
+          <div class="media-card__img"><img src="assets/img/industry-banking.jpg" alt="" width="580" height="284" loading="lazy"></div>
+          <h3 class="media-card__title">Banking &amp; Financial Services</h3>
+          <p class="media-card__text">Governed workflows. Human review. Clear evidence.</p>
+        </article>
+        <article class="media-card">
+          <div class="media-card__img"><img src="assets/img/industry-healthcare.jpg" alt="" width="1200" height="584" loading="lazy"></div>
+          <h3 class="media-card__title">Healthcare</h3>
+          <p class="media-card__text">Engineering for safety, reliability and traceability.</p>
+        </article>
+        <article class="media-card">
+          <div class="media-card__img"><img src="assets/img/industry-life-sciences.jpg" alt="" width="1200" height="584" loading="lazy"></div>
+          <h3 class="media-card__title">Life Sciences</h3>
+          <p class="media-card__text">Validated systems, from research data to regulated release.</p>
+        </article>
+      </div>
+
+      <h2 class="h2 engage__title" id="engage-title" data-reveal>Engage your way.</h2>
+      <ul class="engage" role="list" data-reveal-group>
+        <li class="engage__card">
+          <img src="assets/svg/home/engagement-01-outcome-scoped-projects.svg" alt="" width="56" height="56">
+          <h3 class="engage__name">Outcome-Scoped Projects</h3>
+          <p class="engage__model">Fixed price per deliverable</p>
+          <ul class="engage__list">
+            <li>Defined scope and deliverables</li>
+            <li>Agreed acceptance criteria</li>
+            <li>Powered by the Nohvum AI-SDLC framework</li>
+            <li>Continuous evidence and reporting</li>
+          </ul>
+        </li>
+        <li class="engage__card">
+          <img src="assets/svg/home/engagement-02-managed-service-lines.svg" alt="" width="56" height="56">
+          <h3 class="engage__name">Managed Service Lines</h3>
+          <p class="engage__model">Monthly fee, SLA-linked</p>
+          <ul class="engage__list">
+            <li>Dedicated engineering capacity</li>
+            <li>SLA-linked service levels</li>
+            <li>Ongoing optimization and support</li>
+            <li>Full visibility and audit trails</li>
+          </ul>
+        </li>
+        <li class="engage__card">
+          <img src="assets/svg/home/engagement-03-embedded-delivery-pods.svg" alt="" width="56" height="56">
+          <h3 class="engage__name">Embedded Delivery Pods</h3>
+          <p class="engage__model">Time and materials (T&amp;M), fee at risk</p>
+          <ul class="engage__list">
+            <li>Integrated with your team</li>
+            <li>Shared goals and KPIs</li>
+            <li>Flexible, long-term partnership</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="engage__foot" data-reveal>
+        <p><span class="engage__pay">You pay for outcomes, service levels, or agreed performance.</span></p>
+        <a class="btn" href="talk-to-an-expert.html">Talk to an Expert</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <a class="site-footer__logo" href="index.html" aria-label="Nohvum home"><img src="assets/img/nohvum-lockup-horizontal.svg" alt="Nohvum" width="220" height="32"></a>
+      </div>
+      <nav class="site-footer__explore" aria-label="Explore">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="framework.html">Framework</a></li>
+          <li><a href="what-we-do.html">What We Do</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </nav>
+      <nav class="site-footer__connect" aria-label="Connect">
+        <ul>
+          <li><a href="https://www.linkedin.com/company/nohvum/home/" target="_blank" rel="noopener">LinkedIn<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="site-footer__legal">
+      <ul aria-label="Legal">
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="cookie-notice.html">Cookie Notice</a></li>
+        <li><a href="terms.html">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="site-footer__bar">
+    <div class="container"><p>&copy; 2026 Nohvum Pvt Ltd. All rights reserved.</p><p>Engineering outcomes, delivered</p></div>
+  </div>
+</footer>
 </body>
 </html>

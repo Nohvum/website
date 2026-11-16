@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en" class="js-motion">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What We Do | Nohvum</title>
+  <meta name="description" content="Engineering across the entire software lifecycle. Build new products, modernize existing systems, and keep critical applications running and secure.">
+  <meta name="theme-color" content="#f5f6f1">
+  <link rel="canonical" href="https://nohvum.com/what-we-do.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Nohvum">
+  <meta property="og:title" content="What We Do | Nohvum">
+  <meta property="og:description" content="Build new products, modernize existing systems, and keep critical applications running.">
+  <meta property="og:url" content="https://nohvum.com/what-we-do.html">
+  <meta property="og:image" content="https://nohvum.com/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
+  <link rel="preload" href="assets/fonts/selawik-light.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/selawik-semilight.woff2" as="font" type="font/woff2" crossorigin>
+  <script>if (matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.classList.remove("js-motion");</script>
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/ring.css">
+  <link rel="stylesheet" href="assets/css/what-we-do.css">
+  <script defer src="assets/js/motion.min.js"></script>
+  <script defer src="assets/js/site.js"></script>
+  <script defer src="assets/js/cubes.js"></script>
+  <script defer src="assets/js/what-we-do.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__logo" href="index.html" aria-label="Nohvum home"><img src="assets/img/nohvum-lockup-horizontal.svg" alt="Nohvum" width="220" height="32"></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span>Menu</span><span class="nav-toggle__bars" aria-hidden="true"></span></button>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul class="site-nav__list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="framework.html">Framework</a></li>
+        <li><a href="what-we-do.html" aria-current="page">What We Do</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="careers.html">Careers</a></li>
+      </ul>
+      <a class="btn" href="talk-to-an-expert.html">Talk to an Expert</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- Hero -->
+  <section class="page-hero wwd-hero" aria-labelledby="page-title">
+    <div class="container">
+      <div class="page-hero__grid">
+        <h1 class="h1 wwd-hero__title" id="page-title">Delivering outcomes across the entire software lifecycle.</h1>
+        <div class="wwd-hero__side">
+          <p class="page-hero__aside wwd-hero__aside" data-reveal data-reveal-delay="0.1">Expert FDE-led delivery, enhanced by the Nohvum <span class="nowrap">AI-SDLC</span> framework.</p>
+          <p class="wwd-hero__note" data-reveal data-reveal-delay="0.1">FDE = Forward Deployed Engineer</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services: four-cube scene as tabs + panels -->
+  <section class="wwd-services" aria-label="Our services">
+    <div class="container">
+      <!-- Built like the framework ring: canvas scene (cubes.js) with the tab pills riding it -->
+      <div class="cubes" data-wwd-chart>
+        <canvas class="cubes__canvas" aria-hidden="true"></canvas>
+        <div class="cubes__pills" role="tablist" aria-label="Services" data-wwd-tablist>
+          <div class="ring__anchor" role="presentation"><button class="ring-pill" type="button" role="tab" id="tab-build" aria-controls="panel-build" aria-selected="true" data-service="build"><span class="ring-pill__name">Build</span></button></div>
+          <div class="ring__anchor" role="presentation"><button class="ring-pill" type="button" role="tab" id="tab-modernize" aria-controls="panel-modernize" aria-selected="false" tabindex="-1" data-service="modernize"><span class="ring-pill__name">Modernize</span></button></div>
+          <div class="ring__anchor" role="presentation"><button class="ring-pill" type="button" role="tab" id="tab-run" aria-controls="panel-run" aria-selected="false" tabindex="-1" data-service="run"><span class="ring-pill__name">Run</span></button></div>
+          <div class="ring__anchor" role="presentation"><button class="ring-pill" type="button" role="tab" id="tab-secure" aria-controls="panel-secure" aria-selected="false" tabindex="-1" data-service="secure"><span class="ring-pill__name">Secure</span></button></div>
+        </div>
+        <p class="visually-hidden cubes__live" aria-live="polite"></p>
+      </div>
+
+      <div class="wwd-panels" data-wwd-panels>
+        <div class="wwd-panel" role="tabpanel" id="panel-build" aria-labelledby="tab-build" tabindex="0" data-service="build">
+          <div class="wwd-panel__copy">
+            <h2 class="wwd-panel__title">Build</h2>
+            <p class="wwd-panel__sub">Turn product ideas into dependable software.</p>
+            <p class="wwd-panel__text">We design, build, and launch new products and features using configurable AI-SDLC autonomy, with human judgment, clear governance, and traceable decisions.</p>
+            <h3 class="wwd-panel__label">Key capabilities</h3>
+            <ul class="wwd-panel__list">
+              <li>Product and feature engineering</li>
+              <li>QA and test automation</li>
+              <li>Modern architecture and cloud</li>
+              <li>Scalable and maintainable software</li>
+              <li>Clear governance and visibility</li>
+              <li>Measurable outcomes</li>
+            </ul>
+          </div>
+          <div class="wwd-panel__art"><img src="assets/svg/what-we-do/nohvum-build-content-line-art.svg" alt="" width="720" height="480" data-wwd-art></div>
+        </div>
+
+        <div class="wwd-panel" role="tabpanel" id="panel-modernize" aria-labelledby="tab-modernize" tabindex="0" data-service="modernize">
+          <div class="wwd-panel__copy">
+            <h2 class="wwd-panel__title">Modernize</h2>
+            <p class="wwd-panel__sub">Evolve critical platforms without losing the knowledge built into them.</p>
+            <p class="wwd-panel__text">Understand existing architecture and dependencies, then modernize legacy systems in manageable, reviewed increments.</p>
+            <h3 class="wwd-panel__label">Key capabilities</h3>
+            <ul class="wwd-panel__list">
+              <li>Legacy system modernization</li>
+            </ul>
+          </div>
+          <div class="wwd-panel__art"><img src="assets/svg/what-we-do/nohvum-modernize-illustration.svg" alt="" width="1000" height="620" data-wwd-art></div>
+        </div>
+
+        <div class="wwd-panel" role="tabpanel" id="panel-run" aria-labelledby="tab-run" tabindex="0" data-service="run">
+          <div class="wwd-panel__copy">
+            <h2 class="wwd-panel__title">Run</h2>
+            <p class="wwd-panel__sub">Keep critical applications reliable, responsive and ready to improve.</p>
+            <p class="wwd-panel__text">Support and maintain your applications while strengthening delivery pipelines, cloud infrastructure and operational visibility.</p>
+            <h3 class="wwd-panel__label">Key capabilities</h3>
+            <ul class="wwd-panel__list">
+              <li>Application support and maintenance</li>
+              <li>DevOps, cloud and infrastructure</li>
+            </ul>
+          </div>
+          <div class="wwd-panel__art"><img src="assets/svg/what-we-do/nohvum-run-illustration.svg" alt="" width="900" height="600" data-wwd-art></div>
+        </div>
+
+        <div class="wwd-panel" role="tabpanel" id="panel-secure" aria-labelledby="tab-secure" tabindex="0" data-service="secure">
+          <div class="wwd-panel__copy">
+            <h2 class="wwd-panel__title">Secure</h2>
+            <p class="wwd-panel__sub">Find and fix vulnerabilities across your software estate.</p>
+            <p class="wwd-panel__text">Identify security weaknesses, prioritize remediation and review fixes to strengthen your applications and systems.</p>
+            <h3 class="wwd-panel__label">Key capabilities</h3>
+            <ul class="wwd-panel__list">
+              <li>Vulnerability identification and remediation</li>
+            </ul>
+          </div>
+          <div class="wwd-panel__art"><img src="assets/svg/what-we-do/nohvum-secure-illustration.svg" alt="" width="900" height="600" data-wwd-art></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries -->
+  <section class="section section--tint wwd-industries-section" aria-labelledby="industries-title">
+    <div class="container">
+      <h2 class="h2 wwd-industries-title" id="industries-title" data-reveal>Delivering with domain expertise.</h2>
+      <div class="wwd-industries" data-reveal-group="0.12">
+        <article class="media-card">
+          <div class="media-card__img"><img src="assets/img/industry-banking.jpg" alt="" width="580" height="284" loading="lazy"></div>
+          <h3 class="media-card__title">Banking &amp; Financial Services</h3>
+          <p class="media-card__text">Governed workflows. Human review. Clear evidence.</p>
+        </article>
+        <article class="media-card">
+          <div class="media-card__img"><img src="assets/img/industry-healthcare.jpg" alt="" width="1200" height="584" loading="lazy"></div>
+          <h3 class="media-card__title">Healthcare</h3>
+          <p class="media-card__text">Engineering for safety, reliability and traceability.</p>
+        </article>
+        <article class="media-card">
+          <div class="media-card__img"><img src="assets/img/industry-life-sciences.jpg" alt="" width="1200" height="584" loading="lazy"></div>
+          <h3 class="media-card__title">Life Sciences</h3>
+          <p class="media-card__text">Validated systems, from research data to regulated release.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing CTA -->
+  <section class="cta-band section--dark wwd-cta" aria-labelledby="cta-title">
+    <div class="container cta-band__grid" data-reveal>
+      <h2 class="h2" id="cta-title">What needs to<br>work better?</h2>
+      <div class="cta-band__aside">
+        <p>Tell us about your product, platform or delivery challenge. We will help define a practical next step.</p>
+        <div class="cta-band__actions">
+          <a class="btn btn--light" href="talk-to-an-expert.html">Talk to an Expert</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <a class="site-footer__logo" href="index.html" aria-label="Nohvum home"><img src="assets/img/nohvum-lockup-horizontal.svg" alt="Nohvum" width="220" height="32"></a>
+      </div>
+      <nav class="site-footer__explore" aria-label="Explore">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="framework.html">Framework</a></li>
+          <li><a href="what-we-do.html">What We Do</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </nav>
+      <nav class="site-footer__connect" aria-label="Connect">
+        <ul>
+          <li><a href="https://www.linkedin.com/company/nohvum/home/" target="_blank" rel="noopener">LinkedIn<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="site-footer__legal">
+      <ul aria-label="Legal">
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="cookie-notice.html">Cookie Notice</a></li>
+        <li><a href="terms.html">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="site-footer__bar">
+    <div class="container"><p>&copy; 2026 Nohvum Pvt Ltd. All rights reserved.</p><p>Engineering outcomes, delivered</p></div>
+  </div>
+</footer>
+</body>
+</html>

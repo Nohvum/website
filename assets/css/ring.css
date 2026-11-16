@@ -1,0 +1,30 @@
+/* Lifecycle ring (ported from the Delivery Loop reference), shared by home and framework */
+.ring {
+  position: relative; overflow: hidden; touch-action: pan-y; cursor: grab; user-select: none; -webkit-user-select: none;
+  text-align: left;
+  isolation: isolate;   /* the pills' z-index stays inside the scene, under the sticky header */
+  background: radial-gradient(closest-side at 50% 52%, #fdf1e6, rgba(253, 241, 230, 0.5) 55%, rgba(253, 241, 230, 0));
+}
+.ring.is-dragging { cursor: grabbing; }
+.ring__canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.ring__anchor { position: absolute; left: 0; top: 0; will-change: transform, opacity; }
+.ring-pill {
+  display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;
+  padding: 9px 15px; border-radius: 12px; border: 1px solid rgba(40, 30, 20, 0.11); background: var(--bg); color: var(--ink);
+  font: 400 0.9rem/1 var(--font); letter-spacing: 0.03em; text-transform: uppercase; cursor: pointer;
+  box-shadow: 0 1px 2px rgba(40, 30, 20, 0.06), 0 8px 24px rgba(40, 30, 20, 0.07);
+  transform-origin: 50% 50%; transition: border-color 0.25s, box-shadow 0.25s, background-color 0.25s;
+}
+.ring-pill:hover { border-color: rgba(241, 90, 41, 0.4); }
+.ring-pill:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
+.ring-pill[aria-selected="true"] { border-color: rgba(241, 90, 41, 0.55); box-shadow: 0 0 0 4px rgba(241, 90, 41, 0.12), 0 10px 34px rgba(241, 90, 41, 0.28); }
+/* Name-only labels; on phones they shrink so all six fit around the ring. */
+.ring.is-compact .ring-pill { padding: 9px 11px; font-size: 0.75rem; letter-spacing: 0.02em; }
+/* compact pills: an invisible 44px-tall touch target around the smaller visible pill */
+.is-compact .ring-pill { position: relative; }
+.is-compact .ring-pill::after { content: ""; position: absolute; left: -2px; right: -2px; top: 50%; height: 44px; transform: translateY(-50%); }
+
+
+/* overview mode (home): stages are links; the ring turns on its own and is not draggable */
+.ring--overview { background: none; cursor: default; }
+.ring--overview .ring-pill { text-decoration: none; }
