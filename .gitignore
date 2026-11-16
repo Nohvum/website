@@ -30,3 +30,6 @@ TODOS.md
 TODOS.html
 og.html
 README.md
+
+# Browser-test screenshots and logs (Playwright MCP writes here); never part of the site.
+.playwright-mcp/
