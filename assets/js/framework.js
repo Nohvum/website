@@ -26,8 +26,6 @@
   var nextBtn = document.querySelector("[data-stage-next]");
   var prevLabel = document.querySelector("[data-stage-prev-label]");
   var nextLabel = document.querySelector("[data-stage-next-label]");
-  var thirdName = document.querySelector("[data-dial-third-name]");
-  var thirdText = document.querySelector("[data-dial-third-text]");
   var played = {};
   var panelAnim = null;
 
@@ -106,16 +104,11 @@
   }
 
   function updateChrome() {
-    var key = STAGES[selected];
     var prev = STAGES[mod(selected - 1, COUNT)], next = STAGES[mod(selected + 1, COUNT)];
     if (prevLabel) prevLabel.textContent = NAMES[prev];
     if (nextLabel) nextLabel.textContent = NAMES[next];
     if (prevBtn) prevBtn.setAttribute("aria-label", "Previous stage: " + NAMES[prev]);
     if (nextBtn) nextBtn.setAttribute("aria-label", "Next stage: " + NAMES[next]);
-    if (thirdName && thirdText) {
-      if (key === "support") { thirdName.textContent = "AI for monitoring only"; thirdText.innerHTML = "Agents do the work,<br>AI watches."; }
-      else { thirdName.textContent = "AI tests"; thirdText.innerHTML = "People do the work,<br>AI watches"; }
-    }
   }
 
   // Selection from anywhere (ring, section prev/next, hash) updates the page; the ring is told

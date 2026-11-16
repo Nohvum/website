@@ -109,7 +109,7 @@
     }
     function layoutOverview() {
       if (!BOX) fit();
-      var padX = compact ? 34 : (opts.pad != null ? opts.pad : 76), padY = compact ? 40 : 56;
+      var padX = compact ? 40 : (opts.pad != null ? opts.pad : 76), padY = compact ? 40 : 56;
       var S = Math.min((W - 2 * padX) / (BOX.x1 - BOX.x0), (H - 2 * padY) / (BOX.y1 - BOX.y0), SMAX);
       S = Math.max(90, S);
       // align "end": hug the right edge when the box is wider than the ring needs (e.g. at maxScale);
@@ -121,7 +121,7 @@
       var E = (overview ? (opts.elevation || 40) : lerp(23, 15, s)) * DEG;
       if (overview) return { ce: Math.cos(E), se: Math.sin(E), S: FIT.S, wave: 0, rw: 0.085 * THICK };
       var pad = opts.pad != null ? opts.pad : 104;
-      var baseS = Math.max(90, Math.min((W / 2 - (compact ? 30 : pad)) / 1.08, H * FILL, 440));
+      var baseS = Math.max(90, Math.min((W / 2 - (compact ? 40 : pad)) / 1.08, H * FILL, 440)); // compact: room for the widest pill (Support) at the screen edge
       return { ce: Math.cos(E), se: Math.sin(E), S: baseS * lerp(1, 1.08, s), wave: 0.14 * s, rw: lerp(0.085, 0.125, s) * THICK };
     }
     var Q = [0, 0, 0, 0];

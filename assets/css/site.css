@@ -174,8 +174,10 @@ a:hover > .arw, button:hover > .arw, a:focus-visible > .arw, button:focus-visibl
   .nav-open .nav-toggle__bars::before { transform: translateY(3.5px) rotate(45deg); }
   .nav-open .nav-toggle__bars::after { transform: translateY(-3.5px) rotate(-45deg); }
   .site-nav {
-    position: fixed; inset: var(--header-h) 0 auto 0; flex-direction: column; align-items: stretch; gap: 0;
-    background: var(--bg-hero); border-bottom: 1px solid var(--line-strong); padding: 8px var(--gutter) 24px;
+    /* full height below the bar; the header's backdrop-filter makes it the containing block, so size from the viewport */
+    position: fixed; inset: var(--header-h) 0 auto 0; height: calc(100vh - var(--header-h)); height: calc(100dvh - var(--header-h));
+    overflow-y: auto; overscroll-behavior: contain; flex-direction: column; align-items: stretch; gap: 0;
+    background: var(--bg-hero); padding: 8px var(--gutter) 24px;
     visibility: hidden; opacity: 0; transform: translateY(-6px);
     transition: opacity var(--dur-fast), transform var(--dur-fast), visibility 0s linear var(--dur-fast);
   }

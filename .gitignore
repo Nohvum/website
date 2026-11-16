@@ -24,3 +24,9 @@ design-source/
 .trae/
 .warp/
 .windsurf/
+
+# Internal notes and the share-card source: kept locally, never served on the live site.
+TODOS.md
+TODOS.html
+og.html
+README.md

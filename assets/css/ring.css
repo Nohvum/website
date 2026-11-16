@@ -19,7 +19,10 @@
 .ring-pill:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
 .ring-pill[aria-selected="true"] { border-color: rgba(241, 90, 41, 0.55); box-shadow: 0 0 0 4px rgba(241, 90, 41, 0.12), 0 10px 34px rgba(241, 90, 41, 0.28); }
 /* Name-only labels; on phones they shrink so all six fit around the ring. */
-.ring.is-compact .ring-pill { padding: 6px 9px; font-size: 0.66rem; letter-spacing: 0.02em; }
+.ring.is-compact .ring-pill { padding: 9px 11px; font-size: 0.75rem; letter-spacing: 0.02em; }
+/* compact pills: an invisible 44px-tall touch target around the smaller visible pill */
+.is-compact .ring-pill { position: relative; }
+.is-compact .ring-pill::after { content: ""; position: absolute; left: -2px; right: -2px; top: 50%; height: 44px; transform: translateY(-50%); }
 
 
 /* overview mode (home): stages are links; the ring turns on its own and is not draggable */

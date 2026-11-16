@@ -21,7 +21,10 @@
     var setOpen = function (open) {
       header.classList.toggle("nav-open", open);
       toggle.setAttribute("aria-expanded", String(open));
+      document.documentElement.style.overflow = open ? "hidden" : ""; // lock page scroll while the menu is open
     };
+    // a link to a section of the current page would leave the menu open and the page locked
+    header.querySelectorAll(".site-nav a").forEach(function (a) { a.addEventListener("click", function () { setOpen(false); }); });
     toggle.addEventListener("click", function () { setOpen(toggle.getAttribute("aria-expanded") !== "true"); });
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") setOpen(false); });
     window.matchMedia("(min-width: 900px)").addEventListener("change", function () { setOpen(false); });

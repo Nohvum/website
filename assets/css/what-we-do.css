@@ -45,7 +45,7 @@
 .cubes__canvas { position: absolute; left: 0; top: -160px; width: 100%; height: calc(100% + 320px); display: block; pointer-events: none; }
 .cubes .ring-pill { font-size: 0.95rem; padding-inline: 16px; }
 /* Name-only pills; on phones they shrink so all four names fit across. */
-.cubes.is-compact .ring-pill { padding: 7px 9px; font-size: 0.66rem; letter-spacing: 0.02em; }
+.cubes.is-compact .ring-pill { padding: 10px 11px; font-size: 0.75rem; letter-spacing: 0.02em; }
 
 /* Panels */
 .wwd-panels { padding-top: calc(var(--wwd-scene-gap) + 5px - 0.2 * var(--wwd-title) - 2px); }   /* the gap below the cubes is 5px more than above; less the title's leading above its capitals and the cubes' 2px footing */

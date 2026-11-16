@@ -60,19 +60,19 @@
             <input type="hidden" name="form" value="contact">
             <div class="form__row">
               <div class="field">
-                <label for="ct-name">Full Name</label>
+                <label for="ct-name">Full name</label>
                 <input id="ct-name" name="name" type="text" autocomplete="name" placeholder="Enter your name" required maxlength="120" data-label="Full name" aria-describedby="ct-name-err">
                 <p class="field__error" id="ct-name-err" aria-live="polite"></p>
               </div>
               <div class="field">
-                <label for="ct-email">Email ID</label>
+                <label for="ct-email">Email</label>
                 <input id="ct-email" name="email" type="email" autocomplete="email" placeholder="Enter your email" required maxlength="200" data-label="Email" aria-describedby="ct-email-err">
                 <p class="field__error" id="ct-email-err" aria-live="polite"></p>
               </div>
             </div>
             <div class="field">
               <label for="ct-company">Company</label>
-              <input id="ct-company" name="company" type="text" autocomplete="organization" placeholder="Your organisation" required maxlength="160" data-label="Company" aria-describedby="ct-company-err">
+              <input id="ct-company" name="company" type="text" autocomplete="organization" placeholder="Your organization" required maxlength="160" data-label="Company" aria-describedby="ct-company-err">
               <p class="field__error" id="ct-company-err" aria-live="polite"></p>
             </div>
             <div class="field field--counted">
@@ -88,7 +88,7 @@
             </div>
             <div class="form__honeypot" aria-hidden="true"><label>Leave empty<input name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
             <div class="form__submit">
-              <button class="btn" type="submit"><span class="btn__label">Submit Now</span></button>
+              <button class="btn" type="submit"><span class="btn__label">Submit</span></button>
             </div>
             <p class="form__status" role="status" aria-live="polite"></p>
           </form>
@@ -109,16 +109,6 @@
       <div class="site-footer__brand">
         <a class="site-footer__logo" href="index.html" aria-label="Nohvum home"><img src="assets/img/nohvum-lockup-vertical-orange-black.svg" alt="Nohvum" width="150" height="88"></a>
       </div>
-      <nav aria-labelledby="ft-services">
-        <h2 id="ft-services">Services</h2>
-        <ul>
-          <li><a href="what-we-do.html#build">Product &amp; Feature Engineering</a></li>
-          <li><a href="what-we-do.html#modernize">Legacy Modernization</a></li>
-          <li><a href="what-we-do.html#build">QA &amp; Test Automation</a></li>
-          <li><a href="what-we-do.html#run">Application Support &amp; Maintenance</a></li>
-          <li><a href="what-we-do.html#run">DevOps, Cloud &amp; Infrastructure</a></li>
-        </ul>
-      </nav>
       <nav aria-labelledby="ft-explore">
         <h2 id="ft-explore">Explore</h2>
         <ul>
@@ -132,21 +122,20 @@
       <nav aria-labelledby="ft-connect">
         <h2 id="ft-connect">Connect</h2>
         <ul>
-          <li><a href="#" data-todo="linkedin">LinkedIn</a></li>
+          <li><a href="https://www.linkedin.com/company/nohvum/home/" target="_blank" rel="noopener">LinkedIn<span class="visually-hidden"> (opens in a new tab)</span></a></li>
         </ul>
       </nav>
     </div>
     <div class="site-footer__legal">
-      <h2>Legal</h2>
-      <ul>
-        <li><a href="#" data-todo="privacy-policy">Privacy Policy</a></li>
-        <li><a href="#" data-todo="cookie-notice">Cookie Notice</a></li>
-        <li><a href="#" data-todo="terms">Terms</a></li>
+      <ul aria-label="Legal">
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="cookie-notice.html">Cookie Notice</a></li>
+        <li><a href="terms.html">Terms</a></li>
       </ul>
     </div>
   </div>
   <div class="site-footer__bar">
-    <div class="container"><p>&copy; 2026 Nohvum, Inc. All rights reserved.</p><p>Engineering With Intent</p></div>
+    <div class="container"><p>&copy; 2026 Nohvum Pvt Ltd. All rights reserved.</p><p>Engineering With Intent</p></div>
   </div>
 </footer>
 </body>
