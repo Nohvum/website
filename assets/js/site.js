@@ -223,10 +223,10 @@
             var el = er.field && form.querySelector('[name="' + er.field + '"]');
             if (el) { setError(el, er.message); placed = true; }
           });
-          setStatus("error", placed ? "Check the highlighted fields." : "That didn't go through. Your details are still here, so you can try again, or email shrey@nohvum.com.");
+          setStatus("error", placed ? "Check the highlighted fields." : "That didn't go through. Your details are still here, so you can try again, or email info@nohvum.com.");
         })
         .catch(function () {
-          setStatus("error", "We couldn't reach the server. Your details are still here, so you can try again, or email shrey@nohvum.com.");
+          setStatus("error", "We couldn't reach the server. Your details are still here, so you can try again, or email info@nohvum.com.");
         })
         .then(function () {
           sending = false;

@@ -23,11 +23,13 @@
 .wwd-hero .page-hero__grid { grid-template-columns: 1fr minmax(0, 316px); }
 .wwd-hero__title { font-size: var(--wwd-hero-title); line-height: 1.195; letter-spacing: -0.01em; max-width: 11em; }
 .wwd-hero__aside { font-size: var(--wwd-hero-aside); line-height: 1.5; color: var(--ink); padding-top: 9px; }
+/* FDE footnote: small, right-aligned under the aside. Beside the title it adds no height; stacked (below 760px) it is the hero's last line. */
+.wwd-hero__note { margin-top: 14px; font-size: var(--fs-xs); line-height: 1.5; color: var(--text-3); text-align: right; }
 @media (max-width: 760px) {
   .wwd-hero .page-hero__grid { grid-template-columns: 1fr; } .wwd-hero__aside { padding-top: 0; max-width: 32em; }
-  .wwd-hero { padding-bottom: calc(var(--wwd-scene-gap) - 12px - 0.356 * var(--wwd-hero-aside)); }   /* the aside is the last line here */
+  .wwd-hero { padding-bottom: calc(var(--wwd-scene-gap) - 12px - 0.356 * var(--fs-xs)); }   /* the FDE note is the last line here */
 }
-@media (max-width: 719px) { .wwd-hero { padding-bottom: calc(var(--wwd-scene-gap) - 8px - 0.356 * var(--wwd-hero-aside)); } }   /* compact scene: 8px headroom */
+@media (max-width: 719px) { .wwd-hero { padding-bottom: calc(var(--wwd-scene-gap) - 8px - 0.356 * var(--fs-xs)); } }   /* compact scene: 8px headroom */
 
 /* ---------- Services: chart + panels ---------- */
 .wwd-services { padding-block: 0; overflow-x: clip; }
